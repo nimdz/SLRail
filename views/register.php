@@ -9,7 +9,7 @@
     <div class="container">
         <div class="register">
             <h2>Passenger Registration</h2>
-            <form action="register.php" method="post">
+            <form action="/SlRail/passenger/register" method="post">
                 <label for="username">Username:</label>
                 <input type="text" name="username" required><br>
 
