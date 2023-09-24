@@ -11,10 +11,10 @@ require_once 'controllers/PassengerController.php';
 $request = $_SERVER['REQUEST_URI'];
 
 // Route to the appropriate controller and action
-if ($request === '/Slrail/home') {
+if ($request === '/SlRail/home') {
     $controller = new HomeController();
     $controller->index();
-} elseif (strpos($request, '/Slrail/passenger/register') === 0) {
+} elseif (strpos($request, '/SlRail/passenger/register') === 0) {
     $controller = new PassengerController();
     $controller->registerPage();
 } else {
