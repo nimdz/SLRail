@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Passenger Registration</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/SlRail/public/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -26,7 +26,7 @@
             </form>
             <p>Already have an account? <a href="login.html">Login here</a></p>
       </div>
-      <img class="image-icon" src="/public/assets/img2.jpg"  />
+      <img class="image-icon" src="/SlRail/public/assets/img2.jpg"  />
     </div>
 </body>
 </html>
