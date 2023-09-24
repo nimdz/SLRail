@@ -3,7 +3,7 @@ class Database {
     private $host = "localhost"; 
     private $dbname = "SlRail"; 
     private $username = "root"; 
-    private $password = ""; 
+    private $password = " "; 
     
     public $connection;
 
