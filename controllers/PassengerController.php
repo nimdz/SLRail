@@ -1,44 +1,32 @@
 <?php
-class PassengerController {
-    // Display the registration form
-    public function registerPage() {
-        // Include the registration form view
-        require('views/register.php');
-    }
 
-    // Handle the registration form submission
-    public function register() {
-        // Include the Passenger model
-        require_once('models/PassengerModel.php');
+require_once 'models/PassengerModel.php';
 
-        // Check if the form is submitted
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Get user input
-            $username = $_POST['username'];
-            $fullname = $_POST['full_name'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            
-            // Create a new PassengerModel instance
-            $passengerModel = new PassengerModel();
-            
-            // Call the registration method
-            $result = $passengerModel->registerPassenger($username, $full_name, $email, $password);
+class PassengerController
+{
+    public function register()
+    {
+     // Load the registration form view (register.php)
+        include('views/Register.php');
+        // Retrieve data from the registration form
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $full_name = $_POST["full_name"];
+        $email = $_POST["email"];
 
-            if ($result) {
-                // Registration successful, redirect to a success page
-                echo "Registration Successful!";
-                exit;
-            } else {
-                // Registration failed, show an error message
-                $errorMessage = "Registration failed. Please try again.";
-                require('views/register.php');
-            }
+        // Create an instance of the PassengerModel
+        $passengerModel = new PassengerModel();
+
+        // Register the passenger
+        $registrationResult = $passengerModel->registerPassenger($username, $password, $full_name, $email);
+
+        if ($registrationResult) {
+            // Registration successful
+            echo "Registration successful!";
         } else {
-            // Display the registration form
-            $this->registerPage();
+            // Registration failed
+            echo "Error: Registration failed.";
         }
     }
 }
-
 ?>

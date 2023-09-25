@@ -1,34 +1,35 @@
 <?php
 
-// Define the base path of your application
-define('BASE_PATH', dirname(__DIR__));
-class PassengerModel {
+require_once 'includes/database.php';
+class PassengerModel
+{
+
+   
     private $db;
 
-    public function __construct() {
-        // Include the database configuration
-        require_once(BASE_PATH . '/database.php');
-
-        // Create a new Database instance and establish a connection
-        $database = new Database();
-        $this->db = $database->getConnection();
+    public function __construct()
+    {
+        // Create a new instance of the Database class
+        $this->db = new Database();
     }
 
-    public function registerPassenger($username, $full_name, $email, $password) {
-        // Hash the password (you should use a stronger hashing method in production)
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    public function registerPassenger($username, $password, $full_name, $email)
+    {
+        $conn = $this->db->getConnection();
 
-        // Insert the new passenger into the database
-        $query = "INSERT INTO passenger (username, email, full_name, password) VALUES (:username, :email, :full_name, :password)";
-        $stmt = $this->db->prepare($query);
+        // Hash the password for security
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Bind parameters
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':full_name', $full_name);
-        $stmt->bindParam(':password', $hashedPassword);
+        // Insert data into the 'passenger' table, excluding the 'id' column
+        $sql = "INSERT INTO passenger (username, password, full_name, email) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
 
-        // Execute the query
+        if ($stmt === false) {
+            die("Error: " . $conn->error);
+        }
+
+        $stmt->bind_param("ssss", $username, $password, $full_name, $email);
+
         if ($stmt->execute()) {
             return true; // Registration successful
         } else {
