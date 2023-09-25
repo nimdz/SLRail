@@ -12,8 +12,7 @@
  
  // Define your routes
  $router->addRoute('/SlRail/home', 'Home', 'index');
- $router->addRoute('/SlRail/passenger/register', 'Passenger', 'registerPage');
- $router->addRoute('/SlRail/passenger/register/process', 'Passenger', 'register');
+ $router->addRoute('/SlRail/passenger/register', 'Passenger', 'register');
 
  
  // Get the requested URL
