@@ -15,7 +15,7 @@ class PassengerController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Get user input
             $username = $_POST['username'];
-            $fullname = $_POST['fullname'];
+            $fullname = $_POST['full_name'];
             $email = $_POST['email'];
             $password = $_POST['password'];
             
@@ -23,7 +23,7 @@ class PassengerController {
             $passengerModel = new PassengerModel();
             
             // Call the registration method
-            $result = $passengerModel->registerPassenger($username, $fullname, $email, $password);
+            $result = $passengerModel->registerPassenger($username, $full_name, $email, $password);
 
             if ($result) {
                 // Registration successful, redirect to a success page
