@@ -14,18 +14,18 @@ class PassengerModel {
         $this->db = $database->getConnection();
     }
 
-    public function registerPassenger($username, $fullname, $email, $password) {
+    public function registerPassenger($username, $full_name, $email, $password) {
         // Hash the password (you should use a stronger hashing method in production)
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert the new passenger into the database
-        $query = "INSERT INTO passengers (username, email, fullname, password) VALUES (:username, :email, :fullname, :password)";
+        $query = "INSERT INTO passenger (username, email, full_name, password) VALUES (:username, :email, :full_name, :password)";
         $stmt = $this->db->prepare($query);
 
         // Bind parameters
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':fullname', $fullname);
+        $stmt->bindParam(':full_name', $full_name);
         $stmt->bindParam(':password', $hashedPassword);
 
         // Execute the query
@@ -37,4 +37,3 @@ class PassengerModel {
     }
 }
 ?>
-

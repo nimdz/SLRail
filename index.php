@@ -4,25 +4,24 @@
  * Date: 2023-09-24
  */
 
-require_once 'controllers/HomeController.php';
-require_once 'controllers/PassengerController.php';
+ require_once 'includes/Router.php';
+ 
 
-// Get the requested URL
-$request = $_SERVER['REQUEST_URI'];
+ // Initialize the router
+ $router = new Router();
+ 
+ // Define your routes
+ $router->addRoute('/SlRail/home', 'Home', 'index');
+ $router->addRoute('/SlRail/passenger/register', 'Passenger', 'registerPage');
+ $router->addRoute('/SlRail/passenger/register/process', 'Passenger', 'register');
 
-// Route to the appropriate controller and action
-if ($request === '/SlRail/home') {
-    $controller = new HomeController();
-    $controller->index();
-} elseif (strpos($request, '/SlRail/passenger/register') === 0) {
-    $controller = new PassengerController();
-    $controller->registerPage();
-} else {
-    // Handle 404 - Page Not Found
-    http_response_code(404);
-    include('404.php');
-}
-
+ 
+ // Get the requested URL
+ $request = $_SERVER['REQUEST_URI'];
+ 
+ // Route the request
+ $router->route($request);
+ 
 
  
  
