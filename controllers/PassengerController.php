@@ -28,5 +28,23 @@ class PassengerController
             echo "Error: Registration failed.";
         }
     }
+    public function login()
+    {
+       //retrive input data
+       $username=$_POST["username"];
+       $password=$_POST["password"];
+
+       //create instance of passengerModel
+       $passengerModel=new PassengerModel();
+
+       //login passenger
+        $loginResult=$passengerModel->loginPassenger($username,$password);
+
+        if($loginResult){
+            echo "Login successful!";
+        }else{
+           echo "Login failed.";
+        }
+    }
 }
 ?>
