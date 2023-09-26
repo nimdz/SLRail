@@ -36,5 +36,29 @@ class PassengerModel
             return false; // Registration failed
         }
     }
+    public function loginPassenger($username,$password){
+       
+        $conn=$this->db->getConnection();
+
+        //retrive password from database
+        $sql="SELECT password from passenger WHERE username=?";
+        $stmt=$conn->prepare($sql);
+
+        if($stmt===false){
+           die("Error:".$conn->error);
+        }
+
+        $stmt->bind_param("s",$username);
+        $stmt->execute();
+        $stmt->bind_result($hashedPassword);
+
+        if($stmt->fetch()){
+            if(password_verify($password,$hashedPassword)){
+                return true;//Login Sucess
+            }
+        }
+        return false;//Login Fail
+    }
+
 }
 ?>
