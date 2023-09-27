@@ -10,11 +10,12 @@
  // Initialize the router
  $router = new Router();
  
- // Define your routes
+ //  routes
  $router->addRoute('/SlRail/home', 'Home', 'index');
  $router->addRoute('/SlRail/passenger/register', 'Passenger', 'register');
+ $router->addRoute('/SlRail/passenger/login', 'Passenger', 'login');
 
- 
+
  // Get the requested URL
  $request = $_SERVER['REQUEST_URI'];
  
