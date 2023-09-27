@@ -7,7 +7,7 @@ class PassengerController
     public function register()
     {
      // Load the registration form view (register.php)
-        include('views/Register.php');
+        include('views/register.php');
         // Retrieve data from the registration form
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -30,21 +30,29 @@ class PassengerController
     }
     public function login()
     {
-       //retrive input data
-       $username=$_POST["username"];
-       $password=$_POST["password"];
 
-       //create instance of passengerModel
-       $passengerModel=new PassengerModel();
+      // Load the login form view
+       include('views/passenger_login.php');
 
-       //login passenger
-        $loginResult=$passengerModel->loginPassenger($username,$password);
+      // Check if the form was submitted
+      if ($_SERVER['REQUEST_METHOD'] === 'POST')
+       {
+            // Retrieve input data
+            $username = $_POST["username"];
+            $password = $_POST["password"];
 
-        if($loginResult){
-            echo "Login successful!";
-        }else{
-           echo "Login failed.";
-        }
+            // Create an instance of the PassengerModel
+            $passengerModel = new PassengerModel();
+
+            // Login passenger
+            $loginResult = $passengerModel->loginPassenger($username, $password);
+
+            if ($loginResult) {
+                echo "Login successful!";
+            } else {
+                echo "Login failed.";
+            }
+       }
     }
 }
 ?>
