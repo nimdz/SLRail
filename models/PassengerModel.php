@@ -36,29 +36,30 @@ class PassengerModel
             return false; // Registration failed
         }
     }
-    public function loginPassenger($username,$password){
-       
-        $conn=$this->db->getConnection();
-
-        //retrive password from database
-        $sql="SELECT password from passenger WHERE username=?";
-        $stmt=$conn->prepare($sql);
-
-        if($stmt===false){
-           die("Error:".$conn->error);
+    public function loginPassenger($username, $password)
+    {
+        $conn = $this->db->getConnection();
+    
+        // Retrieve user data from the database for the given username
+        $sql = "SELECT username, password FROM passenger WHERE username=?";
+        $stmt = $conn->prepare($sql);
+    
+        if ($stmt === false) {
+            die("Error: " . $conn->error);
         }
-
-        $stmt->bind_param("s",$username);
+    
+        $stmt->bind_param("s", $username);
         $stmt->execute();
-        $stmt->bind_result($hashedPassword);
-
-        if($stmt->fetch()){
-            if(password_verify($password,$hashedPassword)){
-                return true;//Login Sucess
-            }
+        $stmt->bind_result($retrievedUsername, $hashedPassword);
+    
+        if ($stmt->fetch() && password_verify($password, $hashedPassword)) {
+            // Return an associative array with the username
+            return ['username' => $retrievedUsername];
         }
-        return false;//Login Fail
+    
+        return false; // Login failed
     }
+    
 
 }
 ?>

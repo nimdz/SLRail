@@ -14,6 +14,8 @@
  $router->addRoute('/SlRail/home', 'Home', 'index');
  $router->addRoute('/SlRail/passenger/register', 'Passenger', 'register');
  $router->addRoute('/SlRail/passenger/login', 'Passenger', 'login');
+ $router->addRoute('/SlRail/passenger/dashboard', 'Passenger', 'dashboard');
+
 
 
  // Get the requested URL
