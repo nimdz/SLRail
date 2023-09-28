@@ -30,7 +30,8 @@ class PassengerController
     }
     public function login()
     {
-
+       // Start a session
+         session_start();
       // Load the login form view
        include('views/passenger_login.php');
 
@@ -48,11 +49,21 @@ class PassengerController
             $loginResult = $passengerModel->loginPassenger($username, $password);
 
             if ($loginResult) {
-                echo "Login successful!";
+                 // Store the user data array in a session variable
+                  $_SESSION['user_data'] = $loginResult;
+
+                  // Redirect the user to the dashboard
+                  header("Location: /SlRail/passenger/dashboard");
             } else {
                 echo "Login failed.";
             }
        }
     }
+    public function dashboard()
+    {
+        // Load the dashboard view
+        include('views/passenger_dashboard.php');
+    }
+
 }
 ?>
