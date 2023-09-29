@@ -51,6 +51,9 @@ class PassengerModel
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $stmt->bind_result($retrievedUsername, $hashedPassword);
+        
+        $retrievedUsername = null; // Initialize the variable
+
     
         if ($stmt->fetch() && password_verify($password, $hashedPassword)) {
             // Return an associative array with the username
