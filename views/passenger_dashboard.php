@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passenger Dashboard</title>
-    <link rel="stylesheet" href="/SlRail/public/css/styles.css">
+    <link rel="stylesheet" href="/SlRail/public/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Book a Trip</a></li>
-            <li><a href="#">My Trips</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#">
+                <span class="material-icons">
+                    home
+                    </span>
+                    Home
+                  </a>
+            </li>
+            <li><a href="#">
+                <span class="material-symbols-outlined">
+                    new_label
+                </span>
+                Book a Trip
+              </a>
+            </li>
+            <li><a href="#">
+                <span class="material-symbols-outlined">
+                    your_trips
+                </span>
+                    My Trips
+                  </a>
+            </li>
+            <li><a href="#">
+                    <span class="material-icons">
+                    account_circle
+                    </span>
+                    Profile
+                    </a>
+            </li>
+            <li><a href="#">
+                <span class="material-icons">
+                    logout
+                </span>
+                Logout
+              </a>
+        </li>
 
         </ul>
     </nav>
