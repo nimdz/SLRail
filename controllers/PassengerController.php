@@ -65,5 +65,15 @@ class PassengerController
         include('views/passenger_dashboard.php');
     }
 
+    public function logout(){
+       //Session Start
+       session_start();
+
+       $passengerModel=new PassengerModel();
+       $passengerModel->logoutPassenger();
+
+       header("Location:/SlRail/passenger/login");
+    }
+
 }
 ?>

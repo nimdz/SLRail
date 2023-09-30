@@ -62,6 +62,13 @@ class PassengerModel
     
         return false; // Login failed
     }
+
+    public function logoutPassenger(){
+         
+        session_start();
+        session_destroy();
+      
+    }
     
 
 }

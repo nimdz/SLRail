@@ -15,6 +15,7 @@
  $router->addRoute('/SlRail/passenger/register', 'Passenger', 'register');
  $router->addRoute('/SlRail/passenger/login', 'Passenger', 'login');
  $router->addRoute('/SlRail/passenger/dashboard', 'Passenger', 'dashboard');
+ $router->addRoute('/SlRail/passenger/logout','Passenger','logout');
 
 
 
