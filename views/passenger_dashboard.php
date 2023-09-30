@@ -40,7 +40,7 @@
                     Profile
                     </a>
             </li>
-            <li><a href="#">
+            <li><a href="/SlRail/passenger/logout">
                 <span class="material-icons">
                     logout
                 </span>

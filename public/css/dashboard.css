@@ -12,7 +12,7 @@ body {
 
 /* Style the navigation menu */
 nav {
-  background-color: hsla(0, 0%, 0%, 0.844);
+  background-color: hsla(100, 100%, 2%, 0.92);
   color: #0c010159;
   padding:  40px;
   display: flex;
