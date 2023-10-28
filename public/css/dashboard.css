@@ -1,91 +1,75 @@
-/* Reset some default browser styles */
-body, h1, ul {
+body {
   margin: 0;
   padding: 0;
-}
-
-/* Set a background color and font for the entire dashboard */
-body {
-  background-color: #f2f2f2;
   font-family: Arial, sans-serif;
 }
 
-/* Style the navigation menu */
-nav {
-  background-color: hsla(100, 100%, 2%, 0.92);
-  color: #0c010159;
-  padding:  40px;
-  display: flex;
-  justify-content: space-between;
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background: #feffff;
+  position: fixed;
+  
 }
 
-nav ul {
-  list-style-type: none;
-  text-align: center;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li:last-child {
-  margin-right: 0;
-}
-
-nav ul li a {
+.sidebar a {
+  display: block;
+  padding: 15px;
   text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  margin: 70px;
+  color: #070707;
+  transition: background 0.3s, color 0.3s;
+  height: 100px;
 }
 
-/* Style the header section */
+
+
+.material-icons, .material-symbols-outlined {
+  margin-right: 10px;
+}
+/* Style the navigation menu */
+.horizontal {
+  width: 100%;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+/* Navigation links */
+.horizontal a {
+  float: left;
+  padding: 12px;
+  color: rgb(10, 10, 10);
+  text-decoration: none;
+  font-size: 17px;
+  width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center; /* If you want the text to be centered */
+}
+
+/* Add a background color on mouse-over */
+.horizontal a:hover {
+  background-color: #f5f8fa;
+}
+.horizontal img{
+  align-self: start;
+  size: 0cap;
+}
+
+/* Style the current/active link */
+.horizontal a.active {
+  background-color: #04AA6D;
+}
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+  .horizontal a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left; /* If you want the text to be left-aligned on small screens */
+  }
+}
+
 header {
-  background-color: #fff;
+  margin-left: 250px;
   padding: 20px;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
+  position:relative;
 }
-
-/* Style the container for dashboard content */
-.container {
-  padding: 20px;
-  margin: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Add additional styles as needed for your specific dashboard elements */
-
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
-    src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
-  }
-
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-  
-  
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-
-  }

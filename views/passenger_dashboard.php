@@ -10,46 +10,60 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#">
+      <div class="horizontal">
+        <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
+            <a href="#">
                 <span class="material-icons">
-                    home
-                    </span>
-                    Home
-                  </a>
-            </li>
-            <li><a href="#">
+                  home
+                </span>
+                Home</a>
+            <a href="#">
+                <span class="material-symbols-outlined">
+                    schedule
+                </span>
+                Train Schedule</a>
+            <a href="#">
+                <span class="material-symbols-outlined">
+                    location_on
+                </span>
+                Track Location</a>
+        </div>
+    
+    <div class="sidebar">
+
+        <a href="#">
+            <span class="material-icons">
+            account_circle
+            </span>
+            Profile
+         </a>
+            <a href="/SlRail/views/booking_form.php">
                 <span class="material-symbols-outlined">
                     new_label
                 </span>
                 Book a Trip
-              </a>
-            </li>
-            <li><a href="#">
+            </a>
+              
+           
+            <a href="#">
                 <span class="material-symbols-outlined">
                     your_trips
                 </span>
                     My Trips
-                  </a>
-            </li>
-            <li><a href="#">
-                    <span class="material-icons">
-                    account_circle
-                    </span>
-                    Profile
-                    </a>
-            </li>
-            <li><a href="/SlRail/passenger/logout">
+                
+            </a>     
+            
+           <a href="/SlRail/passenger/logout">
                 <span class="material-icons">
                     logout
                 </span>
                 Logout
-              </a>
-        </li>
+           <a>
+             
+      
+    </div>
+       
 
-        </ul>
-    </nav>
     <header>
     <?php
         // Start a session to access session variables
