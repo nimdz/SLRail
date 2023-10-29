@@ -41,7 +41,7 @@ class PassengerModel
         $conn = $this->db->getConnection();
     
         // Retrieve user data from the database for the given username
-        $sql = "SELECT username, password FROM passenger WHERE username=?";
+        $sql = "SELECT id, username, password FROM passenger WHERE username=?";
         $stmt = $conn->prepare($sql);
     
         if ($stmt === false) {
@@ -50,18 +50,19 @@ class PassengerModel
     
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        $stmt->bind_result($retrievedUsername, $hashedPassword);
-        
+        $stmt->bind_result($id, $retrievedUsername, $hashedPassword);
+    
+        $id = null; // Initialize the variable
         $retrievedUsername = null; // Initialize the variable
-
     
         if ($stmt->fetch() && password_verify($password, $hashedPassword)) {
-            // Return an associative array with the username
-            return ['username' => $retrievedUsername];
+            // Return an associative array with the user's ID and username
+            return ['id' => $id, 'username' => $retrievedUsername];
         }
     
         return false; // Login failed
     }
+    
 
     public function logoutPassenger(){
          
