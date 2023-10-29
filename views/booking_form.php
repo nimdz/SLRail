@@ -9,18 +9,18 @@
 <body>
     <div class="container">
         <h1>Train Ticket Booking</h1>
-        <form action="/SlRail/booking/add" method="POST">
+        <form action="/SlRail/booking/add" method="post">
             <label for="departure_station">From:</label>
-            <input type="text" id="From" name="departure" required placeholder="Enter the starting station">
+            <input type="text" id="From" name="departure_station" required placeholder="Enter the starting station">
 
             <label for="destination_station">To:</label>
-            <input type="text" id="destination" name="destination" required placeholder="Enter the ending station">
+            <input type="text" id="destination" name="destination_station" required placeholder="Enter the ending station">
 
             <label for="departure_date">Date:</label>
-            <input type="date" id="date" name="date" required>
+            <input type="date" id="date" name="departure_date" required>
 
             <label for="number_of_passengers">Passengers:</label>
-            <select id="passengers" name="passengers" required>
+            <select id="passengers" name="number_of_passengers" required>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

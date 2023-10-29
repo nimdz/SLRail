@@ -69,10 +69,12 @@
         // Start a session to access session variables
         session_start();
 
-        // Check if the user_data session variable exists and contains the username
-        if (isset($_SESSION['user_data']) && isset($_SESSION['user_data']['username'])) {
-            $username = $_SESSION['user_data']['username'];
-            echo '<h1>Welcome, ' . $username . '</h1>';
+        // Check if the user_data session variable exists and contains the username and user ID
+        if (isset($_SESSION['user_id']) && isset($_SESSION['username']) ) {
+            $username = $_SESSION['username'];
+            $user_id = $_SESSION['user_id'];
+            echo '<h1>Welcome, Your Name: ' . $username . '</h1>';
+            echo '<h2>Your ID: ' . $user_id . '</h2>';
         } else {
             // Handle the case where the user is not logged in
             echo '<h1>Welcome</h1>';

@@ -22,7 +22,7 @@ class PassengerController
 
         if ($registrationResult) {
             // Registration successful
-            echo "Registration successful!";
+            echo '<script>alert("Registration Successful!")</script>';
         } else {
             // Registration failed
             echo "Error: Registration failed.";
@@ -49,10 +49,12 @@ class PassengerController
             $loginResult = $passengerModel->loginPassenger($username, $password);
 
             if ($loginResult) {
-                 // Store the user data array in a session variable
-                  $_SESSION['user_data'] = $loginResult;
+                      // Store the user ID and username in session variables
+               $_SESSION['user_id'] = $loginResult['id'];
+               $_SESSION['username'] = $loginResult['username'];
 
                   // Redirect the user to the dashboard
+                  echo '<script>alert("Login Successful!")</script>';
                   header("Location: /SlRail/passenger/dashboard");
             } else {
                 echo "Login failed.";
