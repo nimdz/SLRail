@@ -17,6 +17,11 @@
  $router->addRoute('/SlRail/passenger/dashboard', 'Passenger', 'dashboard');
  $router->addRoute('/SlRail/passenger/logout','Passenger','logout');
  $router->addRoute('/SlRail/booking/add','Booking','booking');
+ $router->addRoute('/SlRail/passenger/allbookings','Booking','userBookings');
+ $router->addRoute('/SlRail/booking/update','Booking','update');
+ $router->addRoute('/SlRail/booking/delete','Booking','deleteBooking');
+
+
 
 
 
