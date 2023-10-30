@@ -10,50 +10,46 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-      <div class="horizontal">
-        <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
-            <a href="#">
-                <span class="material-icons">
-                  home
+    
+    <div class="sidebar">
+
+      <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
+
+          
+            <a href="/SlRail/passenger/allbookings">
+                 <span class="material-symbols-outlined">
+                   bookmark
                 </span>
-                Home</a>
-            <a href="#">
+                    My Trips
+                
+            </a>     
+            
+    
+           <a href="#">
                 <span class="material-symbols-outlined">
-                    schedule
+                  calendar_month
                 </span>
-                Train Schedule</a>
+                Train Schedule
+            </a>
+            <a href="/SlRail/views/booking_form.php">
+                <span class="material-symbols-outlined">
+                    book_online
+                    </span>
+                Book a Trip
+            </a>
             <a href="#">
                 <span class="material-symbols-outlined">
                     location_on
                 </span>
-                Track Location</a>
-        </div>
-    
-    <div class="sidebar">
-
+                Track Location
+            </a>
         <a href="#">
             <span class="material-icons">
             account_circle
             </span>
             Profile
          </a>
-            <a href="/SlRail/views/booking_form.php">
-                <span class="material-symbols-outlined">
-                    new_label
-                </span>
-                Book a Trip
-            </a>
-              
-           
-            <a href="#">
-                <span class="material-symbols-outlined">
-                    your_trips
-                </span>
-                    My Trips
-                
-            </a>     
-            
-           <a href="/SlRail/passenger/logout">
+         <a href="/SlRail/passenger/logout">
                 <span class="material-icons">
                     logout
                 </span>
@@ -65,22 +61,17 @@
        
 
     <header>
-    <?php
-        // Start a session to access session variables
-        session_start();
-
-        // Check if the user_data session variable exists and contains the username and user ID
-        if (isset($_SESSION['user_id']) && isset($_SESSION['username']) ) {
-            $username = $_SESSION['username'];
-            $user_id = $_SESSION['user_id'];
-            echo '<h1>Welcome, Your Name: ' . $username . '</h1>';
-            echo '<h2>Your ID: ' . $user_id . '</h2>';
-        } else {
-            // Handle the case where the user is not logged in
-            echo '<h1>Welcome</h1>';
-        }
-        ?>
- 
+      <h1> <center>Welcome Passenger! </center></Welcome></h1>
+      <p>"Welcome to the Passenger Hub, 
+        your central destination for a seamless railway experience. 
+        As a passenger, you are at the heart of our SL railway system, 
+        and this hub is designed to enhance your journey. From this platform, 
+        you have the tools to manage your passenger profile,
+        access real-time information about your travel, and provide feedback or
+        make inquiries. Stay up to date with train schedules, track live train locations, and receive updates on arrivals and departures.
+         Whether you're planning your trip, seeking assistance, or sharing your thoughts, this comprehensive set of features empowers you to have a smooth and enjoyable travel experience. Please explore the menu on the left to access these functionalities and make the most of your railway journey. 
+         We are dedicated to making your railway experience as convenient and enjoyable as possible"
+</p>
     </header>
     
 </body>

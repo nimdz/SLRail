@@ -9,67 +9,46 @@ body {
   height: 100%;
   background: #feffff;
   position: fixed;
-  
 }
 
 .sidebar a {
-  display: block;
-  padding: 15px;
+  display: flex; /* Use flex to align icons and text */
+  align-items: center; /* Center content vertically */
+  padding: 30px;
   text-decoration: none;
   color: #070707;
   transition: background 0.3s, color 0.3s;
-  height: 100px;
 }
 
-
-
-.material-icons, .material-symbols-outlined {
-  margin-right: 10px;
-}
-/* Style the navigation menu */
-.horizontal {
-  width: 100%;
-  background-color: #ffffff;
-  overflow: auto;
+.sidebar a .material-icons,
+.sidebar a .material-symbols-outlined {
+  font-size: 24px; /* Adjust the icon size as needed */
+  margin-right: 10px; /* Add spacing between icon and text */
+  color: #078bf0f7;
 }
 
-/* Navigation links */
-.horizontal a {
-  float: left;
-  padding: 12px;
-  color: rgb(10, 10, 10);
-  text-decoration: none;
-  font-size: 17px;
-  width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-  text-align: center; /* If you want the text to be centered */
-}
-
-/* Add a background color on mouse-over */
-.horizontal a:hover {
-  background-color: #f5f8fa;
-}
-.horizontal img{
-  align-self: start;
-  size: 0cap;
-}
-
-/* Style the current/active link */
-.horizontal a.active {
-  background-color: #04AA6D;
+.sidebar a:hover {
+  background: #078bf0f7;
+  color: #feffff;
 }
 
 /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
 @media screen and (max-width: 500px) {
   .horizontal a {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: left; /* If you want the text to be left-aligned on small screens */
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left; /* If you want the text to be left-aligned on small screens */
   }
 }
 
 header {
   margin-left: 250px;
-  padding: 20px;
-  position:relative;
+  padding-top: 100px;
+  position: relative;
+}
+
+p {
+  font-size: 24px;
+  padding-top: 120px;
 }
