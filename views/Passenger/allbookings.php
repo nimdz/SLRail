@@ -105,6 +105,11 @@
     if (confirm("Are you sure you want to delete this booking?")) {
         // Redirect to the delete URL (you need to define this in your router)
         window.location.href = "/SlRail/booking/delete?booking_id=" + bookingId;
+        if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
     }
 }
     </script>
