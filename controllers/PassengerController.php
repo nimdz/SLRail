@@ -7,7 +7,7 @@ class PassengerController
     public function register()
     {
      // Load the registration form view (register.php)
-        include('views/register.php');
+        include('views/Passenger/register.php');
         // Retrieve data from the registration form
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -33,7 +33,7 @@ class PassengerController
        // Start a session
          session_start();
       // Load the login form view
-       include('views/passenger_login.php');
+       include('views/Passenger/passenger_login.php');
 
       // Check if the form was submitted
       if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -57,14 +57,14 @@ class PassengerController
                   echo '<script>alert("Login Successful!")</script>';
                   header("Location: /SlRail/passenger/dashboard");
             } else {
-                echo "Login failed.";
+                echo '<script>alert("Login Failed!")</script>';
             }
        }
     }
     public function dashboard()
     {
         // Load the dashboard view
-        include('views/passenger_dashboard.php');
+        include('views/Passenger/passenger_dashboard.php');
     }
 
     public function logout(){

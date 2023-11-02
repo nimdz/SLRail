@@ -4,10 +4,12 @@ require_once 'models/BookingModel.php';
 
 class BookingController
 {
-    public function booking()
+    public function add()
     {
         // Start a session to access session variables
         session_start();
+        include('views/Passenger/booking_form.php');
+
 
         // Check if the user is logged in and get the user's ID
         if (isset($_SESSION['user_id'])) {
@@ -41,6 +43,7 @@ class BookingController
     }
 
     public function userBookings(){
+
        //start session
        session_start();
 
@@ -55,7 +58,7 @@ class BookingController
             $bookings=$bookingModel->getBooking($user_id);
 
             //Load bookings
-            include('views/allbookings.php');
+            include('views/Passenger/allbookings.php');
        }else{
      
        echo "You don't have any bookings currently";
@@ -104,8 +107,9 @@ class BookingController
             // Validate and process $booking_id as needed
     
             $bookingModel = new BookingModel();
+            $bookingResult = $bookingModel->deletebooking( $booking_id,$departure_station, $destination_station, $departure_date, $number_of_passengers);
     
-            if ($bookingModel->deleteBooking($booking_id)) {
+            if ($bookingResult) {
                 // Deletion successful
                 echo '<script>alert("Booking Deleted Successful!"); window.location.href = "/SlRail/passenger/dashboard";</script>';
                 exit();

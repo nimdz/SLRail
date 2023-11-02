@@ -16,7 +16,7 @@
       <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
 
           
-            <a href="/SlRail/passenger/allbookings">
+            <a href="/SlRail/booking/userBookings">
                  <span class="material-symbols-outlined">
                    bookmark
                 </span>
@@ -31,7 +31,7 @@
                 </span>
                 Train Schedule
             </a>
-            <a href="/SlRail/views/booking_form.php">
+            <a href="/SlRail/booking/add">
                 <span class="material-symbols-outlined">
                     book_online
                     </span>

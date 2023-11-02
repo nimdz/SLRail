@@ -1,41 +1,41 @@
-<?php 
+<?php
 /**
  * User: nimsaradz
  * Date: 2023-09-24
  */
 
- require_once 'includes/Router.php';
- 
+require_once 'includes/Router.php';
 
- // Initialize the router
- $router = new Router();
- 
- //  routes
- $router->addRoute('/SlRail/home', 'Home', 'index');
- $router->addRoute('/SlRail/passenger/register', 'Passenger', 'register');
- $router->addRoute('/SlRail/passenger/login', 'Passenger', 'login');
- $router->addRoute('/SlRail/passenger/dashboard', 'Passenger', 'dashboard');
- $router->addRoute('/SlRail/passenger/logout','Passenger','logout');
- $router->addRoute('/SlRail/booking/add','Booking','booking');
- $router->addRoute('/SlRail/passenger/allbookings','Booking','userBookings');
- $router->addRoute('/SlRail/booking/update','Booking','update');
- $router->addRoute('/SlRail/booking/delete','Booking','deleteBooking');
+// Initialize the router
+$router = new Router();
 
+// Define a base URL
+$baseUrl = '/SlRail';
 
+// Define controllers and their actions
+$controllers = [
+    'Home' => ['index'],
+    'passenger' => ['register', 'login', 'dashboard', 'logout'],
+    'booking' => ['add', 'userBookings', 'update', 'deleteBooking'],
+    'employee' => ['login', 'logout', 'dashboard'],
+    'TrainSchedule' => ['addSchedule', 'viewSchedules', 'updateSchedule', 'deleteSchedule'],
+];
 
+// Create routes for each controller and action
+foreach ($controllers as $controller => $actions) {
+    foreach ($actions as $action) {
+        $route = "$baseUrl/$controller/$action";
+        $router->addRoute($route, $controller, $action);
+    }
+}
 
+// Get the requested URL
+$request = $_SERVER['REQUEST_URI'];
 
- // Get the requested URL
- $request = $_SERVER['REQUEST_URI'];
- 
- // Route the request
- $router->route($request);
- 
+// Route the request
+$router->route($request);
+?>
 
- 
- 
- 
- ?>
  
  
  
