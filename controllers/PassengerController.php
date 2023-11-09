@@ -13,12 +13,13 @@ class PassengerController
         $password = $_POST["password"];
         $full_name = $_POST["full_name"];
         $email = $_POST["email"];
+        $nic= $_POST["nic"];
 
         // Create an instance of the PassengerModel
         $passengerModel = new PassengerModel();
 
         // Register the passenger
-        $registrationResult = $passengerModel->registerPassenger($username, $password, $full_name, $email);
+        $registrationResult = $passengerModel->registerPassenger($username, $password, $full_name, $email,$nic);
 
         if ($registrationResult) {
             // Registration successful
