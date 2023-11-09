@@ -6,6 +6,11 @@ class TrainScheduleController
 {
     public function addSchedule()
     {
+
+        //add form
+        session_start();
+        include('views/StationMaster/schedule_form.php');
+
         // Retrieve data from the schedule form
         $departure_station = $_POST["departure_station"];
         $destination_station = $_POST["destination_station"];
@@ -21,7 +26,7 @@ class TrainScheduleController
 
         if ($scheduleResult) {
             // Schedule creation successful
-            echo '<script>alert("Schedule Created Successfully!"); window.location.href = "/SlRail/employee/dashboard";</script>';
+            echo '<script>alert("Schedule Created Successfully!"); window.location.href = "/SlRail/stationmaster/dashboard";</script>';
             exit();
         } else {
             // Schedule creation failed
@@ -38,7 +43,7 @@ class TrainScheduleController
         $schedules = $scheduleModel->getAllSchedules();
 
         // Load the view for displaying schedules
-        include('views/allschedules.php');
+        include('views/StationMaster/allschedules.php');
     }
 
     public function updateSchedule()
@@ -59,7 +64,7 @@ class TrainScheduleController
 
         if ($scheduleResult) {
             // Schedule update successful
-            echo '<script>alert("Schedule Updated Successfully!"); window.location.href = "/SlRail/employee/dashboard";</script>';
+            echo '<script>alert("Schedule Updated Successfully!"); window.location.href = "/SlRail/stationmaster/dashboard";</script>';
             exit();
         } else {
             // Schedule update failed
@@ -79,12 +84,20 @@ class TrainScheduleController
 
             if ($scheduleModel->deleteSchedule($scheduleId)) {
                 // Deletion successful
-                echo '<script>alert("Schedule Deleted Successfully!"); window.location.href = "/SlRail/employee/dashboard";</script>';
+                echo '<script>alert("Schedule Deleted Successfully!"); window.location.href = "/SlRail/stationmaster/dashboard";</script>';
                 exit();
             } else {
                 // Deletion failed
                 echo 'Error: Deletion failed.';
             }
         }
+    }
+
+    public function showSchedule(){
+    
+         $scheduleModel=new TrainScheduleModel();
+         $schedules=$scheduleModel->getAllSchedules();
+         include('views/Passenger/trainschedule.php');
+    
     }
 }

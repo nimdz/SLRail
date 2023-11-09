@@ -1,57 +1,51 @@
 <?php
 
-require_once 'models/StationmasterModel.php';
+require_once 'models/EmployeeModel.php';
 
-class StationMasterController
+class StationmasterController
 {
-  
     public function login()
     {
-        // Start a session
-        session_start();
+         // Start a session
+         session_start();
 
-        // Load the login form view
-        include('views/StationMaster/station_master_login.php');
-
-        // Check if the form was submitted
+        include 'views/Admin/employee_login.php';
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Retrieve input data
-            $username = $_POST["username"];
-            $password = $_POST["password"];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
 
-            // Create an instance of the StationmasterModel
-            $stationmasterModel = new StationmasterModel();
+            $smModel = new EmployeeModel();
+            $user = $smModel->loginEmployee($username, $password);
 
-            // Attempt to log in the station master
-            $loginResult = $stationmasterModel->loginSm($username, $password);
-
-            if ($loginResult !== false) {
-                // Store the username in a session variable
-                $_SESSION['username'] = $loginResult;
-
-                // Redirect the user to the dashboard
-                header("Location: /SlRail/employee/dashboard");
-                exit();
+            if ($user) {
+                // Check if the user's position is equal to 1 (assuming 1 represents the desired position/role)
+                if ($user['position'] === "1") {
+                    // Redirect the user to their respective dashboard
+                    header("Location: /SlRail/views/StationMaster/sm_dashboard.php");
+                } else {
+                    // User does not have the required position
+                    echo '<script>alert("Error: You do not have the required permission.")</script>';
+                }
             } else {
-                echo '<script>alert("Login Failed!")</script>';
+                // Login failed
+                echo '<script>alert("Error: Login failed. Please check your credentials.")</script>';
             }
         }
-    }
-    public function dashboard()
-    {
-        // Load the dashboard view
-        include('views/sm_dashboard.php');
+    
     }
 
     public function logout(){
-       //Session Start
-       session_start();
+      session_start();
 
-       $passengerModel=new StationmasterModel();
-       $passengerModel->logoutSm();
+      $smModel=new EmployeeModel();
+      $smModel->logoutEmployee();
 
-       header("Location:/SlRail/employee/login");
+      header("Location:/SlRail/stationmaster/login");
+
     }
 
+    public function dashboard(){
+         include ('views/StationMaster/sm_dashboard.php');
+    }
 }
-?>

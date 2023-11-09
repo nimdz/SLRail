@@ -1,24 +1,233 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;700&display=swap');
+
+/* resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    --padding-inline-section: 20px;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text-color);
 }
 
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    color: var(--secondary-text-color);
+    line-height: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+.container {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: var(--padding-inline-section);
+    overflow: hidden;
+    margin-left: 300px;
+}
+
+
+
+.hover-link {
+    color: var(--primary-text-color);
+    transition: 0.2s ease-out;
+}
+
+.hover-link:hover {
+    color: var(--accent-color);
+}
+
+.primary-button {
+    background-color: var(--accent-color);
+    border-radius: 6px;
+    font-weight: 700;
+    color: white !important;
+    padding: 12px 24px;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: 0.2s ease-out;
+    text-align: center;
+}
+
+.primary-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.secondary-button {
+    border: 0.5px solid var(--secondary-text-color);
+    border-radius: 6px;
+    font-weight: 700;
+    color: var(--primary-text-color) !important;
+    padding: 12px 24px;
+    transition: 0.2s ease-out;
+}
+
+.secondary-button:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+}
+
+/* top banner */
+
+.top-banner {
+    background-image: url('./assets/asset\ 30.png');
+    background-color: #4fb3d4;
+    background-size: 300px;
+}
+
+.banner-text {
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+
+
+/* subfooter */
+
+.subfooter {
+    margin-left: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9f9bb;
+}
+
+.subfooter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px; 
+    background-color: #f9f9f9bb;
+
+}
+
+
+/* Hide dropdown by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Style dropdown items */
+.dropdown-menu li {
+    padding: 10px;
+}
+
+
+/* Indicator arrow styles */
+.dropdown-indicator {
+    margin-left: 4px;
+    display: inline-block;
+    float: right;
+}
+
+/* Adjust indicator on hover */
+.dropdown:hover .dropdown-indicator {
+    transform: rotate(180deg);
+}
+
+
+
+
+/* The side navigation menu */
 .sidebar {
-  width: 200px;
-  height: 100%;
-  background: #feffff;
-  position: fixed;
-}
-
-.sidebar a {
-  display: flex; /* Use flex to align icons and text */
-  align-items: center; /* Center content vertically */
-  padding: 30px;
-  text-decoration: none;
-  color: #070707;
-  transition: background 0.3s, color 0.3s;
-}
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    margin-bottom: 50px;
+    height: auto;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
 
 .sidebar a .material-icons,
 .sidebar a .material-symbols-outlined {
@@ -42,13 +251,11 @@ body {
   }
 }
 
-header {
-  margin-left: 250px;
-  padding-top: 100px;
-  position: relative;
+.content{
+  background-color: #f9f9f9bb;
+  margin-top: 100px;
 }
 
-p {
-  font-size: 24px;
-  padding-top: 120px;
-}
+
+
+
