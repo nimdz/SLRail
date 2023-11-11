@@ -49,7 +49,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 70px;
+    height: 40px;
     background-color: #f9f9f9bb;
 }
 
@@ -58,7 +58,6 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    padding: 20px; 
     background-color: #f9f9f9bb;
 
 }
@@ -112,7 +111,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <p style="text-align: center; padding-top:100px; font-size: 24px;">
+    <p style="text-align: center; padding-top:100px; padding-bottom: 90px; font-size: 24px;">
         <a href="/SlRail/passenger/dashboard">Go to Dashboard</a>
     </p>
     <script>
