@@ -3,7 +3,7 @@
 <html>
 <head>
     <title><?php echo $data['title']; ?></title>
-    <link rel="stylesheet" type="text/css" href="/public/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/SlRail/public/css/home.css">
 </head>
 <body>
  <div class="navbar">
@@ -16,15 +16,15 @@
   </div>
   <div class="slideshow-container">
          <div class="mySlides fade" >
-         <img src="/public/assets/img9.jpeg.webp" style="width: 900px; " >
+         <img src="/SlRail/public/assets/img9.jpeg.webp" style="width: 900px; " >
           </div>
           
           <div class="mySlides fade">
-            <img src="/public/assets/img10.jpg" style="width: 900px;" >
+            <img src="/SlRail/public/assets/img10.jpg" style="width: 900px;" >
           </div>
           
           <div class="mySlides fade">
-            <img src="/public/assets/img7.jpg" style="width: 900px;" >
+            <img src="/SlRail/public/assets/img7.jpg" style="width: 900px;" >
           </div>
 
   
