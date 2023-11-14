@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/TrainScheduleModel.php';
+require_once 'models/Employee/TrainScheduleModel.php';
 
 class TrainScheduleController
 {

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/EmployeeModel.php';
+require_once 'models/Employee/EmployeeModel.php';
 
 class TraindriverController{
 

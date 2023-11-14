@@ -1,6 +1,6 @@
 <?php
 // app/controllers/HomeController.php
-require_once 'models/HomeModel.php';
+require_once 'models/Home/HomeModel.php';
 
 class HomeController {
     public function index() {
