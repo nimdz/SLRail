@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/AdminModel.php';
+require_once 'models/Admin/AdminModel.php';
 
 class AdminController
 {
@@ -11,7 +11,7 @@ class AdminController
         session_start();
 
         // Load the login form view
-        include('views/admin_login.php');
+        include('views/Admin/admin_login.php');
 
         // Check if the form was submitted
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,7 +23,7 @@ class AdminController
             $adminModel = new AdminModel();
 
             // Attempt to log in the station master
-            $loginResult = $stationmasterModel->loginAdmin($username, $password);
+            $loginResult = $adminModel->loginAdmin($username, $password);
 
             if ($loginResult !== false) {
                 // Store the username in a session variable
@@ -40,7 +40,7 @@ class AdminController
     public function dashboard()
     {
         // Load the dashboard view
-        include('views/admin_dashboard.php');
+        include('views/Admin/admin_dashboard.php');
     }
 
     public function logout(){

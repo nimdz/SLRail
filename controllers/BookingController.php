@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/BookingModel.php';
+require_once 'models/Passenger/BookingModel.php';
 
 class BookingController
 {

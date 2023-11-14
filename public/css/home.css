@@ -32,7 +32,7 @@
 
   }
   .fontimage img{
-     width:800px;
+     width:1000px;
      margin-left: 200px;
      margin-right: 0px;
      border-radius: 50px;
@@ -69,7 +69,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 600px;
+  max-width:100%;
   position:relative;
   margin: auto
 }

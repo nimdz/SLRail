@@ -1,13 +1,13 @@
 <?php
 
-require_once 'models/PassengerModel.php';
+require_once 'models/Passenger/PassengerModel.php';
 
 class PassengerController
 {
     public function register()
     {
      // Load the registration form view (register.php)
-        include('views/Passenger/register.php');
+        include('views/Passenger/passenger_register.php');
         // Retrieve data from the registration form
         $username = $_POST["username"];
         $password = $_POST["password"];
