@@ -4,55 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
-    <link rel="stylesheet" href="/public/css/style_form.css">
+    <link rel="stylesheet" href="/SlRail/public/css/style_form.css">
 </head>
 <body>
     
 <!-- footer -->
+<?php include('includes/header.php'); ?>
 
-<div class="content">
-      <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
-        <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-            <span style="font-weight: bold;">SL Rail - </span>
-            <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
-        </p>
-    </div>
-    <section class="features-section">
-        <div class="container">    
-            <h3>Your Feedback</h3>
-        </div>
+
+        
         <div class="container">
-                <form action="action_page.php">
+            <form action="/SlRail/review/add" method="post">
+            <h3>Your Feedback</h3>
                     <div class="row">
                         <div class="col-25">
-                          <label for="titl">Full Name</label>
+                          <label for="full_name">Full Name:</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="titl" name="title">
+                          <input type="text" id="full_name" name="full_name"  required placeholder="Enter your full name">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                          <label for="titl">Email</label>
+                          <label for="email">Email:</label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="titl" name="title">
+                          <input type="text" id="email" name="email"required placeholder="Enter your email">
                         </div>
                     </div>
                   <div class="row">
                     <div class="col-25">
-                      <label for="titl">Title</label>
+                      <label for="title">Title:</label>
                     </div>
                     <div class="col-75">
-                      <input type="text" id="titl" name="title">
+                      <input type="text" id="title" name="title" required placeholder="Enter your title">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-25">
-                      <label for="desc">Description</label>
+                      <label for="description">Description:</label>
                     </div>
                     <div class="col-75">
-                      <textarea id="desc" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                      <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
                     </div>
                   </div>
                   <div class="row">
@@ -60,18 +53,16 @@
                         <input type="submit" value="Send" class="update-btn", id="updatePro">
                         <button type="button" id="cancelButton" class="cancel-btn">Cancel</button>
                     </div>
-                  </div>
+                  </div>              
                 </form>
               </div>
         </div>        
-    </section>
     </div>
-    <!-- subfooter -->
 
-    <div class="subfooter">
-        <div class="subfooter-container">
-            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
-        </div>
-    </div>
+    <!-- footer -->
+    <?php include('includes/footer.php'); ?>
+
+
+
 </body>
 </html>

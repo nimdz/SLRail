@@ -7,7 +7,7 @@
 </head>
 <body>
  <div class="navbar">
-    <a href="#"><img width="100px"  src="/SlRail/public/assets/logo.jpg"> </a>
+    <a href="#"><img width="80px"  src="/SlRail/public/assets/logo.jpg" > </a>
     <a href="#">Home</a>
     <a href="#">Gallery</a>
     <a href="#">History</a>
@@ -16,15 +16,15 @@
   </div>
   <div class="slideshow-container">
          <div class="mySlides fade" >
-         <img src="/SlRail/public/assets/img9.jpeg.webp" style="width: 900px; " >
+         <img src="/SlRail/public/assets/img9.jpeg.webp" style="width: 1400px; " >
           </div>
           
           <div class="mySlides fade">
-            <img src="/SlRail/public/assets/img10.jpg" style="width: 900px;" >
+            <img src="/SlRail/public/assets/img10.jpg"  >
           </div>
           
           <div class="mySlides fade">
-            <img src="/SlRail/public/assets/img7.jpg" style="width: 900px;" >
+            <img src="/SlRail/public/assets/img8.jpg" style="width: 1400px;" >
           </div>
 
   

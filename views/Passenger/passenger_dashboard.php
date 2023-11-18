@@ -12,6 +12,7 @@
 <body>
 
 
+
     <div class="sidebar">
 
             <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
@@ -43,7 +44,7 @@
                 </span>
                 Track Location
             </a>
-            <a href="#">
+            <a href="/SlRail/review/add">
                 <span class="material-symbols-outlined">
                     reviews
                 </span>
@@ -64,12 +65,9 @@
              
       
     </div>
-    <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
-        <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-            <span style="font-weight: bold;">SL Rail - </span>
-            <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
-        </p>
-    </div>
+    
+    <?php include('includes/header.php'); ?>
+
 
 
     <div class="content">
@@ -84,12 +82,9 @@
          Whether you're planning your trip, seeking assistance, or sharing your thoughts, this comprehensive set of features empowers you to have a smooth and enjoyable travel experience. Please explore the menu on the left to access these functionalities and make the most of your railway journey. 
          We are dedicated to making your railway experience as convenient and enjoyable as possible"
       </p>
-    </header>
-    <div class="subfooter">
-        <div class="subfooter-container">
-            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
-        </div>
-    </div>
+   
+      <?php include('includes/footer.php'); ?>
+
     
 </body>
 </html>
