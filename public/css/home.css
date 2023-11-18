@@ -14,6 +14,10 @@
     padding: 60px;
 
   }
+  .navbar img{
+      margin-top: 0px;
+      display: flex;
+  }
   
   li{
     border-right: none;
@@ -70,6 +74,8 @@ img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
   max-width:100%;
+  width: 100%; /* Set the width to 100% */
+  height: auto; /* Allow the height to adjust proportionally */
   position:relative;
   margin: auto
 }
@@ -93,6 +99,9 @@ img {vertical-align: middle;}
 
 /* Fading animation */
 .fade {
+  display: block; /* Ensure the images are displayed as blocks */
+  max-width: 100%; /* Make sure the images don't exceed the container width */
+  height: auto; /* Allow the height to adjust proportionally */
   animation-name: fade;
   animation-duration: 1.5s;
 }
@@ -107,3 +116,5 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
+
