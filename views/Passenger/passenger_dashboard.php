@@ -50,6 +50,12 @@
                 </span>
                 Feedback
             </a>
+            <a href="#">
+                 <span class="material-symbols-outlined">
+                  campaign
+                </span>
+                Announcements                
+            </a> 
         <a href="#">
             <span class="material-icons">
             account_circle
