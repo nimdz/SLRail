@@ -193,7 +193,6 @@ input.update-btn {
     cursor: pointer;
     margin-top: 40px; /* Space above the button */
     float: right;
-    /* Additional styles as needed */
 }
 
 /* Style the Cancel button */
@@ -206,7 +205,6 @@ button.cancel-btn {
     cursor: pointer;
     margin-top: 40px; /* Space above the button */
     float: left;
-    /* Additional styles as needed */
 }
 
 
@@ -310,5 +308,17 @@ button.cancel-btn {
     color: rgb(255, 255, 255);
     transform: rotateY(180deg);
   }
+  .container1 button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
   
   
