@@ -19,6 +19,7 @@ $controllers = [
     'booking' => ['search','add', 'userBookings', 'update', 'deleteBooking'],
     'review' =>['add'],
     'trainschedule' => ['addSchedule', 'viewSchedules', 'updateSchedule', 'deleteSchedule','showSchedule'],
+    'announcement' =>['viewAnnouncement'],
     'stationmaster'=>['login','logout','dashboard'],
     'traindriver' =>['login','logout','dashboard'],
     'admin' =>['login','logout','dashboard'],
