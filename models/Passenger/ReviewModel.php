@@ -10,18 +10,18 @@ class ReviewModel{
       $this->db=new Database();
  }
 
- public function addReview($review_id,$full_name,$email,$title,$description){
+ public function addReview($full_name,$email,$title,$description){
 
     $conn=$this->db->getConnection();
 
-    $sql="INSERT INTO Reviews (review_id,full_name,email,title,description)";
+    $sql="INSERT INTO reviews (full_name,email,title,description) VALUES(?,?,?,?)";
     $stmt=$conn->prepare($sql);
 
     if($stmt === false){
         die ("Error:".$conn->error);
     }
 
-    $stmt->bind_param("issss",$review_id,$full_name,$email,$title,$description);
+    $stmt->bind_param("ssss",$full_name,$email,$title,$description);
    
     if($stmt->execute()){
         return true;//review added succesfully
@@ -29,4 +29,5 @@ class ReviewModel{
        return false;
     }
  }
+ 
 }
