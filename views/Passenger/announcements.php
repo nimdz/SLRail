@@ -20,16 +20,16 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($announcement as $ann): ?>
+            <?php foreach ($announcements as $ann): ?>
                 <tr>
-                    <td><?=$ann['ann_id'] ?></td>
-                    <td><?=$ann['title'] ?></td>
-                    <td><?=$ann['description'] ?></td>
+                    <td><?= $ann['ann_id'] ?></td>
+                    <td><?= $ann['title'] ?></td>
+                    <td><?= $ann['description'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <p style="text-align: center; padding-top:100px; padding-bottom: 90px; font-size: 24px;">
+    <p style="text-align: center; padding-top:100px; padding-bottom: 90px; font-size: 16px;">
         <a href="/SlRail/passenger/dashboard">Go to Dashboard</a>
     </p>
     
