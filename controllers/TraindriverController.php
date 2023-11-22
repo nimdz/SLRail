@@ -9,11 +9,11 @@ class TraindriverController{
     
      session_start();
 
-     include 'views/Admin/employee_login.php';
+     include 'views/TrainDriver/td_login.php';
 
      if($_SERVER['REQUEST_METHOD']==='POST'){
-          $username=$_POST('username');
-          $password=$_POST('password');
+          $username=$_POST['username'];
+          $password=$_POST['password'];
 
           $tdModel=new EmployeeModel();
           $user=$tdModel->loginEmployee($username, $password);
