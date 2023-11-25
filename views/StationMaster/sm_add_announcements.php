@@ -34,7 +34,7 @@ $activeLink = 'a_add'; // Change this value according to the current page
     <?php include('includes/header.php'); ?>
     
     <!-- Page content -->
-    
+<div class="content">
     <section class="features-section">
         <div class="container">    
             <h3>Add New Announcement</h3>
@@ -68,7 +68,7 @@ $activeLink = 'a_add'; // Change this value according to the current page
               </div>
         </div>        
     </section>
-    </div>
+</div>
 
     <!-- subfooter -->
 <?php include('includes/footer.php'); ?>
