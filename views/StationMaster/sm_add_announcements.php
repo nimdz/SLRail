@@ -1,3 +1,8 @@
+<?php
+// Set the active link based on the current page
+$activeLink = 'a_add'; // Change this value according to the current page
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,48 +27,9 @@
         });
     </script>
 </head>
-<body>
-       
+<body> 
 
-    <div class="sidebar">
-        <a href="sm_dashboard.php" class="company-logo">
-            <img src="./assets/logo.jpg" alt="company logo">
-        </a>
-        <a href="sm_dashboard.php" class="hover-link">Dashboard</a>
-        <div class="dropdown">
-            <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
-            <div class="dropdown-menu">
-                <a href="sm_profile_view.php" class="hover-link">View</a>
-                <a href="sm_profile_update.php" class="hover-link">Update</a>
-                <a href="sm_profile_changePwd.php" class="hover-link">Change Password</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="#" class="hover-link active">Announcements <span class="dropdown-indicator">&#9662;</span></a>
-            <div class="dropdown-menu">
-                <a href="sm_add_announcements.php" class="hover-link active">Add Announcement</a>
-                <a href="sm_manage_announcements.php" class="hover-link">Manage Announcements</a>
-            </div>
-        </div>
-        <a href="sm_manage_trains.php" class="hover-link">Arrivals & Departures</a>
-        <div class="dropdown">
-            <a href="#" class="hover-link">Schedules <span class="dropdown-indicator">&#9662;</span></a>
-            <div class="dropdown-menu">
-                <a href="sm_add_schedules.php" class="hover-link">Add Schedule</a>
-                <a href="sm_manage_schedules.php" class="hover-link">Manage Schedules</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="#" class="hover-link">Messages <span class="dropdown-indicator">&#9662;</span></a>
-            <div class="dropdown-menu">
-                <a href="sm_send_messages.php" class="hover-link">Send Message</a>
-                <a href="sm_received_message.php" class="hover-link">Received Messages</a>
-            </div>
-        </div>
-        <a href="sm_view_live_location.php" class="hover-link">Live Location</a>
-        <a href="sm_feedbacks.php" class="hover-link">Feedbacks</a>
-        <a href="home.php" class="hover-link">Log Out</a>
-    </div>
+    <?php include('sm_sidebar.php'); ?>
     
     <?php include('includes/header.php'); ?>
     
