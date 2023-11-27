@@ -50,13 +50,16 @@ class PassengerController
             $loginResult = $passengerModel->loginPassenger($username, $password);
 
             if ($loginResult) {
-                      // Store the user ID and username in session variables
+                      // Store the user ID , username,full_name and email in session variables
                $_SESSION['user_id'] = $loginResult['id'];
                $_SESSION['username'] = $loginResult['username'];
+               $_SESSION['full_name'] = $loginResult['full_name'];
+               $_SESSION['email'] = $loginResult['email'];
 
                   // Redirect the user to the dashboard
                   echo '<script>alert("Login Successful!")</script>';
                   header("Location: /SlRail/passenger/dashboard");
+                  exit();
             } else {
                 echo '<script>alert("Login Failed!")</script>';
             }
@@ -68,15 +71,38 @@ class PassengerController
         include('views/Passenger/passenger_dashboard.php');
     }
 
-    public function logout(){
-       //Session Start
-       session_start();
-
-       $passengerModel=new PassengerModel();
-       $passengerModel->logoutPassenger();
-
-       header("Location:/SlRail/passenger/login");
+    public function profile()
+    {
+        // Start a session
+        session_start();
+    
+        if (isset($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
+    
+            $passengerModel = new PassengerModel();
+    
+            $profile = $passengerModel->getPassengerDetails($id);
+    
+            if ($profile) {
+                include('views/Passenger/profile.php');
+            } else {
+                echo '<script>alert("Error: Passenger Not Found!")</script>';
+            }
+        } else {
+            echo '<script>alert("Error: User Not Logged In!")</script>';
+        }
     }
+    
+
+    public function logout(){
+        //Session Start
+        session_start();
+ 
+        $passengerModel=new PassengerModel();
+        $passengerModel->logoutPassenger();
+ 
+        header("Location:/SlRail/passenger/login");
+     }
 
 }
 ?>
