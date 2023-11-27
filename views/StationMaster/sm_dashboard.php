@@ -31,6 +31,13 @@
                 </span>
                 Add Train Schedule
             </a>
+
+            <a href="/SlRail/announcement/addAnnouncement">
+                 <span class="material-symbols-outlined">
+                  campaign
+                </span>
+                Add Announcement               
+            </a> 
     
             <a href="#">
                 <span class="material-symbols-outlined">

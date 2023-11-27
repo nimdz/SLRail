@@ -20,7 +20,7 @@ class TraindriverController{
 
           if($user){
                if($user['position']==="2"){
-                   header("Location:/SlRail/views/TrainDriver/td_dashboard.php");
+                   header("Location:/SlRail/traindriver/dashboard");
               }else{
                 echo '<script>alert("Error: You do not have the required permission.")</script>';            
              }
