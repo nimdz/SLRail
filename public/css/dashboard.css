@@ -61,116 +61,6 @@ ul {
 }
 
 
-
-.hover-link {
-    color: var(--primary-text-color);
-    transition: 0.2s ease-out;
-}
-
-.hover-link:hover {
-    color: var(--accent-color);
-}
-
-.primary-button {
-    background-color: var(--accent-color);
-    border-radius: 6px;
-    font-weight: 700;
-    color: white !important;
-    padding: 12px 24px;
-    box-shadow: 0 0 2px var(--secondary-text-color);
-    transition: 0.2s ease-out;
-    text-align: center;
-}
-
-.primary-button:hover {
-    background-color: var(--accent-color-dark);
-}
-
-.secondary-button {
-    border: 0.5px solid var(--secondary-text-color);
-    border-radius: 6px;
-    font-weight: 700;
-    color: var(--primary-text-color) !important;
-    padding: 12px 24px;
-    transition: 0.2s ease-out;
-}
-
-.secondary-button:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color) !important;
-}
-
-/* top banner */
-
-.top-banner {
-    background-image: url('./assets/asset\ 30.png');
-    background-color: #4fb3d4;
-    background-size: 300px;
-}
-
-.banner-text {
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-}
-
-
-
-/* subfooter */
-
-.subfooter {
-    margin-left: 0px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #f9f9f9bb;
-}
-
-.subfooter-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 20px; 
-    background-color: #f9f9f9bb;
-
-}
-
-
-/* Hide dropdown by default */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* Style dropdown items */
-.dropdown-menu li {
-    padding: 10px;
-}
-
-
-/* Indicator arrow styles */
-.dropdown-indicator {
-    margin-left: 4px;
-    display: inline-block;
-    float: right;
-}
-
-/* Adjust indicator on hover */
-.dropdown:hover .dropdown-indicator {
-    transform: rotate(180deg);
-}
-
-
-
-
 /* The side navigation menu */
 .sidebar {
     margin: 0;
@@ -231,8 +121,8 @@ ul {
 
 .sidebar a .material-icons,
 .sidebar a .material-symbols-outlined {
-  font-size: 24px; /* Adjust the icon size as needed */
-  margin-right: 10px; /* Add spacing between icon and text */
+  font-size: 16px; /* Adjust the icon size as needed */
+  margin-right: 6px; /* Add spacing between icon and text */
   color: #078bf0f7;
 }
 
