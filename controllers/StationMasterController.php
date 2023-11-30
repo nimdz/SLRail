@@ -9,7 +9,7 @@ class StationmasterController
          // Start a session
          session_start();
 
-        include 'views/Admin/employee_login.php';
+        include 'views/StationMaster/sm_login.php';
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
@@ -22,8 +22,7 @@ class StationmasterController
                 // Check if the user's position is equal to 1 (assuming 1 represents the desired position/role)
                 if ($user['position'] === "1") {
                     // Redirect the user to their respective dashboard
-                    header("Location: /SlRail/views/StationMaster/sm_dashboard.php");
-                } else {
+                    header("Location: /SlRail/stationmaster/dashboard");             
                     // User does not have the required position
                     echo '<script>alert("Error: You do not have the required permission.")</script>';
                 }

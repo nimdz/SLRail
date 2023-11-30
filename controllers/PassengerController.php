@@ -92,6 +92,30 @@ class PassengerController
             echo '<script>alert("Error: User Not Logged In!")</script>';
         }
     }
+
+    public function updateProfile(){
+         // Start Session
+         session_start();
+
+         if(isset($_SESSION['user_id'])){
+
+            $user_id = $_SESSION['user_id'];
+            $full_name=$_POST["full_name"];
+            $email=$_POST["email"];
+
+            $passengerModel=new PassengerModel();
+            $result=$passengerModel->updatePassenger($user_id,$full_name,$email);
+
+            if($result){
+                echo '<script>alert("Your Details Updated Successful!"); window.location.href = "/SlRail/passenger/dashboard";</script>';
+               exit();        
+            }else{
+                echo '<script>alert("Error When Updating details! ")</script>';        
+            }
+          
+        }
+    
+    }
     
 
     public function logout(){
