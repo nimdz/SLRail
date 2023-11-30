@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/Employee/EmployeeModel.php';
+require_once 'models/AnnouncementModel.php';  // Include the AnnouncementModel
 
 class StationmasterController
 {
@@ -46,5 +47,36 @@ class StationmasterController
 
     public function dashboard(){
          include ('views/StationMaster/sm_dashboard.php');
+    }
+
+    public function createAnnouncement()
+    {
+        // Start a session
+        session_start();
+
+        $announcementModel = new AnnouncementModel();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+
+            // Validate form data (you can add more validation as needed)
+
+            // Add announcement to the database
+            $result = $announcementModel->addAnnouncement($title, $description);
+
+            if ($result) {
+                // Announcement added successfully
+                echo '<script>alert("Announcement added successfully.")</script>';
+                // Redirect to the announcements page or any other page as needed
+                header("Location: /SlRail/stationmaster/announcements");
+            } else {
+                // Error adding announcement
+                echo '<script>alert("Error adding announcement. Please try again.")</script>';
+            }
+        }
+
+        // Load the view for adding announcements
+        include ('views/StationMaster/sm_add_announcements.php');
     }
 }
