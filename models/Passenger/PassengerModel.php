@@ -41,7 +41,7 @@ class PassengerModel
         $conn = $this->db->getConnection();
     
         // Retrieve user data from the database for the given username
-        $sql = "SELECT id, username, password FROM passenger WHERE username=?";
+        $sql = "SELECT id, username,full_name,email, password FROM passenger WHERE username=?";
         $stmt = $conn->prepare($sql);
     
         if ($stmt === false) {
@@ -50,19 +50,66 @@ class PassengerModel
     
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        $stmt->bind_result($id, $retrievedUsername, $hashedPassword);
+        $stmt->bind_result($id, $retrievedUsername,$full_name,$email, $hashedPassword);
     
         $id = null; // Initialize the variable
         $retrievedUsername = null; // Initialize the variable
+        $full_name = null;
     
         if ($stmt->fetch() && password_verify($password, $hashedPassword)) {
             // Return an associative array with the user's ID and username
-            return ['id' => $id, 'username' => $retrievedUsername];
+            return ['id' => $id, 'username' => $retrievedUsername,
+                    'full_name'=>$full_name ,'email'=>$email];
         }
     
         return false; // Login failed
     }
     
+    public function getPassengerDetails($id){
+      
+        $conn=$this->db->getConnection();
+
+        $sql="SELECT id,username,full_name,email FROM passenger WHERE id=?";
+        $stmt=$conn->prepare($sql);
+
+        if($stmt=== false){
+           die("Error: ".$conn->error);
+        }
+
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->bind_result($id,$username,$full_name,$email);
+    
+        if($stmt->fetch()){
+           return[
+              "id"=>$id,
+              "username"=> $username,
+              "full_name"=>$full_name,
+              "email"=> $email,
+           ];
+        }
+        return false;
+    }
+
+    public function updatePassenger($id,$full_name,$email){
+
+        $conn=$this->db->getConnection();
+
+        $sql="UPDATE passenger SET full_name=?,email=? WHERE id=?";
+        $stmt=$conn->prepare($sql);
+
+        if($stmt===false){
+            die("Error:". $conn->error);
+        }
+        $stmt->bind_param("ssi",$full_name,$email, $id);
+
+        if($stmt->execute()){
+            return true;//update sucessfull
+        }else{
+           return false;//update fail
+        }
+    
+    }
 
     public function logoutPassenger(){
          
