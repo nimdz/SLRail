@@ -26,7 +26,7 @@ class AnnouncementController{
     
     
     }
-    public function addAnnouncementD(){
+    public function tdaddAnnouncement(){
 
         session_start();
 
@@ -40,9 +40,9 @@ class AnnouncementController{
         $annResult=$annModel->addAnnouncement($title,$description);
 
         if($annResult){
-            echo '<script>alert("Announcement Added Successfully!"); window.location.href = "/SlRail/stationmaster/dashboard";</script>';
+            echo '<script>alert("Announcement Added Successfully!"); window.location.href = "/SlRail/traindriver/dashboard";</script>';
         }else{
-            echo '<script>alert("Error: Review Addition Failed");window.location.href=",/SlRail/stationmaster/dashboard";</script>';
+            echo '<script>alert("Error: Review Addition Failed");window.location.href=",/SlRail/traindriver/dashboard";</script>';
 
         }
     
