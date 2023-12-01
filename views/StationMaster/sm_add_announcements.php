@@ -12,6 +12,7 @@ $activeLink = 'a_add'; // Change this value according to the current page
     <title>SL Rail</title>
     <link rel="stylesheet" href="/SlRail/public/css/styles.css">
     <link rel="stylesheet" href="/SlRail/public/css/media-queries.css">
+    <link rel="stylesheet" href="/SlRail/public/css/form.css">
 
     <!-- Cancel & Update btns -->
     <script>
@@ -41,13 +42,14 @@ $activeLink = 'a_add'; // Change this value according to the current page
         </div>
         <div class="container">
             <div class="container">
-                <form action="action_page.php">
+                <form action="action_page.php" method="POST">
                   <div class="row">
                     <div class="col-25">
                       <label for="titl">Title</label>
                     </div>
                     <div class="col-75">
-                      <input type="text" id="titl" name="title">
+                      <input type="text" id="titl" name="title" value="<?php echo $data['title']; ?>">
+                      <span class="form-invalid"><?php echo $data['title_err']; ?></span>
                     </div>
                   </div>
                   <div class="row">
@@ -55,7 +57,8 @@ $activeLink = 'a_add'; // Change this value according to the current page
                       <label for="desc">Description</label>
                     </div>
                     <div class="col-75">
-                      <textarea id="desc" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                      <textarea id="desc" name="subject" placeholder="Write something.." style="height:200px"><?php echo $data['body']; ?></textarea>
+                      <span class="form-invalid"><?php echo $data['body_err']; ?></span>
                     </div>
                   </div>
                   <div class="row">

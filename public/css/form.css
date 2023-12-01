@@ -97,6 +97,11 @@
     width: 50%;
     margin-top: 6px;
   }
+
+  .form-invalid{
+    color: rgb(190, 43, 43);
+    
+   }
   
   /* Clear floats after the columns */
   .row:after {
