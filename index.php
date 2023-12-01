@@ -18,12 +18,12 @@ $controllers = [
     'passenger' => ['register', 'login', 'dashboard', 'profile','updateProfile','logout'],
     'booking' => ['search','add', 'userBookings', 'update', 'deleteBooking'],
     'review' =>['add'],
-    'trainschedule' => ['addSchedule', 'viewSchedules','viewSchedulesD', 'updateSchedule', 'deleteSchedule','showSchedule'],
-    'announcement' =>['viewAnnouncement','addAnnouncement','addAnnouncementD'],
+    'trainschedule' => ['addSchedule', 'viewSchedules','tdviewSchedules', 'updateSchedule', 'deleteSchedule','showSchedule'],
+    'announcement' =>['viewAnnouncement','addAnnouncement','tdaddAnnouncement'],
     'stationmaster'=>['login','logout','dashboard'],
     'traindriver' =>['login','logout','dashboard'],
     'admin' =>['login','logout','dashboard'],
-    'employee' =>['register'],
+    'employee' =>['register','allemployees'],
 ];
 
 // Create routes for each controller and action

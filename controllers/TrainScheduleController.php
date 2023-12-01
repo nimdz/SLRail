@@ -45,6 +45,19 @@ class TrainScheduleController
         // Load the view for displaying schedules
         include('views/StationMaster/allschedules.php');
     }
+    public function tdviewSchedules()
+    {
+        // Create an instance of TrainScheduleModel
+        $scheduleModel = new TrainScheduleModel();
+
+        // Retrieve all train schedules
+        $schedules = $scheduleModel->getAllSchedules();
+
+
+         // Load the view for displaying schedules
+         include('views/TrainDriver/td_allschedules.php');
+       
+    }
 
     public function updateSchedule()
     {

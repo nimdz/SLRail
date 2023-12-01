@@ -32,5 +32,22 @@ class EmployeeController
         }
     }
 
+    public function allemployees(){
+     
+        session_start();
+
+        $employeeModel=new EmployeeModel();
+        $employees=$employeeModel->getAllEmployees();
+           
+        if($employees){
+           include('views/Admin/allemployee.php');
+        }else{
+            echo "You don't have any employees currently";
+
+        }
+    
+    
+    }
+
 
 }
