@@ -50,6 +50,7 @@ $activeLink = 'a_add'; // Change this value according to the current page
                     <div class="col-75">
                       <input type="text" id="titl" name="title" value="<?php echo $data['title']; ?>">
                       <span class="form-invalid"><?php echo $data['title_err']; ?></span>
+
                     </div>
                   </div>
                   <div class="row">
@@ -59,6 +60,7 @@ $activeLink = 'a_add'; // Change this value according to the current page
                     <div class="col-75">
                       <textarea id="desc" name="subject" placeholder="Write something.." style="height:200px"><?php echo $data['body']; ?></textarea>
                       <span class="form-invalid"><?php echo $data['body_err']; ?></span>
+                      
                     </div>
                   </div>
                   <div class="row">
