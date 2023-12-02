@@ -96,4 +96,16 @@ class StationmasterController
     include('views/StationMaster/sm_add_announcements.php');
    }
 
+   public function manageAnnouncements()
+    {
+        // Start a session
+        session_start();
+
+        $announcementModel = new AnnouncementModel();
+        $announcements = $announcementModel->getAnnouncement();
+
+        // Load the view for managing announcements
+        include('views/StationMaster/sm_manage_announcements.php');
+    }
+
 }

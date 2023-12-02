@@ -36,72 +36,37 @@ $activeLink = 'a_manage'; // Change this value according to the current page
     <!-- Page content -->
 
     <div class="content">
-        
-        <section class="features-section">
-            <div class="container">    
-                <h3>Manage Announcements</h3>
-            </div>
-            <div class="container">
-                <table class="zebra-table">
-                    <thead>
+    <section class="features-section">
+        <div class="container">    
+            <h3>Manage Announcements</h3>
+        </div>
+        <div class="container">
+            <table class="zebra-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($announcements as $announcement): ?>
                         <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Train Delay Notice</td>
-                            <td>Train #1005 (Blue Train) delayed by 30 minutes due to maintenance.</td>
+                            <td><?php echo $announcement['id']; ?></td>
+                            <td><?php echo $announcement['title']; ?></td>
+                            <td><?php echo $announcement['description']; ?></td>
                             <td style="text-align: center;">
                                 <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
                                 <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Weather Advisory</td>
-                            <td>Heavy rains expected in the western province. Possible disruptions in train services.</td>
-                            <td style="text-align: center;">
-                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
-                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Platform Change</td>
-                            <td>Train #2022 (Queen of Jaffna) departing from Platform #4 instead of Platform #2.</td>
-                            <td style="text-align: center;">
-                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
-                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Track Maintenance</td>
-                            <td>Track maintenance scheduled between Colombo and Kandy, expect minor delays on the route.</td>
-                            <td style="text-align: center;">
-                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
-                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Signal Failure</td>
-                            <td>Signal failure at Ratmalana station affecting trains from south. Delay expected for 45 minutes.</td>
-                            <td style="text-align: center;">
-                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
-                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>        
-        </section>
-    </div>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>        
+    </section>
+</div>
     <!-- subfooter -->
 <?php include('includes/footer.php'); ?>
 </body>
