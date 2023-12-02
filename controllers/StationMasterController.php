@@ -102,7 +102,14 @@ class StationmasterController
         session_start();
 
         $announcementModel = new AnnouncementModel();
+
+        // Fetch announcements
         $announcements = $announcementModel->getAnnouncement();
+
+        if ($announcements === false) {
+            // Handle error if fetching announcements fails
+            echo '<script>alert("Error fetching announcements. Please try again.")</script>';
+        }
 
         // Load the view for managing announcements
         include('views/StationMaster/sm_manage_announcements.php');
