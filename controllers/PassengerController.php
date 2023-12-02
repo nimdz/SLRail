@@ -116,6 +116,18 @@ class PassengerController
         }
     
     }
+
+    public function allPassengers(){
+       session_start();
+
+       $passengerModel=new PassengerModel();
+       $passengers=$passengerModel->getAllPassengers();
+       if($passengers){
+         include('views/Admin/allpassengers.php');
+      }else{
+         echo "Currently No Passengers in the System";
+       }
+    }
     
 
     public function logout(){

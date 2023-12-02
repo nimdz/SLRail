@@ -91,25 +91,40 @@ class PassengerModel
         return false;
     }
 
-    public function updatePassenger($id,$full_name,$email){
-
+    public function updatePassenger($user_id, $full_name, $email){
         $conn=$this->db->getConnection();
-
-        $sql="UPDATE passenger SET full_name=?,email=? WHERE id=?";
+    
+        $sql="UPDATE passenger SET full_name=?, email=? WHERE id=?";
         $stmt=$conn->prepare($sql);
-
+    
         if($stmt===false){
             die("Error:". $conn->error);
         }
-        $stmt->bind_param("ssi",$full_name,$email, $id);
-
+    
+        $stmt->bind_param("ssi", $full_name, $email, $user_id); 
+    
         if($stmt->execute()){
-            return true;//update sucessfull
+            return true; // Update successful
         }else{
-           return false;//update fail
+            return false; // Update fail
+        }
+    }
+
+    public function getAllPassengers()
+    {
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM passenger";
+        $result = $conn->query($sql);
+    
+        $passengers = array();
+        while ($row = $result->fetch_assoc()) {
+            $passengers[] = $row;
         }
     
+        return $passengers;
     }
+    
 
     public function logoutPassenger(){
          

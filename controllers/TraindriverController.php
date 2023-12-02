@@ -29,6 +29,53 @@ class TraindriverController{
         }
       }
     }
+    public function profile()
+    {
+        // Start a session
+        session_start();
+    
+        if (isset($_SESSION['employee_id'])) {
+            $id = $_SESSION['employee_id'];
+    
+            $tdModel = new EmployeeModel();
+    
+            $profile = $tdModel->getEmployeeDetails($id);
+    
+            if ($profile) {
+                include('views/TrainDriver/profile.php');
+            } else {
+                echo '<script>alert("Error: Train Driver Not Found!")</script>';
+            }
+        } else {
+            echo '<script>alert("Error: User Not Logged In!")</script>';
+        }
+    }
+  
+  public function updateProfile(){
+      session_start();
+
+      if(isset($_SESSION['employee_id'])){
+
+          $id=$_SESSION['employee_id'];
+          $full_name=$_POST['full_name'];
+          $email=$_POST['email'];
+          $nic=$_POST['nic'];
+          $username=$_POST['username'];
+
+          $tdModel=new EmployeeModel();
+          $result=$tdModel->updateEmployee($id,$full_name,$email,$nic,$username);
+
+          if($result){
+            echo '<script>alert("Your Details Updated Successfully!");window.location.href="/SlRail/traindriver/dashboard";</script>';
+          }
+          echo '<script>alert("Error When Updating details! ")</script>';        
+
+      }
+  
+  }
+  public function dashboard(){
+      include ('views/TrainDriver/td_dashboard.php');
+  }
 
     public function logout(){
        session_start();
@@ -39,7 +86,5 @@ class TraindriverController{
        header("Location:/SlRail/traindriver/login");
     }
 
-    public function dashboard(){
-        include ('views/TrainDriver/td_dashboard.php');
-    }
+  
 }
