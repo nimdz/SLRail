@@ -126,10 +126,51 @@ ul {
   color: #078bf0f7;
 }
 
+.sidebar .company-logo img{
+  width: 150px;
+  height: 100px;
+  margin-left: 20px;
+}
 .sidebar a:hover {
   background: #078bf0f7;
   color: #feffff;
 }
+
+/* Hide dropdown by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style dropdown items */
+.dropdown-menu li {
+  padding: 10px;
+}
+
+/* Separate styling for the primary button */
+.primary-button {
+  /* Your primary button styles */
+}
+
+/* Indicator arrow styles */
+.dropdown-indicator {
+  margin-left: 4px;
+  display: inline-block;
+  float: right;
+}
+
+/* Adjust indicator on hover */
+.dropdown:hover .dropdown-indicator {
+  transform: rotate(180deg);
+}
+
 
 /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
 @media screen and (max-width: 500px) {
@@ -141,9 +182,11 @@ ul {
   }
 }
 
-.content{
-  background-color: #f9f9f9bb;
-  margin-top: 100px;
+.content {
+  margin-left: 320px; /* 200px (sidebar width) + 20px (padding) */
+  padding: 50px; /* Add padding for space between content and sidebar */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  font-size: 20px;
 }
 
 .subfooter {
@@ -163,6 +206,8 @@ ul {
     background-color: #f9f9f9bb;
 
 }
+
+
 
 
 
