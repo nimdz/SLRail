@@ -32,7 +32,28 @@ class AnnouncementModel{
         }
     
     }
-   
+    /*public function addAnnouncement($title, $description)
+{
+    $conn = $this->db->getConnection();
+
+    // Include 'created_at' in the SQL query
+    $sql = "INSERT INTO announcement(title, description, created_at) VALUES (?, ?, NOW())";
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) {
+        die("Error:" . $conn->error);
+    }
+    
+    $stmt->bind_param("ss", $title, $description);
+
+    if ($stmt->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}*/
+
+
     public function getAnnouncement(){
         
         $conn=$this->db->getConnection();
