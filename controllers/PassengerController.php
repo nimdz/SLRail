@@ -65,6 +65,31 @@ class PassengerController
             }
        }
     }
+
+    public function forgotPassword(){
+
+        session_start();
+        
+        include('views/Passenger/password_forget.php');
+
+        if($_SERVER['REQUEST_METHOD']==='POST'){
+            $username=$_POST['username'];
+            $newPassword=$_POST['newPassword'];
+
+            $passengerModel=new PassengerModel();
+            $result=$passengerModel->resetPassword($username,$newPassword);
+
+            if($result){
+                echo '<script>alert("Password reset successfully! Login with your new password.")</script>';
+                header("Location: /SlRail/passenger/login");
+                exit();
+            }else{
+                echo '<script>alert("Error: Unable to reset the password.")</script>';
+            }
+        }
+        
+      
+    }
     public function dashboard()
     {
         // Load the dashboard view
