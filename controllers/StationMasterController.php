@@ -49,7 +49,7 @@ class StationmasterController
         include 'views/StationMaster/sm_dashboard.php';
     }
 
-    public function createAnnouncement()
+    /*public function createAnnouncement()
     {
     // Start a session
     session_start();
@@ -90,11 +90,61 @@ class StationmasterController
                 echo '<script>alert("Error adding announcement. Please try again.")</script>';
             }
         }
+        // Load the view for adding announcements with error messages
+    include('views/StationMaster/sm_add_announcements.php');
+   }
+    }*/
+
+    public function createAnnouncement()
+{
+    // Start a session
+    session_start();
+
+    $announcementModel = new AnnouncementModel();
+
+    $data = [
+        'title' => '',
+        'description' => '',
+        'title_err' => '',
+        'description_err' => '',
+    ];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $data['title'] = $_POST['title'] ?? '';
+        $data['description'] = $_POST['description'] ?? '';
+
+        // Validate form data
+        if (empty($data['title'])) {
+            $data['title_err'] = 'Please enter a title.';
+        }
+
+        if (empty($data['description'])) {
+            $data['description_err'] = 'Please enter a description.';
+        }
+
+        // If there are no errors, proceed to add announcement
+        if (empty($data['title_err']) && empty($data['description_err'])) {
+            $result = $announcementModel->addAnnouncement($data['title'], $data['description']);
+
+            if ($result) {
+                // Announcement added successfully
+                echo '<script>alert("Announcement added successfully.")</script>';
+                // Redirect to the announcements page or any other page as needed
+                header("Location: /SlRail/stationmaster/announcements");
+                exit(); // Ensure to exit after redirection
+            } else {
+                // Error adding announcement
+                echo '<script>alert("Error adding announcement. Please try again.")</script>';
+            }
+        }
     }
 
     // Load the view for adding announcements with error messages
     include('views/StationMaster/sm_add_announcements.php');
-   }
+}
+
+
+    
 
    public function manageAnnouncements()
     {
