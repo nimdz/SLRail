@@ -32,6 +32,27 @@ class AnnouncementModel{
         }
     
     }
+
+    public function tdaddAnnouncement($title,$description)
+    {
+      
+        $conn=$this->db->getConnection();
+
+        $sql="INSERT INTO announcement(title,description) VALUES(?,?)";
+        $stmt=$conn->prepare($sql);
+
+        if($stmt === false){
+           die("Error:". $conn->error);
+        }
+        $stmt->bind_param("ss",$title,$description);
+
+        if($stmt->execute()){
+           return true;
+        }else{
+           return false;
+        }
+    
+    }
    
     public function getAnnouncement(){
         

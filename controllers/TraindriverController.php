@@ -56,14 +56,14 @@ class TraindriverController{
 
       if(isset($_SESSION['employee_id'])){
 
-          $id=$_SESSION['employee_id'];
+          $employee_id=$_SESSION['employee_id'];
           $full_name=$_POST['full_name'];
           $email=$_POST['email'];
           $nic=$_POST['nic'];
           $username=$_POST['username'];
 
           $tdModel=new EmployeeModel();
-          $result=$tdModel->updateEmployee($id,$full_name,$email,$nic,$username);
+          $result=$tdModel->updateEmployee($employee_id,$full_name,$email,$nic,$username);
 
           if($result){
             echo '<script>alert("Your Details Updated Successfully!");window.location.href="/SlRail/traindriver/dashboard";</script>';
