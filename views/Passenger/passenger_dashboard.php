@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-
-
-
     <div class="sidebar">
 
             <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
@@ -50,13 +47,13 @@
                 </span>
                 Feedback
             </a>
-            <a href="#">
+            <a href="/SlRail/announcement/viewAnnouncement">
                  <span class="material-symbols-outlined">
                   campaign
                 </span>
-                Announcements                
+                Announcement               
             </a> 
-        <a href="#">
+        <a href="/SlRail/passenger/profile">
             <span class="material-icons">
             account_circle
             </span>
@@ -71,10 +68,9 @@
              
       
     </div>
-    
+
+
     <?php include('includes/header.php'); ?>
-
-
 
     <div class="content">
       <h1 > <center>Welcome Passenger! </center></Welcome></h1>
