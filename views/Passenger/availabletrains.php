@@ -7,6 +7,14 @@
     <title>Available Trains</title>
     <!-- Add any additional styles or scripts if needed -->
     <link rel="stylesheet" href="/SlRail/public/css/table.css">
+    <style>
+    .trains-table {
+    width: 80%;
+    margin: 20px auto; /* Center the table */
+    margin-left: 220px; /* Add left margin to the table */
+    border-collapse: collapse;
+        }
+        </style>
 
 </head>
 
@@ -14,10 +22,13 @@
 
     <?php include('includes/header.php'); ?>
 
+    <?php include('passenger_sidebar.php'); ?>
+
+
         <h1 ><center>Available Trains</center></h1>
 
         <?php if (isset($availableTrains) && !empty($availableTrains)) : ?>
-            <table>
+            <table class="trains-table">
                 <thead>
                     <tr>
                         <th>Train Name</th>
@@ -25,8 +36,8 @@
                         <th>Departure Station</th>
                         <th>Destination Station</th>
                         <th>Departure Date </th>
-                        <th>Departure Time</th>
                         <th>Number Of Passengers</th>
+                        <th>Departure Time</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
