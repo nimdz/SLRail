@@ -5,13 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookings</title>
     <link rel="stylesheet" href="/SlRail/public/css/table.css">
+    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <style>
+        .booking-table {
+        width: 80%;
+        margin: 20px auto; /* Center the table */
+        margin-left: 300px; /* Add left margin to the table */
+        border-collapse: collapse;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button + button {
+            margin-top: 10px;
+        }
+</style>
 </head>
 <body>
-   
-   <?php include('includes/header.php'); ?>
+<?php include('includes/header.php'); ?>
+
+
+  <?php include('passenger_sidebar.php'); ?>
+
 
     <h1><center>Your Bookings</center></h1>
-    <table>
+    <table class="booking-table">
         <thead>
             <tr>
                 <th>Departure Station</th>
@@ -34,6 +62,8 @@
                     </td>
                 </tr>
 
+
+
                 <!-- Update Booking Form -->
                 <tr id="updateForm<?= $booking['booking_id'] ?>" style="display: none;">
                     <td colspan="5">
@@ -50,7 +80,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <p style="text-align: center; padding-top:100px; padding-bottom: 90px; font-size: 24px;">
+    <p style="text-align: center; padding-top:100px; padding-bottom: 200px; font-size: 14px;">
         <a href="/SlRail/passenger/dashboard">Go to Dashboard</a>
     </p>
     <script>
