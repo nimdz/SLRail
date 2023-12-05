@@ -36,6 +36,56 @@ class PassengerModel
             return false; // Registration failed
         }
     }
+public function resetPassword($username, $newPassword)
+{
+    $conn = $this->db->getConnection();
+
+    // Check if the username exists
+    $sql_select = "SELECT id FROM passenger WHERE username=?";
+    $stmt_select = $conn->prepare($sql_select);
+
+    if ($stmt_select === false) {
+        return "Error: " . $conn->error;
+    }
+
+    $stmt_select->bind_param("s", $username);
+    $stmt_select->execute();
+    $stmt_select->bind_result($id);
+
+    // Fetch the result
+    $fetchResult = $stmt_select->fetch();
+
+    // Close the statement
+    $stmt_select->close();
+
+    if ($fetchResult) {
+        // Hash the new password
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        // Update the password in the database
+        $sql_update = "UPDATE passenger SET password=? WHERE username=?";
+        $stmt_update = $conn->prepare($sql_update);
+
+        if ($stmt_update === false) {
+            return "Error: " . $conn->error;
+        }
+
+        $stmt_update->bind_param("ss", $hashedPassword, $username);
+
+        if ($stmt_update->execute()) {
+            $stmt_update->close();
+            return true;
+        } else {
+            $stmt_update->close();
+            return "Error updating password: " . $stmt_update->error;
+        }
+    } else {
+        // Username does not exist
+        return "Username not found";
+    }
+}
+
+
     public function loginPassenger($username, $password)
     {
         $conn = $this->db->getConnection();

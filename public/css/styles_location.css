@@ -56,7 +56,7 @@ ul {
     font-weight: 700;
 }
 
-.container {
+.container1 {
     max-width: 1180px;
     margin-inline: auto;
     padding-inline: var(--padding-inline-section);
@@ -390,11 +390,6 @@ footer {
     transform: rotate(180deg);
 }
 
-/* Your existing dropdown menu CSS styles */
-/* ... */
-
-/* Your existing primary button CSS styles */
-/* ... */
 
 /* Style for card container */
 .card-container {

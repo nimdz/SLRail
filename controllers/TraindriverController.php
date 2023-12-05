@@ -51,32 +51,47 @@ class TraindriverController{
         }
     }
   
-  public function updateProfile(){
-      session_start();
+public function updateProfile()
+{
+    // Start a session
+    session_start();
 
-      if(isset($_SESSION['employee_id'])){
+    // Check if the user is logged in
+    if (isset($_SESSION['employee_id'])) {
+        $employee_id = $_SESSION['employee_id'];
 
-          $employee_id=$_SESSION['employee_id'];
-          $full_name=$_POST['full_name'];
-          $email=$_POST['email'];
-          $nic=$_POST['nic'];
-          $username=$_POST['username'];
+        // Get the updated details from the POST request
+        $full_name = $_POST["full_name"];
+        $email = $_POST["email"];
+        $nic = $_POST["nic"];
+        $username = $_POST["username"];
 
-          $tdModel=new EmployeeModel();
-          $result=$tdModel->updateEmployee($employee_id,$full_name,$email,$nic,$username);
+        // Instantiate the EmployeeModel
+        $tdModel = new EmployeeModel();
 
-          if($result){
-            echo '<script>alert("Your Details Updated Successfully!");window.location.href="/SlRail/traindriver/dashboard";</script>';
-          }
-          echo '<script>alert("Error When Updating details! ")</script>';        
+        // Update the employee details
+        $result = $tdModel->updateEmployee($employee_id, $full_name, $email, $nic, $username);
 
-      }
-  
-  }
+        if ($result) {
+            // Redirect to the profile page after a successful update
+            header("Location: /SlRail/traindriver/profile");
+            exit();
+        } else {
+            // Handle the case where the update fails
+            echo '<script>alert("Error When Updating details! "); window.location.href="/SlRail/traindriver/profile";</script>';
+        }
+    } else {
+        // Handle the case where the user is not logged in
+        echo '<script>alert("Error: User Not Logged In!"); window.location.href="/SlRail/traindriver/login";</script>';
+    }
+}
+
   public function dashboard(){
       include ('views/TrainDriver/td_dashboard.php');
   }
-
+  public function shareLocation(){
+    include ('views/TrainDriver/location_share.php');
+}
     public function logout(){
        session_start();
 
