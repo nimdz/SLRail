@@ -95,6 +95,11 @@ class PassengerController
         // Load the dashboard view
         include('views/Passenger/passenger_dashboard.php');
     }
+    public function viewLocation()
+    {
+        // Load the dashboard view
+        include('views/Passenger/live_location_view.php');
+    }
 
     public function profile()
     {
