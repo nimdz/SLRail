@@ -4,35 +4,7 @@ require_once 'models/Employee/EmployeeModel.php';
 
 class StationmasterController
 {
-    public function login()
-    {
-         // Start a session
-         session_start();
 
-        include 'views/StationMaster/sm_login.php';
-        
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            $smModel = new EmployeeModel();
-            $user = $smModel->loginEmployee($username, $password);
-
-            if ($user) {
-                // Check if the user's position is equal to 1 (assuming 1 represents the desired position/role)
-                if ($user['position'] === "1") {
-                    // Redirect the user to their respective dashboard
-                    header("Location: /SlRail/stationmaster/dashboard");             
-                    // User does not have the required position
-                    echo '<script>alert("Error: You do not have the required permission.")</script>';
-                }
-            } else {
-                // Login failed
-                echo '<script>alert("Error: Login failed. Please check your credentials.")</script>';
-            }
-        }
-    
-    }
 
     public function logout(){
       session_start();
@@ -40,9 +12,65 @@ class StationmasterController
       $smModel=new EmployeeModel();
       $smModel->logoutEmployee();
 
-      header("Location:/SlRail/stationmaster/login");
+      header("Location:/SlRail/home/login");
 
     }
+    public function profile()
+    {
+        // Start a session
+        session_start();
+    
+        if (isset($_SESSION['employee_id'])) {
+            $id = $_SESSION['employee_id'];
+    
+            $tdModel = new EmployeeModel();
+    
+            $profile = $tdModel->getEmployeeDetails($id);
+    
+            if ($profile) {
+                include('views/stationmaster/profile.php');
+            } else {
+                echo '<script>alert("Error: Train Driver Not Found!")</script>';
+            }
+        } else {
+            echo '<script>alert("Error: User Not Logged In!")</script>';
+        }
+    }
+  
+public function updateProfile()
+{
+    // Start a session
+    session_start();
+
+    // Check if the user is logged in
+    if (isset($_SESSION['employee_id'])) {
+        $employee_id = $_SESSION['employee_id'];
+
+        // Get the updated details from the POST request
+        $full_name = $_POST["full_name"];
+        $email = $_POST["email"];
+        $nic = $_POST["nic"];
+        $username = $_POST["username"];
+
+        // Instantiate the EmployeeModel
+        $tdModel = new EmployeeModel();
+
+        // Update the employee details
+        $result = $tdModel->updateEmployee($employee_id, $full_name, $email, $nic, $username);
+
+        if ($result) {
+            // Redirect to the profile page after a successful update
+            header("Location: /SlRail/stationmaster/profile");
+            exit();
+        } else {
+            // Handle the case where the update fails
+            echo '<script>alert("Error When Updating details! "); window.location.href="/SlRail/stationmaster/profile";</script>';
+        }
+    } else {
+        // Handle the case where the user is not logged in
+        echo '<script>alert("Error: User Not Logged In!"); window.location.href="/SlRail/stationmaster/login";</script>';
+    }
+}
 
     public function dashboard(){
          include ('views/StationMaster/sm_dashboard.php');
