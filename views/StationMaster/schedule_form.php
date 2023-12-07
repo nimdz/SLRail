@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/SlRail/public/css/form.css">
+    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+
     <title>Add Train Schedule</title>
+    <style>
+        .container1{
+            margin-top: 40px;
+            width:1200px;
+            height:auto;
+            margin-left: 250px;
+        }
+    <style>
  
 </head>
 <body>
-    
+
+
 <?php include('includes/header.php'); ?>
+
+<?php include('sm_sidebar.php'); ?>
+
+
 
     <div class="container1">
     <h2>Add Train Schedule</h2>
@@ -33,7 +48,7 @@
         </form>
     </div>
 
-    <?php include('includes/footer.php'); ?>
+<?php include('includes/footer.php'); ?>
 
 </body>
 </html>
