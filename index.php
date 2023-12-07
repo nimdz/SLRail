@@ -15,7 +15,7 @@ $baseUrl = '/SlRail';
 // Define controllers and their actions
 $controllers = [
     'home' => ['index','login'],
-    'passenger' => ['register', 'login', 'dashboard', 'profile','forgotPassword','updateProfile','viewLocation', 'allPassengers','logout'],
+    'passenger' => ['register', 'dashboard', 'profile','forgotPassword','updateProfile','viewLocation', 'allPassengers','logout'],
     'booking' => ['search','add', 'userBookings', 'update', 'deleteBooking'],
     'review' =>['add'],
     'trainschedule' => ['addSchedule', 'viewSchedules','tdviewSchedules', 'updateSchedule', 'deleteSchedule','showSchedule'],
