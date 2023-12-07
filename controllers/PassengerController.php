@@ -2,6 +2,7 @@
 
 require_once 'models/Passenger/PassengerModel.php';
 
+
 class PassengerController
 {
     public function register()
@@ -167,7 +168,7 @@ class PassengerController
         $passengerModel=new PassengerModel();
         $passengerModel->logoutPassenger();
  
-        header("Location:/SlRail/passenger/login");
+        header("Location:/SlRail/home/login");
      }
 
 }
