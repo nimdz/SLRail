@@ -6,11 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Train Ticket Booking</title>
     <link rel="stylesheet" href="/SlRail/public/css/form.css">
+    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <style>
+        .container1{
+            margin-top: 50px;
+            margin-left: 250px;
+            width: 1200px;
+            height:600px;
+        }
+   </style>
 </head>
 
 <body>
 
-    <?php include('includes/header.php'); ?>
+   <?php include('includes/header.php'); ?>
+
+    <?php include('passenger_sidebar.php'); ?>
+
 
     <div class="container1">
         <h1>Train Ticket Booking</h1>
@@ -32,13 +44,6 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-            </select>
-            <label for="price">Price:</label>
-            <select id="cost" name="price" required>
-                <option value="1">Select Ticket Price</option>
-                <option value="2">RS200</option>
-                <option value="3">Rs300</option>
-                <option value="4">RS400</option>
             </select>
 
             <button type="submit">Search Train</button>
