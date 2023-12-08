@@ -5,17 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Announcements</title>
     <link rel="stylesheet" href="/SlRail/public/css/table.css">
+    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <style>
+        .ann-table {
+    width: 100%;
+    margin: 20px auto; /* Center the table */
+    margin-left: 300px; /* Add left margin to the table */
+    border-collapse: collapse;
+        }
+    </style>
+
 </head>
 <body>
 
     <?php include('includes/header.php'); ?>
 
+    <?php include('passenger_sidebar.php'); ?>
+
+
     <h1><center>Announcements</center></h1>
-    <table>
+    <table class="ann-table">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Titel</th>
+                <th>Title</th>
                 <th>Description</th>
             </tr>
         </thead>
