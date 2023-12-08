@@ -15,6 +15,12 @@ class PassengerModel
 
     public function registerPassenger($username, $password, $full_name, $email)
     {
+
+          // Perform form validation
+        if (!$this->validateForm($username, $password, $full_name, $email)) 
+          {
+            return false; // Validation failed
+        }
         $conn = $this->db->getConnection();
 
         // Hash the password for security
@@ -35,6 +41,26 @@ class PassengerModel
         } else {
             return false; // Registration failed
         }
+    }
+
+    private function validateForm($username,$password,$full_name,$email){
+
+       if(empty($username) || empty($password) || empty($full_name) || empty($email)){
+             return false;
+       }
+       if (strlen($password) < 8) {
+        // Password must be at least 8 characters
+        return false;
+       }
+       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Invalid email format
+        return false;
+      }
+
+      return true; // All validation passed
+
+
+    
     }
 public function resetPassword($username, $newPassword)
 {

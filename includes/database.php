@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-    private $host = 'localhost'; // Replace with your MySQL host
-    private $username = 'root'; // Replace with your MySQL username
-    private $password = ''; // Replace with your MySQL password
-    private $database = 'SlRail'; // Replace with your MySQL database name
+    private $host = 'localhost'; //  MySQL host
+    private $username = 'root'; // MySQL username
+    private $password = ''; // MySQL password
+    private $database = 'SlRail'; //  MySQL database name
 
     protected $conn;
 
