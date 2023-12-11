@@ -65,11 +65,13 @@ ul {
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
+    width: 300px;
+    background-color:white;
     position: fixed;
     height: 100%;
     overflow: auto;
+    border: 1px solid black; 
+    border-radius: 50px;
   }
   
   /* Sidebar links */
@@ -123,7 +125,7 @@ ul {
 .sidebar a .material-symbols-outlined {
   font-size: 16px; /* Adjust the icon size as needed */
   margin-right: 6px; /* Add spacing between icon and text */
-  color: #078bf0f7;
+  color:black;
 }
 
 .sidebar a:hover {
@@ -144,6 +146,9 @@ ul {
 .content{
   background-color: #f9f9f9bb;
   margin-top: 100px;
+  border-radius: 50px;
+  border:2px solid black;
+  margin-left: 200px;
 }
 
 .subfooter {
