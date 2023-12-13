@@ -65,13 +65,12 @@ ul {
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 300px;
+    width: 170px;
     background-color:white;
     position: fixed;
     height: 100%;
     overflow: auto;
-    border: 1px solid black; 
-    border-radius: 50px;
+    border-right: 1px solid black; 
   }
   
   /* Sidebar links */
@@ -80,6 +79,9 @@ ul {
     color: black;
     padding: 16px;
     text-decoration: none;
+    font-size: 14px;
+    gap: 5px;
+    align-items: center;
   }
   
   /* Active/current link */
@@ -102,28 +104,11 @@ ul {
     height: auto;
   }
   
-  /* On screens that are less than 700px wide, make the sidebar into a topbar */
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
   
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  }
 
 .sidebar a .material-icons,
 .sidebar a .material-symbols-outlined {
-  font-size: 16px; /* Adjust the icon size as needed */
+  font-size: 12px; /* Adjust the icon size as needed */
   margin-right: 6px; /* Add spacing between icon and text */
   color:black;
 }
@@ -133,22 +118,13 @@ ul {
   color: #feffff;
 }
 
-/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
-@media screen and (max-width: 500px) {
-  .horizontal a {
-      float: none;
-      display: block;
-      width: 100%;
-      text-align: left; /* If you want the text to be left-aligned on small screens */
-  }
-}
+
 
 .content{
   background-color: #f9f9f9bb;
-  margin-top: 100px;
-  border-radius: 50px;
+  margin-top: 170px;
   border:2px solid black;
-  margin-left: 200px;
+  margin-left: 250px;
 }
 
 .subfooter {
@@ -168,7 +144,43 @@ ul {
     background-color: #f9f9f9bb;
 
 }
+/** Top NavBar Css */
+.topnav-search {
+  align-items: center;
+  margin-left: 200px;
+  display: flex;
+  position: relative;
+}
 
 
+.topnav-search input {
+  margin-right: 10px;
+  width: 400px;
+  height: 40px;
+  padding-left: 40px;
+  padding-right: 30px;
+  border-radius: 50px;
+}
+.topnav-search i {
+      position: absolute;
+      left: 70px; /* Adjust the position of the search icon */
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  @media screen and (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
 
 
