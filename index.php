@@ -4,7 +4,7 @@
  * Date: 2023-09-24
  */
 
-require_once 'includes/Router.php';
+require_once 'app/includes/Router.php';
 
 // Initialize the router
 $router = new Router();
@@ -15,7 +15,7 @@ $baseUrl = '/SlRail';
 // Define controllers and their actions
 $controllers = [
     'home' => ['index','login'],
-    'passenger' => ['register', 'dashboard', 'profile','forgotPassword','updateProfile','viewLocation', 'allPassengers','logout'],
+    'passenger' => ['register', 'dashboard', 'profile','forgotPassword','updateProfile','viewLocation','logout'],
     'booking' => ['search','add', 'userBookings', 'update', 'deleteBooking'],
     'review' =>['add'],
     'trainschedule' => ['addSchedule', 'viewSchedules','tdviewSchedules', 'updateSchedule', 'deleteSchedule','showSchedule'],
@@ -23,7 +23,7 @@ $controllers = [
     'stationmaster'=>['logout','dashboard','profile','updateProfile'],
     'traindriver' =>['profile','logout','updateProfile','shareLocation','dashboard'],
     'ticketingofficer' =>['logout','dashboard'],
-    'admin' =>['logout','dashboard'],
+    'admin' =>['logout','dashboard', 'allPassengers'],
     'employee' =>['register','allemployees'],
 ];
 
