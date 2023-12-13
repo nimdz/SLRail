@@ -130,8 +130,9 @@
 
 .container1 input[type="text"],
 .container1 input[type="date"],
+.container1 input[type="number"],
 .container1 select {
-    width: 100%;
+    width: 100px;
     padding: 10px;
     margin-bottom: 20px;
     border: none;
@@ -151,7 +152,7 @@
 }
 
 .container1 button[type="submit"] {
-    width: 100%;
+    width: 300px;
     padding: 10px;
     border: none;
     border-radius: 50px;
