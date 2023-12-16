@@ -24,7 +24,7 @@ $controllers = [
     'traindriver' =>['profile','logout','updateProfile','shareLocation','dashboard'],
     'ticketingofficer' =>['logout','dashboard'],
     'admin' =>['logout','dashboard', 'allPassengers'],
-    'employee' =>['register','allemployees'],
+    'employee' =>['register'],
 ];
 
 // Create routes for each controller and action
