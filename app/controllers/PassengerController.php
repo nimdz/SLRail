@@ -3,7 +3,7 @@
 require_once 'app/models/Passenger/PassengerModel.php';
 
 
-class PassengerController
+class PassengerController 
 {
     public function register()
     {
@@ -14,13 +14,12 @@ class PassengerController
         $password = $_POST["password"];
         $full_name = $_POST["full_name"];
         $email = $_POST["email"];
-        $nic= $_POST["nic"];
 
         // Create an instance of the PassengerModel
         $passengerModel = new PassengerModel();
 
         // Register the passenger
-        $registrationResult = $passengerModel->registerPassenger($username, $password, $full_name, $email,$nic);
+        $registrationResult = $passengerModel->registerPassenger($username, $password, $full_name, $email);
 
         if ($registrationResult) {
             // Registration successful
@@ -46,7 +45,7 @@ class PassengerController
 
             if($result){
                 echo '<script>alert("Password reset successfully! Login with your new password.")</script>';
-                header("Location: /SlRail/passenger/login");
+                header("Location: /SlRail/home/login");
                 exit();
             }else{
                 echo '<script>alert("Error: Unable to reset the password.")</script>';
