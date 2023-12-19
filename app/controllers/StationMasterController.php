@@ -75,4 +75,9 @@ public function updateProfile()
     public function dashboard(){
          include ('app/views/StationMaster/sm_dashboard.php');
     }
+
+    public function trainsAdd(){
+        include ('views/StationMaster/sm_add_trains.php');
+   }
+
 }
