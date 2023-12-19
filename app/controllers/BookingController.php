@@ -1,6 +1,8 @@
 <?php
 
 require_once 'app/models/Passenger/BookingModel.php';
+require_once 'app/models/Employee/TrainScheduleModel.php';
+
 
 class BookingController
 {
@@ -14,7 +16,7 @@ class BookingController
             $number_of_passengers = isset($_GET["number_of_passengers"]) ? $_GET["number_of_passengers"] : '';
 
         // Fetch available trains based on the provided parameters
-            $searchModel=new BookingModel;
+            $searchModel=new TrainScheduleModel;
             $availableTrains=$searchModel->getAvailableTrains($departure_station,$destination_station);
         // Display available trains
         include('app/views/Passenger/availabletrains.php');
