@@ -6,6 +6,8 @@
     <title>All Train Schedules</title>
     <link rel="stylesheet" href="/SlRail/public/css/table.css">
     <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <style>
         .scheduling-table{
             width: 80%;
@@ -25,11 +27,11 @@
     <table class="scheduling-table">
         <thead>
             <tr>
-                <th>Departure Station</th>
-                <th>Destination Station</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                <th>Schedule Date</th>
+                <th><span class="material-symbols-outlined">location_on</span> Departure Station</th>
+                <th><span class="material-symbols-outlined">location_on</span> Destination Station</th>
+                <th><span class="material-symbols-outlined">access_time</span> Departure Time</th>
+                <th><span class="material-symbols-outlined">schedule</span> Arrival Time</th>
+                <th><span class="material-symbols-outlined">event</span> Schedule Date</th>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +39,10 @@
                 <tr>
                     <td><?= $schedule['departure_station'] ?></td>
                     <td><?= $schedule['destination_station'] ?></td>
-                    <td><?= $schedule['departure_time'] ?></td>
-                    <td><?= $schedule['arrival_time'] ?></td>
+                    <td><?= date('h:i', strtotime($schedule['departure_time'])) ?>
+                       <?= date('A', strtotime($schedule['departure_time'])) ?></td>
+                    <td><?= date('h:i', strtotime($schedule['arrival_time'])) ?>
+                       <?= date('A', strtotime($schedule['arrival_time'])) ?></td>
                     <td><?= $schedule['schedule_date'] ?></td>
                     
                 </tr>

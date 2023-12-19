@@ -6,31 +6,7 @@
     <meta charset="UTF-8">
     <title>Passenger Forgot Password</title>
     <link rel="stylesheet" href="/SlRail/public/css/styles.css">
-    <style>
-.button{
-    width: 150px;
-    border-radius: 50px;
-    margin-top: 10px;
-    margin-left: 170px;
-}
-input[type="text"], input[type="password"],input[type="email"]{
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  width: 350px;
-  box-sizing: border-box;
-  margin-left: 100px;
-}
-label{
-  display: block;
-  margin-left: 100px;
-}
-.links {
-  justify-content: space-between;
-  margin-left: 110px;
-  
-}
-</style>
+
 <body>
 </head>
 <body>
