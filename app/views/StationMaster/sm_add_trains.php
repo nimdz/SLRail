@@ -1,3 +1,8 @@
+<?php
+// Set the active link based on the current page
+$activeLink = 'addTrains'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

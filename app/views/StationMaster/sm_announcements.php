@@ -38,7 +38,7 @@ $activeLink = 'announcements';
         }
 
         a.button:hover{
-            background-color: #27672a;
+            background-color: #0062cc;
         }
 
         
@@ -72,11 +72,14 @@ $activeLink = 'announcements';
                     <td><?= $ann['description'] ?></td>
                 
                 <td>
+                       
                         <!-- Add a condition to hide buttons when update form is visible -->
                         <?php if (!isset($_POST['ann_id']) || $_POST['ann_id'] !== $ann['ann_id']): ?>
+                            
                             <button class="update" onclick="updateAnnouncement(<?= $ann['ann_id'] ?>)">Update</button>
                             <button class="delete" onclick="deleteAnnouncement(<?= $ann['ann_id'] ?>)">Delete</button>
-                        <?php endif; ?>
+                            <?php endif; ?>
+                        
                     </td>
              </tr>
             <?php endforeach; ?>
@@ -85,6 +88,7 @@ $activeLink = 'announcements';
 
     <!-- Update Announcement Forms -->
 <?php foreach ($announcements as $ann): ?>
+    
     <div id="updateForm<?= $ann['ann_id'] ?>" style="display: none; width: calc(100% - 250px); padding-left: 300px;">
         <form method="post" action="/SlRail/announcement/updateAnnouncement" style="width: 100%;">
             <input type="hidden" name="ann_id" value="<?= $ann['ann_id'] ?>">
@@ -96,6 +100,7 @@ $activeLink = 'announcements';
             <button type="submit" style="width: auto;">Save</button>
         </form>
     </div>
+    
 <?php endforeach; ?>
     <p style="text-align: center; padding-top:100px; padding-bottom: 90px; font-size: 16px;">
         <a class="button" href="/SlRail/announcement/addAnnouncement">Add Announcement</a>
@@ -113,10 +118,10 @@ $activeLink = 'announcements';
             form.style.display = "none";
         }
     }
-    function deleteSchedule(annId) {
+    function deleteAnnouncement(annId) {
         if (confirm("Are you sure you want to delete this Announcement?")) {
             // Redirect to the delete URL (you need to define this in your router)
-            window.location.href = "/SlRail/announcement/deleteSchedule?schedule_id=" + scheduleId;
+            window.location.href = "/SlRail/announcement/deleteAnnouncement?ann_id=" + annId;
         }
     }
 </script>

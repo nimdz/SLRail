@@ -11,9 +11,32 @@ $activeLink = 'dashboard'; // Change this value according to the current page
     <title>StationMaster Dashboard</title>
     <link rel="stylesheet" href="/SlRail/public/css/dashboard.css">
     <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+   
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!--<style>
+        /* Add your styles here */
+
+        .train-icon {
+            position: absolute;
+            font-size: 15px;
+            height: 30px;
+            width: 30px;
+            color: #000000;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: moveTrain 5s linear infinite;
+            top: 277px; /* Adjust the top position as needed */
+            right: 500px;
+        }
+
+        
+
+    @keyframes moveTrain {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(100%); }
+    }
+    </style>-->
 </head>
 <body>
     
@@ -21,19 +44,7 @@ $activeLink = 'dashboard'; // Change this value according to the current page
 
     <?php include('sm_sidebar.php'); ?>
 
-       
-
-    <!--<div class="content">
-      <h1> <center>Welcome StationMaster! </center></Welcome></h1>
-      <p>"Welcome to the Station Master Dashboard, your central hub for efficient railway management.
-         As a Station Master, you play a vital role in ensuring the smooth operation of our SL railway system. 
-         From this dashboard, you have the power to manage your profile, view passenger details, and stay informed about feedback and inquiries. 
-         You can also update train arrivals and departures, monitor ticket refunds, add train schedules, and track the live location of trains in real-time. 
-         This comprehensive set of tools empowers you to provide top-notch service to passengers and maintain the integrity of our railway network. 
-         Feel free to navigate through the menu on the left to access these functionalities and streamline your daily tasks. 
-         We're committed to making your role as a Station Master as efficient and effective as possible, contributing to a seamless railway experience for all passengers." 
-     </p>
-   </div>-->
+   
    <section style="margin-top: 20px;">
         <div class="container">
             
@@ -54,7 +65,9 @@ $activeLink = 'dashboard'; // Change this value according to the current page
                     <p>Passengers</p>
                 </div>
                 <div class="card">
+                    
                     <h1>Express</h1>
+                    <!--<img src="/SlRail/public/assets/trainIcon.png" alt="Train Icon" class="train-icon">-->
                     <p>Type</p>
                 </div>
                 

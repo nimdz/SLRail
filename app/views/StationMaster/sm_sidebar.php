@@ -39,9 +39,9 @@
           Add Train Schedule
       </a>
 
-     <a href="/SlRail/stationmaster/trainsAdd">
+     <a href="/SlRail/stationmaster/trainsAdd" class="hover-link <?php echo ($activeLink == 'addTrains') ? 'active' : ''; ?>">
            <span class="material-symbols-outlined">
-            campaign
+            Train
           </span>
           Add Trains              
       </a>

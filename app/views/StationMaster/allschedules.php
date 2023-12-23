@@ -135,10 +135,6 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
     </div>
 <?php endforeach; ?>
 
-    <p style="text-align: center; padding-top: 100px; font-size:16px;">
-        <a href="/SlRail/stationmaster/dashboard">Go to StationMaster Dashboard</a>
-    </p>
-    
     <script>
     // JavaScript function to toggle visibility of update forms
     function updateSchedule(scheduleId) {
