@@ -1,0 +1,108 @@
+CREATE DATABASE SlRail;
+
+CREATE TABLE passenger (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+   full_name VARCHAR(255) NOT NULL,
+   email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE bookings (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    train_number INT NOT NULL,
+    train_type VARCHAR(255) NOT NULL,
+    departure_station VARCHAR(255) NOT NULL,
+    destination_station VARCHAR(255) NOT NULL,
+    departure_date DATE NOT NULL,
+    number_of_passengers INT NOT NULL,
+    booking_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES passenger(id),
+    FOREIGN KEY (train_number) REFERENCES train(train_number),
+    FOREIGN KEY (train_type) REFERENCES train(train_type)
+);
+
+CREATE TABLE station_master (
+    stationmaster_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE train_schedules (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    departure_station VARCHAR(255) NOT NULL,
+    destination_station VARCHAR(255) NOT NULL,
+    departure_time TIME NOT NULL,
+    arrival_time TIME NOT NULL,
+    schedule_date DATE NOT NULL
+);
+CREATE TABLE Employee(
+   employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+   full_name VARCHAR(255) NOT NULL,
+   nic  VARCHAR(255) NOT NULL,
+   email VARCHAR(255) NOT NULL,
+    position VARCHAR(255) NOT NULL
+);
+RENAME TABLE station_master TO Admin;
+CREATE TABLE Reviews (
+    review_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE announcement(
+    ann_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+DROP TABLE train_schedules;
+
+
+CREATE TABLE train (
+    train_number INT PRIMARY KEY,
+    train_type VARCHAR(255) NOT NULL,
+    capacity INT NOT NULL,
+    stoppings VARCHAR(255) NOT NULL
+);
+
+ALTER TABLE train
+ADD INDEX idx_train_type (train_type);
+
+CREATE TABLE train_schedules (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    departure_station VARCHAR(255) NOT NULL,
+    destination_station VARCHAR(255) NOT NULL,
+    departure_time TIME NOT NULL,
+    arrival_time TIME NOT NULL,
+    schedule_date DATE NOT NULL,
+    train_number INT NOT NULL,
+    train_type VARCHAR(255) NOT NULL,
+    FOREIGN KEY (train_number) REFERENCES train(train_number),
+    FOREIGN KEY (train_type) REFERENCES train(train_type)
+);
+
+CREATE TABLE train_location (
+    location_id INT AUTO_INCREMENT PRIMARY KEY,
+    train_number INT NOT NULL,
+    current_city VARCHAR(255) NOT NULL,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (train_number) REFERENCES train(train_number)
+);
+
+INSERT INTO train (train_number, train_type, capacity, stoppings)
+VALUES (1, 'Express', 300, 'Panadura,Moratuwa,Dehiwala,Mount Lavinia,Wellawatta,Bambalapitiya,Kollupitiya, Colombo Fort');
+
+INSERT INTO train_schedules (departure_station, destination_station, departure_time, arrival_time, schedule_date, train_number, train_type)
+VALUES ('Panadura', 'Colombo Fort', '08:00:00', '09:00:00', '2023-12-27', 1, 'Express');
+
+
+
+
