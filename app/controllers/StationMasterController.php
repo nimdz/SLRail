@@ -30,7 +30,7 @@ class StationmasterController
             if ($profile) {
                 include('app/views/stationmaster/profile.php');
             } else {
-                echo '<script>alert("Error: Train Driver Not Found!")</script>';
+                echo '<script>alert("Error: Station Master Not Found!")</script>';
             }
         } else {
             echo '<script>alert("Error: User Not Logged In!")</script>';
