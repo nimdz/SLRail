@@ -49,6 +49,12 @@ $activeLink = 'addSchedule';
             <label for="schedule_date">Schedule Date:</label>
             <input type="date" name="schedule_date" id="schedule_date" required><br><br>
 
+            <label for="train_number">Train Number:</label>
+            <input type="number" name="train_number" id="train_number" required><br><br>
+
+            <label for="train_type">Train Type:</label>
+            <input type="text" name="train_type" id="train_type" required><br><br>
+
             <center><button type="submit">Add Schedule</button></center>   
         </form>
     </div>
