@@ -95,6 +95,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
             <th>Departure Time</th>
             <th>Arrival Time</th>
             <th>Schedule Date</th>
+            <th>Train Number</th>
+            <th>Train Type</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -106,6 +108,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
                 <td><?= $schedule['departure_time'] ?></td>
                 <td><?= $schedule['arrival_time'] ?></td>
                 <td><?= $schedule['schedule_date'] ?></td>
+                <td><?= $schedule['train_number'] ?></td>
+                <td><?= $schedule['train_type'] ?></td>
                 <td>
                     <!-- Add a condition to hide buttons when update form is visible -->
                     <?php if (!isset($_POST['schedule_id']) || $_POST['schedule_id'] !== $schedule['schedule_id']): ?>
@@ -129,6 +133,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
                 <input type="time" name="departure_time" placeholder="New Departure Time" style="flex: 1; margin-right: 20px;">
                 <input type="time" name="arrival_time" placeholder="New Arrival Time" style="flex: 1; margin-right: 20px;">
                 <input type="date" name="schedule_date" placeholder="New Schedule Date" style="flex: 1;margin-right: 20px;">
+                <input type="number" name="train_number" placeholder="New Train Number" style="flex: 1;margin-right: 20px;">
+                <input type="text" name="train_type" placeholder="New Train Type" style="flex: 1;margin-right: 20px;">
             </div>
             <button type="submit" style="width: auto;">Save</button>
         </form>
