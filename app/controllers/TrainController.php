@@ -35,4 +35,19 @@ class TrainController
         
     }
 
+    public function searchTrain()
+    {
+        // Assuming you get the train number from the form submission
+        $train_number = isset($_POST["train_number"]) ? $_POST["train_number"] : null;
+
+        // Create an instance of the TrainModel
+        $trainModel = new TrainModel();
+
+        // Retrieve train information by train number
+        $trainInfo = $trainModel->getTrainByNumber($train_number);
+
+        // Include the view for displaying the train information
+        include('app/views/StationMaster/sm_dashboard_trainInfo.php');
+    }
+
 }
