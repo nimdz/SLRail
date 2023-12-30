@@ -47,41 +47,40 @@ $activeLink = 'dashboard'; // Change this value according to the current page
    
    <section style="margin-top: 20px;">
         <div class="container">
-            
+        <form action="/SlRail/train/searchTrain" method="post"> 
             <div class="tit" style="margin-left: 20px;">
                 <div class="col-25">
                     <label for="uname">Train Number</label>
                 </div>
                 <div class="tit_holder">
-                    <input type="text" id="uname" name="username" placeholder="" value="">
+                    <input type="text" id="uname" name="train_number" placeholder="" value="">
                 </div>
                 <div class="searchBtn">
                     <input type="submit" value="Search" class="update-btn" id="updatePro">
                 </div>
             </div>
+            </form>
             <div class="card-container">
                 <div class="card">
-                    <h1>700</h1>
-                    <p>Passengers</p>
+                    <h1>Passengers</h1>
+                    
                 </div>
                 <div class="card">
                     
-                    <h1>Express</h1>
+                    <h1>Type</h1>
                     <!--<img src="/SlRail/public/assets/trainIcon.png" alt="Train Icon" class="train-icon">-->
-                    <p>Type</p>
+                    
                 </div>
                 
             </div>
             <div class="card-container">
                 <div class="card">
-                    <h1>Matara</h1>
-                    <p>Source</p>
+                    <h1>Stoppings</h1>
+                    
                 </div>
-                <div class="card">
-                    <h1>Colombo</h1>
-                    <p>Destination</p>
-                </div>
+                
             </div>
+
         </div>
     </section>
 
