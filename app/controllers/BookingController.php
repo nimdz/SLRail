@@ -34,16 +34,19 @@ class BookingController
             $user_id = $_SESSION['user_id'];
 
             // Retrieve data from the booking form
+            $train_number=$_POST["train_number"];
+            $train_type=$_POST["train_type"];
             $departure_station = $_POST["departure_station"];
             $destination_station = $_POST["destination_station"];
             $departure_date = $_POST["departure_date"];
             $number_of_passengers = $_POST["number_of_passengers"];
+           
 
             // Create an instance of the BookingModel
             $bookingModel = new BookingModel();
 
             // Pass the user_id and other data to the BookingModel
-            $bookingResult = $bookingModel->addbooking($user_id, $departure_station, $destination_station, $departure_date, $number_of_passengers);
+            $bookingResult = $bookingModel->addbooking($user_id,$train_number,$train_type, $departure_station, $destination_station, $departure_date, $number_of_passengers);
 
             if ($bookingResult) {
                                 // Booking successful
@@ -91,6 +94,8 @@ class BookingController
 
             // Retrieve data from the booking form
             $booking_id = $_POST['booking_id'];
+            $train_number=$_POST['train_number'];
+            $train_type=$_POST["train_type"];
             $departure_station = $_POST["departure_station"];
             $destination_station = $_POST["destination_station"];
             $departure_date = $_POST["departure_date"];
@@ -100,7 +105,7 @@ class BookingController
             $bookingModel = new BookingModel();
 
             // Pass the user_id and other data to the BookingModel
-            $bookingResult = $bookingModel->updatebooking( $booking_id,$departure_station, $destination_station, $departure_date, $number_of_passengers);
+            $bookingResult = $bookingModel->updatebooking( $booking_id,$train_number,$train_type,$departure_station, $destination_station, $departure_date, $number_of_passengers);
 
             if ($bookingResult) {
                 // Booking successful
