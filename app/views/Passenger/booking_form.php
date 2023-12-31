@@ -5,26 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Train Ticket Booking</title>
-    <link rel="stylesheet" href="/SlRail/public/css/form.css">
     <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
-    <style>
-        .container1 {
-            margin-top: 30px;
-            margin-left: 250px;
-            width: 1000px;
-            height: 600px;
-            border:2px solid black;
-        }
-        .container1 select {
-           width:200px;
-           
-        }
-        .container1 form{
-          margin-left: 300px;
-          margin-top:80px;
-        }
-      
-    </style>
+    <link rel="stylesheet" href="/SlRail/public/css/form.css">
+
 </head>
 
 <body>
@@ -59,7 +42,7 @@
                 <option value="5">5</option>
             </select><br>
 
-            <button type="submit" style="width:200px;">Search Train</button>
+            <button type="submit" style="width:200px; height:40px; margin-left:10px;">Search Train</button>
         </form>
     </div>
 
