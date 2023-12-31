@@ -30,7 +30,6 @@ class TrainModel
             return false; // Added failed
         }
     }
-
-    
 }
+
 ?>
