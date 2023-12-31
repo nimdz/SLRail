@@ -6,15 +6,6 @@
     <title>Announcements</title>
     <link rel="stylesheet" href="/SlRail/public/css/table.css">
     <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
-    <style>
-     .ann-table {
-            width: 1000px;
-            margin: 20px auto; /* Center the table */
-            margin-left: 300px; /* Add left margin to the table */
-            border-collapse: collapse;
-        }
-    </style>
-
 </head>
 <body>
 

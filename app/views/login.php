@@ -16,9 +16,9 @@ input[type="text"], input[type="password"],input[type="email"]{
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  width: 350px;
+  width: 250px;
   box-sizing: border-box;
-  margin-left: 100px;
+  margin-left: 120px;
 }
 label{
   display: block;
