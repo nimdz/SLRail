@@ -9,8 +9,8 @@ $activeLink = 'dashboard'; // Change this value according to the current page
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StationMaster Dashboard</title>
-    <link rel="stylesheet" href="/SlRail/public/css/dashboard.css">
-    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/dashboard.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">
     
    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -25,7 +25,7 @@ $activeLink = 'dashboard'; // Change this value according to the current page
    
    <section style="margin-top: 20px;">
         <div class="container">
-        <form action="/SlRail/train/searchTrain" method="post"> 
+        <form action="/SlRail/train/searchTrain" method="post" id="searchForm"> 
             <div class="tit" style="margin-left: 20px;">
                 <div class="col-25">
                     <label for="uname">Train Number</label>
@@ -61,33 +61,40 @@ $activeLink = 'dashboard'; // Change this value according to the current page
                     <p>Destination</p>
                 </div>
             </div>-->
-
+            
             <?php if ($trainInfo): ?>
             <div class="card-container">
-                <div class="card">
+                <div class="card" id="passengersCard">
                     <h1><?php echo $trainInfo['capacity']; ?></h1>
                     <p>Passengers</p>
                 </div>
-                <div class="card">
+                <div class="card" id="typeCard">
                     <h1><?php echo $trainInfo['train_type']; ?></h1>
                     <p>Type</p>
                 </div>
             </div>
-            <div class="card-container">
-                <div class="card">
-                    <h4><?php echo $trainInfo['stoppings']; ?></h4>
-                    <p>Stoppings</p>
+            <div class="middle-card" id="stoppingsCard">
+        <div class="stoppings-content">
+            <?php
+            // Assuming $trainInfo['stoppings'] is a comma-separated string
+            $stoppingsArray = explode(',', $trainInfo['stoppings']);
+            foreach ($stoppingsArray as $stopping): ?>
+                <div class="stoppings-item">
+                    <h4><?php echo $stopping; ?></h4>
+                    
                 </div>
-                
-            </div>
+            <?php endforeach; ?>
+            <p>Stopping Points</p>
+        </div>
+    </div>
         <?php else: ?>
             <p>No information found for the given train number.</p>
         <?php endif; ?>
-
+  
         </div>
     </section>
 
   <?php include('public/includes/footer.php'); ?>
-    
+ 
 </body>
 </html>
