@@ -9,8 +9,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Train Schedules</title>
-    <link rel="stylesheet" href="/SlRail/public/css/table.css">
-    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/table.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">
     <style>
         table, td, th {
             border: 1px solid #ddd;
