@@ -9,8 +9,8 @@ $activeLink = 'dashboard'; // Change this value according to the current page
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StationMaster Dashboard</title>
-    <link rel="stylesheet" href="/SlRail/public/css/dashboard.css">
-    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/dashboard.css">
+    <!--<link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">-->
     <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -47,7 +47,7 @@ $activeLink = 'dashboard'; // Change this value according to the current page
    
    <section style="margin-top: 20px;">
         <div class="container">
-        <form action="/SlRail/train/searchTrain" method="post"> 
+        <form action="/SlRail/train/searchTrain" method="post" id="searchForm"> 
             <div class="tit" style="margin-left: 20px;">
                 <div class="col-25">
                     <label for="uname">Train Number</label>
@@ -61,11 +61,11 @@ $activeLink = 'dashboard'; // Change this value according to the current page
             </div>
             </form>
             <div class="card-container">
-                <div class="card">
+                <div class="card" id="passengersCard">
                     <h1>Passengers</h1>
                     
                 </div>
-                <div class="card">
+                <div class="card" id="typeCard">
                     
                     <h1>Type</h1>
                     <!--<img src="/SlRail/public/assets/trainIcon.png" alt="Train Icon" class="train-icon">-->
@@ -73,8 +73,8 @@ $activeLink = 'dashboard'; // Change this value according to the current page
                 </div>
                 
             </div>
-            <div class="card-container">
-                <div class="card">
+            <div class="middle-card" id="stoppingsCard">
+                
                     <h1>Stoppings</h1>
                     
                 </div>
@@ -83,7 +83,7 @@ $activeLink = 'dashboard'; // Change this value according to the current page
 
         </div>
     </section>
-
+   
   <?php include('public/includes/footer.php'); ?>
     
 </body>
