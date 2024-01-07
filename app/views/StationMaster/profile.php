@@ -1,9 +1,14 @@
+<?php
+// Set the active link based on the current page
+$activeLink = 'profile'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Station Master Profile</title>
-  <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
-  <link rel="stylesheet" href="/SlRail/public/css/profile.css">
+  <!--<link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">-->
+  <link rel="stylesheet" href="/SlRail/public/css/StationMaster/profile.css">
 </head>
 <body>
 
