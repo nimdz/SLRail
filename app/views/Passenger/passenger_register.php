@@ -11,16 +11,16 @@
             <h2>SignUp</h2>
             <form action="/SlRail/passenger/register" method="post">
                 <label for="username">Username:</label>
-                <input type="text" name="username" required><br>
+                <input type="text" name="username" style="margin-left:150px;"required><br>
 
                 <label for="full_name">Full Name:</label>
-                <input type="text" name="full_name" required><br>
+                <input type="text" name="full_name" style="margin-left:150px;"required><br>
 
                 <label for="email">Email:</label>
-                <input type="email" name="email" required><br>
+                <input type="email" name="email" style="margin-left:150px;"required><br>
 
                 <label for="password">Password:</label>
-                <input type="password" name="password" required><br>
+                <input type="password" name="password"  style="margin-left:150px;"required><br>
 
                 <button class="button" type="submit">Register</button>
             </form>
