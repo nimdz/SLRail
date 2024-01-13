@@ -16,17 +16,17 @@
 
     <?php include('passenger_sidebar.php'); ?>
 
-    <script src="/SlRail/public/Js/search_form.js" type="text/javascript"></script>
+    <script src="/SlRail/public/Js/stations.js" type="text/javascript"></script>
 
 
     <div class="container1">
         <h1 style="margin-top:10px; margin-left:250px;">Train Ticket Booking</h1>
         <form action="/SlRail/booking/search" method="get" id="bookingForm">
-            <label for="departure_station">From:</label>
+            <label for="departure_station">Start Station:</label>
             <select id="From" name="departure_station" required>
             </select>
 
-            <label for="destination_station">To:</label>
+            <label for="destination_station">End Station:</label>
             <select id="destination" name="destination_station" required>
             </select>
 
