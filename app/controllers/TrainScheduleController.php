@@ -173,4 +173,16 @@ class TrainScheduleController
          include('app/views/Passenger/trainschedule.php');
     
     }
+
+    public function filter(){
+ 
+        $departure_station = isset($_GET["departure_station"]) ? $_GET["departure_station"] : '';
+        $destination_station = isset($_GET["destination_station"]) ? $_GET["destination_station"] : '';
+
+        $searchModel=new TrainScheduleModel();
+        $availabletrains=$searchModel->getAvailableTrains($departure_station,$destination_station);
+
+        include('app/views/Passenger/filter_schedule.php');
+    
+    }
 }
