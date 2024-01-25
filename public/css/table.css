@@ -1,39 +1,76 @@
 /* table.css */
-
 body {
     font-family: 'Poppins', sans-serif;
+    height: auto;
+    min-height: 100%;
     margin: 0;
+    padding: 0;
 }
-
 .booking-table {
     width: 80%;
+    margin: 20px auto; /* Center the table */
+    margin-left: 250px; /* Add left margin to the table */
     border-collapse: collapse;
-    margin-left: 800px;
+    }
+    
+.ann-table {
+        width: 1000px;
+        margin: 20px auto; /* Center the table */
+        margin-left: 300px; /* Add left margin to the table */
+        border-collapse: collapse;
+    }
+.trains-table{
+    width: 80%;
+    margin: 20px auto; /* Center the table */
+    margin-left: 400px; /* Add left margin to the table */
+    border-collapse: collapse;
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+    margin-top: 50px;
+    }
+.location-table {
+        width: 80%;
+        margin: 20px auto; /* Center the table */
+        margin-left: 250px; /* Add left margin to the table */
+        border-collapse: collapse;
 }
+.scheduling-table{
+    width: 80%;
+    margin: 20px auto; /* Center the table */
+    margin-left: 240px; /* Add left margin to the table */
+    border-collapse: collapse;
+    }
 
 thead {
     background-color: #007bff;
     color: white;
+    text-align: left; /* Align text to the left */
+
 }
 
 th, td {
     padding: 15px;
     border: 1px solid #ddd;
+    text-align: left;
+
 }
 
 button {
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 50px;
     background-color: #007bff;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+
 button + button {
     margin-left: 5px;
+    margin-top: 10px;
 }
 
 /* Style for the update form */
@@ -50,4 +87,57 @@ form input {
 
 form button {
     padding: 8px;
+}
+
+/* Style for Material Icons  */
+
+ .material-icons,
+.material-symbols-outlined {
+  display: block;
+  font-size: 15px; /* Adjust the icon size as needed */
+  margin-right: 6px; /* Add spacing between icon and text */
+  color:black;
+}
+tr th {
+    text-align: left;
+    /* Align text to the left for better appearance */
+    height: auto;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+.ticket-prices {
+    /* Adjust the height as needed */
+    overflow-y: auto;
+    /* Enable vertical scrolling if content exceeds the height */
+    margin-top: 5px;
+    /* Add some space between the tables */
+    margin-left: 220px;
+    display: none; /* Hide the price table by default */
+}
+.clearfix::after {
+content: "";
+display: table;
+clear: both;
+}
+th, td {
+padding: 10px;
+border: 1px solid #ddd;
+text-align: left;
+width:480px;
+}
+
+.icon {
+display: inline-block;
+width: 20px;
+height: 20px;
+margin-right: 5px;
+}
+
+.description {
+display: inline-block;
 }

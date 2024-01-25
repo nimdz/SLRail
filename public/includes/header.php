@@ -15,9 +15,8 @@
             background-color:#045aa6;
             text-align: center;
             padding: 5px;
-            border-radius: 50px;
-            border:2px solid white;
-            margin-left: 200px;
+            border:1px solid white;
+            margin-left: 0px;
         }
 
       
