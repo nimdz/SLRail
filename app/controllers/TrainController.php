@@ -37,25 +37,18 @@ class TrainController{
         
     }
 
-    public function track(){
+    public function view(){
+
+        $trainModel=new TrainModel();
+
+        $trains=$trainModel->getAllTrains();
+
+        include('app/views/TrainDriver/alltrains.php');
     
-        session_start();
-
-        $train_number=$_POST['train_number'];
-
-        $trainlocationModel=new TrainLocationModel();
-
-        $trainLocation=$trainlocationModel->getLocation($train_number);
-
-        if (!empty($trainLocation)) {
-            // Display the train location details
-            include('app/views/Passenger/trainlocation.php');
-
-          } else {
-            echo "Train location not found.";
-        }
+    
     }
 
+  
 
 
 }
