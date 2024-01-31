@@ -11,26 +11,27 @@ class TrainLocationModel{
         
     }
 
-    public function addLocation($train_number,$current_city,$last_updated){
+    public function addLocation($train_number, $current_city, $last_updated)
+    {
+        $conn = $this->db->getConnection();
 
-        $conn=$this->db->getConnection();
+        $sql = "INSERT INTO train_location(train_number, current_city, last_updated) VALUES(?, ?, ?)";
+        $stmt = $conn->prepare($sql);
 
-        $sql="INSERT INTO train_location(train_number,current_city,last_updated) VALUES(?,?,?)";
-        $stmt=$conn->prepare($sql);
-
-        if($stmt==false){
-            die("Error:".$conn->error);
-        }
-        $stmt->bind_param("iss",$train_number,$current_city,$last_updated);
-
-        if($stmt->execute()){
+        if($stmt === false){
+            die("Error:". $conn->error);
+         }
+         $stmt->bind_param("iss",$train_number,$current_city,$last_updated);
+ 
+         if($stmt->execute()){
             return true;
-        }else{
+         }else{
             return false;
-        }
-    
-    
+         }
+     
     }
+    
+
 
     public function getLocation($train_number){
 
