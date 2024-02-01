@@ -62,6 +62,7 @@ class TraindriverController
     }
 
   public function dashboard(){
+      session_start();
       include ('app/views/TrainDriver/td_dashboard.php');
   }
  public function logout(){
