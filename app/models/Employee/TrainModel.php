@@ -30,6 +30,25 @@ class TrainModel
             return false; // Added failed
         }
     }
+
+
+    public function getAllTrains(){
+       
+        $conn=$this->db->getConnection();
+
+        $sql="SELECT * FROM train";
+        $result=$conn->query($sql);
+
+        $trains=array();
+        while ($row = $result->fetch_assoc()) {
+            $trains[] = $row;
+        }
+
+        return $trains;
+      
+    }
 }
+
+    
 
 ?>
