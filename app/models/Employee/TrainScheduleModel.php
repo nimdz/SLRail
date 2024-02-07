@@ -11,25 +11,27 @@ class TrainScheduleModel
         $this->db = new Database();
     }
     
-    public function createSchedule($departure_station, $destination_station, $departure_time, $arrival_time, $schedule_date,$train_number,$train_type)
+    public function createSchedule($departure_station, $destination_station, $departure_time, $arrival_time, $train_number, $train_type, $stoppings, $monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday)
     {
         $conn = $this->db->getConnection();
-
-        $sql = "INSERT INTO train_schedules (departure_station, destination_station, departure_time, arrival_time, schedule_date,train_number,train_type) VALUES (?, ?, ?, ?, ?,?,?)";
+    
+        $sql = "INSERT INTO train_schedules (departure_station, destination_station, departure_time, arrival_time, train_number, train_type, stoppings, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-
+    
         if ($stmt === false) {
             die("Error: " . $conn->error);
         }
-
-        $stmt->bind_param("sssssis", $departure_station, $destination_station, $departure_time, $arrival_time, $schedule_date,$train_number,$train_type);
-
+    
+        $stmt->bind_param("ssssissiiiiiii", $departure_station, $destination_station, $departure_time, $arrival_time, $train_number, $train_type, $stoppings, $monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday);
+    
         if ($stmt->execute()) {
             return true; // Schedule creation successful
         } else {
             return false; // Schedule creation failed
         }
     }
+    
+    
     public function getAvailableTrains($departure_station, $destination_station) {
         $conn = $this->db->getConnection();
     
@@ -90,25 +92,73 @@ class TrainScheduleModel
         return $result->fetch_assoc();
     }
 
-    public function updateSchedule($scheduleId, $departureStation, $destinationStation, $departureTime, $arrivalTime, $scheduleDate,$train_number,$train_type)
-    {
+    public function updateSchedule(
+        $scheduleId,
+        $departureStation,
+        $destinationStation,
+        $departureTime,
+        $arrivalTime,
+        $train_number,
+        $train_type,
+        $stoppings,
+        $monday,
+        $tuesday,
+        $wednesday,
+        $thursday,
+        $friday,
+        $saturday,
+        $sunday
+    ) {
         $conn = $this->db->getConnection();
-
-        $sql = "UPDATE train_schedules SET departure_station=?, destination_station=?, departure_time=?, arrival_time=?, schedule_date=?,train_number=?,train_type=? WHERE schedule_id=?";
+    
+        $sql = "UPDATE train_schedules SET
+            departure_station=?,
+            destination_station=?,
+            departure_time=?,
+            arrival_time=?,
+            train_number=?,
+            train_type=?,
+            stoppings=?,
+            monday=?,
+            tuesday=?,
+            wednesday=?,
+            thursday=?,
+            friday=?,
+            saturday=?,
+            sunday=?
+            WHERE schedule_id=?";
         $stmt = $conn->prepare($sql);
-
+    
         if ($stmt === false) {
             die("Error: " . $conn->error);
         }
-
-        $stmt->bind_param("sssssi", $departureStation, $destinationStation, $departureTime, $arrivalTime, $scheduleDate, $scheduleId);
-
+    
+        $stmt->bind_param(
+            "sssssiiiiiiiiiii",
+            $departureStation,
+            $destinationStation,
+            $departureTime,
+            $arrivalTime,
+            $train_number,
+            $train_type,
+            $stoppings,
+            $monday,
+            $tuesday,
+            $wednesday,
+            $thursday,
+            $friday,
+            $saturday,
+            $sunday,
+            $scheduleId
+        );
+    
         if ($stmt->execute()) {
             return true; // Schedule update successful
         } else {
             return false; // Schedule update failed
         }
     }
+    
 
     public function deleteSchedule($scheduleId)
     {
