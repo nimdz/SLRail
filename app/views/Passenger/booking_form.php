@@ -21,7 +21,7 @@
 
     <div class="container1">
         <h1 style="margin-top:10px; margin-left:250px;">Train Ticket Booking</h1>
-        <form action="/SlRail/booking/search" method="get" id="bookingForm">
+        <form action="/SlRail/booking/search" method="get" id="bookingForm"style="margin-top:10px; margin-left:300px;">
             <label for="departure_station">Start Station:</label>
             <select id="From" name="departure_station" required>
             </select>
@@ -41,12 +41,18 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select><br>
-
-            <button type="submit" style="width:200px; height:40px; margin-left:10px;">Search Train</button>
+            <label for="number_of_passengers"> Seat Class:</label>
+            <select name="seat_class" class="train-class" data-departure="<?= $train['departure_station'] ?>" data-destination="<?= $destination_station ?>">
+                <option value="Class1">Class 1</option>
+                <option value="Class2">Class 2</option>
+                <option value="Class3">Class 3</option>
+            </select><br>
+            <button type="submit" style="width:200px; height:40px; margin-left:0px; ">Search Train</button>
         </form>
     </div>
 
     <?php include('public/includes/footer.php'); ?>
+
 
 </body>
 
