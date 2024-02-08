@@ -36,10 +36,10 @@ label{
             <h2>Login</h2>
             <form action="/SlRail/home/login" method="post">
                 <label for="username">Username:</label>
-                <input type="text" name="username" required><br>
+                <input type="text" name="username" class="user" required><br>
 
                 <label for="password">Password:</label>
-                <input type="password" name="password" required><br>
+                <input type="password" name="password" class="pass"required><br>
 
                 <button class="button" type="submit">Login</button>
             </form>
