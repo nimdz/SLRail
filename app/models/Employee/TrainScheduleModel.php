@@ -32,31 +32,37 @@ class TrainScheduleModel
     }
     
     
-    public function getAvailableTrains($departure_station, $destination_station) {
-        $conn = $this->db->getConnection();
-    
-        $sql = "SELECT *  FROM train_schedules WHERE (departure_station = ? AND destination_station = ?)
-                OR (stoppings LIKE CONCAT('%', ?, '%', ?, '%'))";
-                        
-        $stmt = $conn->prepare($sql);
-    
-        if ($stmt === false) {
-            die("Error:" . $conn->error);
-        }
-    
-        $stmt->bind_param("ssss", $departure_station, $destination_station, $departure_station, $destination_station);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    
-        $availableTrains = [];
-    
-        while ($row = $result->fetch_assoc()) {
-            $availableTrains[] = $row;
-        }
-    
-        return $availableTrains;
+  public function getAvailableTrains($departure_station, $destination_station) {
+    $conn = $this->db->getConnection();
+
+    $sql = "SELECT DISTINCT * FROM train_schedules WHERE (departure_station = ? AND destination_station = ?)
+            OR (stoppings LIKE CONCAT('%', ?, '%', ?, '%'))
+            ORDER BY departure_time ASC";
+
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) {
+        die("Error preparing statement: " . $conn->error);
     }
+
+    // Only bind each parameter once
+    $stmt->bind_param("ssss", $departure_station, $destination_station, $departure_station, $destination_station);
     
+    if (!$stmt->execute()) {
+        die("Error executing statement: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    $availableTrains = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $availableTrains[] = $row;
+    }
+
+    return $availableTrains;
+}
+
     
 
     public function getAllSchedules()
