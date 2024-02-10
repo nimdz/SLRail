@@ -14,9 +14,10 @@
 
 <body class="clearfix">
 
-    <?php include('public/includes/header.php'); ?>
 
     <?php include('passenger_sidebar.php'); ?>
+    <?php include('public/includes/header.php'); ?>
+
 
     <h1 style="margin-left:270px; margin-top:10px;"><center>Available Trains</center></h1>
 
@@ -26,13 +27,14 @@
                 <tr>
                     <th><span class="material-symbols-outlined">train</span> Train ID</th>
                     <th><span class="material-symbols-outlined">train</span> Train Type</th>
-                    <th><span class="material-symbols-outlined">location_on</span> Departure Station</th>
-                    <th><span class="material-symbols-outlined">location_on</span> Destination Station</th>
+                    <th><span class="material-symbols-outlined">location_on</span> Departure </th>
+                    <th><span class="material-symbols-outlined">location_on</span> Destination </th>
                     <th><span class="material-symbols-outlined">event</span> Departure Date</th>
-                    <th><span class="material-symbols-outlined">man</span> Number Of Passengers</th>
+                    <th><span class="material-symbols-outlined">man</span> Passengers</th>
                     <th><span class="material-symbols-outlined">schedule</span> Departure Time</th>
                     <th><span class="material-symbols-outlined">schedule</span> Arrival Time</th>
-                    <th><span class="material-symbols-outlined">check</span>Train Class </th>
+                    <th><span class="material-symbols-outlined">check</span>Train Class </th>*/
+                    <th><span class="material-symbols-outlined">payments</span>Ticket price </th>
                     <th><span class="material-symbols-outlined">settings</span>Action</th>
                 </tr>
             </thead>
@@ -49,13 +51,8 @@
                             <?= date('A', strtotime($train['departure_time'])) ?></td>
                         <td><?= date('h:i', strtotime($train['arrival_time'])) ?>
                             <?= date('A', strtotime($train['arrival_time'])) ?></td>
-                        <td>
-                            <select class="train-class" data-departure="<?= $train['departure_station'] ?>" data-destination="<?= $destination_station ?>">
-                                <option value="1">Class 1</option>
-                                <option value="2">Class 2</option>
-                                <option value="3">Class 3</option>
-                            </select>
-                        </td>
+                        <td><?= $seat_class  ?></td>  
+                        <td>Rs <?= $price ?></td>
                         <td>
                             <form action="/SlRail/booking/add" method="post">
                                 <input type="hidden" name="train_number" value="<?= $train['train_number'] ?>">
@@ -64,6 +61,8 @@
                                 <input type="hidden" name="destination_station" value="<?= $destination_station ?>">
                                 <input type="hidden" name="departure_date" value="<?= $departure_date  ?>">
                                 <input type="hidden" name="number_of_passengers" value="<?= $number_of_passengers ?>">
+                                <input type="hidden" name="seat_class" value="<?= $seat_class ?>">
+                                <input type="hidden" name="ticket_price" value="<?= $price ?>">
                                 <button type="submit">Book Now</button>
                             </form>
                         </td>
@@ -72,37 +71,15 @@
             </tbody>
         </table>
 
-        <table class="ticket-prices" style="overflow-y:auto;">
-            <thead>
-                <tr>
-                    <th><span class="material-symbols-outlined">check</span>Train Class</th>
-                    <th><span class="material-symbols-outlined">payments</span>Ticket Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Class 1</td>
-                    <td class="class-1-price">RS 0</td>
-                </tr>
-                <tr>
-                    <td>Class 2</td>
-                    <td class="class-2-price">RS 0</td>
-                </tr>
-                <tr>
-                    <td>Class 3</td>
-                    <td class="class-3-price">RS 0</td>
-                </tr>
-            </tbody>
-        </table>
+        
 
     <?php else : ?>
         <p style="margin-left:250px; border:1px solid white; height:20px;"> No available trains found. Please try again.</p>
     <?php endif; ?>
 
-    <script src="/SlRail/public/Js/ticket_price.js" type="text/javascript"></script>
+   
 
-<?php include('public/includes/footer.php'); ?>
-
+    <?php include('public/includes/footer.php'); ?>
 
 </body>
 
