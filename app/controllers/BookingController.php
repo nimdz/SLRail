@@ -68,12 +68,14 @@ class BookingController
             $number_of_passengers = $_POST["number_of_passengers"];
             $seat_class = $_POST["seat_class"];
             $ticket_price=$_POST["ticket_price"];
+            $departure_time=$_POST["departure_time"];
+            $arrival_time=$_POST["arrival_time"];
 
             // Create an instance of the BookingModel
             $bookingModel = new BookingModel();
 
             // Pass the user_id and other data to the BookingModel
-            $bookingResult = $bookingModel->addbooking($user_id,$train_number,$train_type, $departure_station, $destination_station, $departure_date, $number_of_passengers,$seat_class,$ticket_price);
+            $bookingResult = $bookingModel->addbooking($user_id,$train_number,$train_type, $departure_station, $destination_station, $departure_date, $number_of_passengers,$seat_class,$ticket_price,$departure_time,$arrival_time);
 
             if ($bookingResult) {
                                 // Booking successful
