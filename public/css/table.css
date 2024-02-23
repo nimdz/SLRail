@@ -19,14 +19,7 @@ body {
         margin-left: 300px; /* Add left margin to the table */
         border-collapse: collapse;
     }
-.trains-table{
-    width: 80%;
-    margin: 20px auto; /* Center the table */
-    margin-left: 400px; /* Add left margin to the table */
-    border-collapse: collapse;
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
-    margin-top: 50px;
-    }
+
 .location-table {
         width: 80%;
         margin: 20px auto; /* Center the table */
@@ -110,15 +103,6 @@ table {
     width: 100%;
   }
 
-.ticket-prices {
-    /* Adjust the height as needed */
-    overflow-y: auto;
-    /* Enable vertical scrolling if content exceeds the height */
-    margin-top: 5px;
-    /* Add some space between the tables */
-    margin-left: 220px;
-    display: none; /* Hide the price table by default */
-}
 .clearfix::after {
 content: "";
 display: table;
@@ -141,3 +125,48 @@ margin-right: 5px;
 .description {
 display: inline-block;
 }
+
+     /* Available trains styles  */
+     .trains-table {
+        margin-top: 5px;
+        margin-left: 100px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .trains-table th,
+    .trains-table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .trains-table th {
+        background-color: blue;            
+        font-weight: bold;
+    }
+
+    .trains-table td span {
+        margin-right: 5px;
+    }
+
+    .trains-table td span.material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    .trains-table td span.material-symbols-outlined::before {
+        font-family: 'Material Icons';
+    }
+
+    .trains-table td.action-button button {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .trains-table td.action-button button:hover {
+        background-color: #0056b3;
+    }
