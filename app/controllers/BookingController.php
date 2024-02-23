@@ -4,6 +4,7 @@ require_once 'app/models/Passenger/BookingModel.php';
 require_once 'app/models/Employee/TrainScheduleModel.php';
 
 
+
 class BookingController
 {
  
@@ -24,16 +25,25 @@ class BookingController
             'destination_station' => $destination_station,
             'departure_date' => $departure_date,
             'number_of_passengers' => $number_of_passengers,
-            'seat_class' => $seat_class
+            'seat_class' => $seat_class,
         ];
 
         // Fetch available trains based on the provided parameters
         $searchModel = new TrainScheduleModel;
         $availableTrains = $searchModel->getAvailableTrains($departure_station, $destination_station);
         
-        // Fetch the ticket price
+        // Fetch the ticket price for each available train
         $priceModel = new BookingModel;
-        $price = $priceModel->fetchPrice($departure_station, $destination_station, $seat_class);
+        $prices = [];
+        foreach ($availableTrains as $train) {
+            $train_number = $train['train_number'];
+            $price = $priceModel->fetchPrice($departure_station, $destination_station, $seat_class, $number_of_passengers, $train_number);
+            $prices[$train_number] = $price;
+        }
+ 
+     // Store ticket price in session data
+     $_SESSION['search_data']['prices'] = $prices;
+ 
 
         // Debugging: Output the fetched ticket price
         //echo "Fetched ticket price: $price<br>";
@@ -50,6 +60,7 @@ class BookingController
     {
         // Start a session to access session variables
         session_start();
+
         include('app/views/Passenger/booking_form.php');
 
         // Debugging: Print out the $_POST array
@@ -58,6 +69,7 @@ class BookingController
         // Check if the user is logged in and get the user's ID
         if (isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
+
 
             // Retrieve data from the booking form
             $train_number=$_POST["train_number"];
