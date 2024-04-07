@@ -1,0 +1,17 @@
+{
+    "name": "nimsaradz/sl-rail",
+    "description": "railway",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"        }
+    },
+    "authors": [
+        {
+            "name": "Nimsara De Zoysa",
+            "email": "105286867+nimdz@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpqrcode/phpqrcode": "dev-master"
+    }
+}
