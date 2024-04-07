@@ -31,6 +31,21 @@ class TrainModel
         }
     }
 
+    public function getAllTrains()
+    {
+        $conn = $this->db->getConnection();
+
+        $sql = "SELECT * FROM train";
+        $result = $conn->query($sql);
+
+        $trains = array();
+        while ($row = $result->fetch_assoc()) {
+            $trains[] = $row;
+        }
+
+        return $trains;
+    }
+
     public function getTrainByNumber($train_number)
     {
         $conn = $this->db->getConnection();
@@ -54,4 +69,6 @@ class TrainModel
         }
     }
 }
+
 ?>
+

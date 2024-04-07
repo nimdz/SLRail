@@ -3,33 +3,37 @@
 require_once 'app/models/Passenger/PassengerModel.php';
 
 
-class PassengerController
+class PassengerController 
 {
     public function register()
     {
-     // Load the registration form view (register.php)
+        // Load the registration form view (register.php)
         include('app/views/Passenger/passenger_register.php');
-        // Retrieve data from the registration form
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $full_name = $_POST["full_name"];
-        $email = $_POST["email"];
-        $nic= $_POST["nic"];
-
-        // Create an instance of the PassengerModel
-        $passengerModel = new PassengerModel();
-
-        // Register the passenger
-        $registrationResult = $passengerModel->registerPassenger($username, $password, $full_name, $email,$nic);
-
-        if ($registrationResult) {
-            // Registration successful
-            echo '<script>alert("Registration Successful!")</script>';
-        } else {
-            // Registration failed
-            echo "Error: Registration failed.";
+    
+        // Check if the form is submitted
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Retrieve data from the registration form
+            $username = $_POST['username'];
+            $full_name = $_POST['full_name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+    
+            // Create an instance of the PassengerModel
+            $passengerModel = new PassengerModel();
+    
+            // Register the passenger
+            $registrationResult = $passengerModel->registerPassenger($username, $full_name, $email, $password);
+    
+            if ($registrationResult) {
+                // Registration successful
+                echo '<script>alert("Registration Successful!")</script>';
+            } else {
+                // Registration failed
+                echo '<script>alert("Error: Registration failed.")</script>';
+            }
         }
     }
+    
    
     public function forgotPassword(){
 
@@ -46,7 +50,7 @@ class PassengerController
 
             if($result){
                 echo '<script>alert("Password reset successfully! Login with your new password.")</script>';
-                header("Location: /SlRail/passenger/login");
+                header("Location: /SlRail/home/login");
                 exit();
             }else{
                 echo '<script>alert("Error: Unable to reset the password.")</script>';

@@ -16,16 +16,17 @@ $baseUrl = '/SlRail';
 $controllers = [
     'home' => ['index','login'],
     'passenger' => ['register', 'dashboard', 'profile','forgotPassword','updateProfile','viewLocation','logout'],
-    'booking' => ['search','add', 'userBookings', 'update', 'deleteBooking'],
+    'booking' => ['info','search','add', 'userBookings', 'update', 'deleteBooking','downloadTicketPdf'],
     'review' =>['add'],
-    'trainschedule' => ['addSchedule', 'viewSchedules','tdviewSchedules', 'updateSchedule', 'deleteSchedule','showSchedule'],
-    'train' => ['addTrain'],
+    'train'  =>['add','view','track'],
+    'trainlocation'  =>['add','view'],
+    'employee' =>['add','allemployees'],
+    'trainschedule' => ['addSchedule', 'viewSchedules','tdviewSchedules', 'updateSchedule', 'deleteSchedule','searchSchedule','filter','stoppings'],
     'announcement' =>['viewAnnouncement','addAnnouncement','tdaddAnnouncement','smviewAnnouncement','updateAnnouncement','deleteAnnouncement'],
     'stationmaster'=>['logout','dashboard','profile','updateProfile','trainsAdd'],
     'traindriver' =>['profile','logout','updateProfile','shareLocation','dashboard'],
     'ticketingofficer' =>['logout','dashboard'],
     'admin' =>['logout','dashboard', 'allPassengers'],
-    'employee' =>['register'],
 ];
 
 // Create routes for each controller and action

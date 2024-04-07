@@ -45,6 +45,9 @@ class HomeController
             $employeeResult = $employeeModel->loginEmployee($username, $password);
 
             if ($employeeResult) {
+                //Store Session Variables
+                $_SESSION['employee_id']=$employeeResult['employee_id'];
+                $_SESSION['username']=$employeeResult['username'];
                 // Redirect based on the employee's role
                 $this->redirectBasedOnRole($employeeResult['position']);
             } else {

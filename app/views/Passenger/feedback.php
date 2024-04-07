@@ -6,13 +6,6 @@
     <title>Feedback Form</title>
     <link rel="stylesheet" href="/SlRail/public/css/style_form.css">
     <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
-    <style>
-        .container{
-            margin-top: 50px;
-            width:1200px;
-            height:auto;
-        }
-    <style>
 </head>
 <body>
 
@@ -27,7 +20,7 @@
 
     <div class="container">
         <form action="/SlRail/review/add" method="post">
-            <h3>Your Feedback</h3>
+            <h3 >Your Feedback</h3>
             <div class="row">
                 <div class="col-25">
                     <label for="full_name">Full Name:</label>
@@ -59,11 +52,8 @@
                 <div class="col-75">
                     <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
                 </div>
-            </div>
-            <div class="row">
-                <div>
-                    <input type="submit" value="Send" class="update-btn" id="updatePro">
-                </div>
+                <button type="submit" class="btn1">Submit</button>
+
             </div>
         </form>
     </div>

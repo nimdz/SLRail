@@ -4,31 +4,6 @@
     <meta charset="UTF-8">
     <title>Passenger Registration</title>
     <link rel="stylesheet" href="/SlRail/public/css/styles.css">
-<style>
-            .button{
-            width: 150px;
-            border-radius: 50px;
-            margin-top: 10px;
-            margin-left: 170px;
-        }
-        input[type="text"], input[type="password"],input[type="email"]{
-        padding: 10px;
-        border-radius: 20px;
-        border: 1px solid #ccc;
-        width: 350px;
-        box-sizing: border-box;
-        margin-left: 100px;
-        }
-        label{
-        display: block;
-        margin-left: 100px;
-        }
-        .links {
-        justify-content: space-between;
-        margin-left: 110px;
-        
-        }
-</style>
 </head>
 <body>
     <div class="container">
@@ -36,16 +11,16 @@
             <h2>SignUp</h2>
             <form action="/SlRail/passenger/register" method="post">
                 <label for="username">Username:</label>
-                <input type="text" name="username" required><br>
+                <input type="text" name="username" style="margin-left:150px;"required><br>
 
                 <label for="full_name">Full Name:</label>
-                <input type="text" name="full_name" required><br>
+                <input type="text" name="full_name" style="margin-left:150px;"required><br>
 
                 <label for="email">Email:</label>
-                <input type="email" name="email" required><br>
+                <input type="email" name="email" style="margin-left:150px;"required><br>
 
                 <label for="password">Password:</label>
-                <input type="password" name="password" required><br>
+                <input type="password" name="password"  style="margin-left:150px;"required><br>
 
                 <button class="button" type="submit">Register</button>
             </form>

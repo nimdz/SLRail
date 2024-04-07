@@ -1,9 +1,11 @@
 <?php
 
+require_once 'app/models/Employee/TrainLocationModel.php';
 require_once 'app/models/Employee/TrainModel.php';
 
-class TrainController
-{
+
+class TrainController{
+
     public function addTrain()
     {
 
@@ -50,4 +52,13 @@ class TrainController
         include('app/views/StationMaster/sm_dashboard_trainInfo.php');
     }
 
+    public function view(){
+
+        $trainModel=new TrainModel();
+
+        $trains=$trainModel->getAllTrains();
+
+        include('app/views/TrainDriver/alltrains.php');
+    }
 }
+?>

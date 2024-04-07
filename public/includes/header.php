@@ -9,18 +9,30 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            width:auto;
         }
 
         .header {
-            background-color:#045aa6;
+            background-color: #045aa6; /* Dark blue background */
+            color: white; /* White text color */
             text-align: center;
-            padding: 5px;
-            border-radius: 50px;
-            border:2px solid white;
-            margin-left: 200px;
+            padding: 10px;
+            border-bottom: 2px solid white; /* White border bottom */
+            width:auto;
         }
 
-      
+        .header p {
+            margin: 0;
+            font-size: 18px; /* Larger font size */
+        }
+
+        .header p:first-child {
+            font-weight: bold; /* Bold text for the first span */
+        }
+
+        .header p span:last-child {
+            font-style: italic; /* Italic text for the second span */
+        }
     </style>
 </head>
 <body>

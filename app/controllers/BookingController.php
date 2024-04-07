@@ -1,47 +1,93 @@
 <?php
 
 require_once 'app/models/Passenger/BookingModel.php';
+require_once 'app/models/Employee/TrainScheduleModel.php';
+
+
 
 class BookingController
 {
  
-    public function search()
+        public function search()
     {
-            // Retrieve data from the query parameters
-            $departure_station = isset($_GET["departure_station"]) ? $_GET["departure_station"] : '';
-            $destination_station = isset($_GET["destination_station"]) ? $_GET["destination_station"] : '';
-            $departure_date = isset($_GET["departure_date"]) ? $_GET["departure_date"] : '';
-            $number_of_passengers = isset($_GET["number_of_passengers"]) ? $_GET["number_of_passengers"] : '';
+        session_start();
+
+        // Retrieve data from the query parameters
+        $departure_station = isset($_GET["departure_station"]) ? $_GET["departure_station"] : '';
+        $destination_station = isset($_GET["destination_station"]) ? $_GET["destination_station"] : '';
+        $departure_date = isset($_GET["departure_date"]) ? $_GET["departure_date"] : '';
+        $number_of_passengers = isset($_GET["number_of_passengers"]) ? $_GET["number_of_passengers"] : '';
+        $seat_class = isset($_GET["seat_class"]) ? $_GET["seat_class"] : '';
+
+        // Store data in session variables
+        $_SESSION['search_data'] = [
+            'departure_station' => $departure_station,
+            'destination_station' => $destination_station,
+            'departure_date' => $departure_date,
+            'number_of_passengers' => $number_of_passengers,
+            'seat_class' => $seat_class,
+        ];
 
         // Fetch available trains based on the provided parameters
-            $searchModel=new BookingModel;
-            $availableTrains=$searchModel->getAvailableTrains($departure_station,$destination_station);
+        $searchModel = new TrainScheduleModel;
+        $availableTrains = $searchModel->getAvailableTrains($departure_station, $destination_station);
+        
+        // Fetch the ticket price for each available train
+        $priceModel = new BookingModel;
+        $prices = [];
+        foreach ($availableTrains as $train) {
+            $train_number = $train['train_number'];
+            $price = $priceModel->fetchPrice($departure_station, $destination_station, $seat_class, $number_of_passengers, $train_number);
+            $prices[$train_number] = $price;
+        }
+ 
+     // Store ticket price in session data
+     $_SESSION['search_data']['prices'] = $prices;
+ 
+
+        // Debugging: Output the fetched ticket price
+        //echo "Fetched ticket price: $price<br>";
+
+        // Store ticket price in session data
+        $_SESSION['search_data']['price'] = $price;
+
         // Display available trains
         include('app/views/Passenger/availabletrains.php');
     }
+
 
     public function add()
     {
         // Start a session to access session variables
         session_start();
+
         include('app/views/Passenger/booking_form.php');
 
+        // Debugging: Print out the $_POST array
+         echo '<script>console.log(' . json_encode($_POST) . ');</script>';
 
         // Check if the user is logged in and get the user's ID
         if (isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
 
+
             // Retrieve data from the booking form
+            $train_number=$_POST["train_number"];
+            $train_type=$_POST["train_type"];
             $departure_station = $_POST["departure_station"];
             $destination_station = $_POST["destination_station"];
             $departure_date = $_POST["departure_date"];
             $number_of_passengers = $_POST["number_of_passengers"];
+            $seat_class = $_POST["seat_class"];
+            $ticket_price=$_POST["ticket_price"];
+            $departure_time=$_POST["departure_time"];
+            $arrival_time=$_POST["arrival_time"];
 
             // Create an instance of the BookingModel
             $bookingModel = new BookingModel();
 
             // Pass the user_id and other data to the BookingModel
-            $bookingResult = $bookingModel->addbooking($user_id, $departure_station, $destination_station, $departure_date, $number_of_passengers);
+            $bookingResult = $bookingModel->addbooking($user_id,$train_number,$train_type, $departure_station, $destination_station, $departure_date, $number_of_passengers,$seat_class,$ticket_price,$departure_time,$arrival_time);
 
             if ($bookingResult) {
                                 // Booking successful
@@ -89,6 +135,8 @@ class BookingController
 
             // Retrieve data from the booking form
             $booking_id = $_POST['booking_id'];
+            $train_number=$_POST['train_number'];
+            $train_type=$_POST["train_type"];
             $departure_station = $_POST["departure_station"];
             $destination_station = $_POST["destination_station"];
             $departure_date = $_POST["departure_date"];
@@ -98,7 +146,7 @@ class BookingController
             $bookingModel = new BookingModel();
 
             // Pass the user_id and other data to the BookingModel
-            $bookingResult = $bookingModel->updatebooking( $booking_id,$departure_station, $destination_station, $departure_date, $number_of_passengers);
+            $bookingResult = $bookingModel->updatebooking( $booking_id,$train_number,$train_type,$departure_station, $destination_station, $departure_date, $number_of_passengers);
 
             if ($bookingResult) {
                 // Booking successful

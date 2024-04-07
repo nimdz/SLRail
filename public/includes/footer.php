@@ -10,9 +10,8 @@
             background-color:white;
             text-align: center;
             padding: 5px;
-            border-radius: 50px;
-            border:2px solid black;
-            margin-left: 200px;
+            border-top:2px solid black;
+            margin-left: 0px;
         }
         </style>
 </head>

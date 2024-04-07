@@ -16,9 +16,9 @@ input[type="text"], input[type="password"],input[type="email"]{
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  width: 350px;
+  width: 250px;
   box-sizing: border-box;
-  margin-left: 100px;
+  margin-left: 120px;
 }
 label{
   display: block;
@@ -36,10 +36,10 @@ label{
             <h2>Login</h2>
             <form action="/SlRail/home/login" method="post">
                 <label for="username">Username:</label>
-                <input type="text" name="username" required><br>
+                <input type="text" name="username" class="user" required><br>
 
                 <label for="password">Password:</label>
-                <input type="password" name="password" required><br>
+                <input type="password" name="password" class="pass"required><br>
 
                 <button class="button" type="submit">Login</button>
             </form>

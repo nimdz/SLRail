@@ -1,0 +1,49 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "dcf22e57bce112c360551ccfad274d31",
+    "packages": [
+        {
+            "name": "phpqrcode/phpqrcode",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yafangmaster/QRcode.git",
+                "reference": "24094696f394d0579616b7614321958f6d53639c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yafangmaster/QRcode/zipball/24094696f394d0579616b7614321958f6d53639c",
+                "reference": "24094696f394d0579616b7614321958f6d53639c",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "二维码生成组件",
+            "keywords": [
+                "phpqrcode",
+                "qrcode"
+            ],
+            "support": {
+                "issues": "https://github.com/yafangmaster/QRcode/issues",
+                "source": "https://github.com/yafangmaster/QRcode/tree/master"
+            },
+            "time": "2017-07-02T12:49:33+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "phpqrcode/phpqrcode": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

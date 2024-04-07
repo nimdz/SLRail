@@ -13,11 +13,11 @@ class PassengerModel
         $this->db = new Database();
     }
 
-    public function registerPassenger($username, $password, $full_name, $email)
+    public function registerPassenger($username, $full_name, $email,$password)
     {
 
           // Perform form validation
-        if (!$this->validateForm($username, $password, $full_name, $email)) 
+        if (!$this->validateForm($username, $full_name, $email,$password)) 
           {
             return false; // Validation failed
         }
@@ -27,14 +27,14 @@ class PassengerModel
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert data into the 'passenger' table, excluding the 'id' column
-        $sql = "INSERT INTO passenger (username, password, full_name, email) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO passenger (username, full_name, email,password) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
             die("Error: " . $conn->error);
         }
 
-        $stmt->bind_param("ssss", $username, $password, $full_name, $email);
+        $stmt->bind_param("ssss", $username, $full_name, $email,$password);
 
         if ($stmt->execute()) {
             return true; // Registration successful
@@ -43,7 +43,7 @@ class PassengerModel
         }
     }
 
-    private function validateForm($username,$password,$full_name,$email){
+    private function validateForm($username,$full_name,$email,$password){
 
        if(empty($username) || empty($password) || empty($full_name) || empty($email)){
              return false;
