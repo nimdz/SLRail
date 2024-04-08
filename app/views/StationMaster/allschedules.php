@@ -9,8 +9,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Train Schedules</title>
-    <link rel="stylesheet" href="/SlRail/public/css/table.css">
-    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/table.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">
     <style>
         table, td, th {
             border: 1px solid #ddd;
@@ -37,47 +37,6 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
             margin-top: 50px;
         }
 
-        /*button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 50px;   
-
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button .update{
-            background-color: #93c1f5;
-        }
-        button .delete{
-            background-color: #007bff;
-        }
-
-        button + button {
-            margin-top: 10px;
-        }*/
-    .subfooter {
-        margin-left: 0px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 70px;
-        background-color: #f9f9f9bb;
-    }
-
-    .subfooter-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 20px; 
-        background-color: #f9f9f9bb;
-
-    }
     </style>
 </head>
 <body>
@@ -95,6 +54,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
             <th>Departure Time</th>
             <th>Arrival Time</th>
             <th>Schedule Date</th>
+            <th>Train Number</th>
+            <th>Train Type</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -106,6 +67,8 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
                 <td><?= $schedule['departure_time'] ?></td>
                 <td><?= $schedule['arrival_time'] ?></td>
                 <td><?= $schedule['schedule_date'] ?></td>
+                <td><?= $schedule['train_number'] ?></td>
+                <td><?= $schedule['train_type'] ?></td>
                 <td>
                     <!-- Add a condition to hide buttons when update form is visible -->
                     <?php if (!isset($_POST['schedule_id']) || $_POST['schedule_id'] !== $schedule['schedule_id']): ?>
@@ -124,11 +87,13 @@ $activeLink = 'trainSchedules'; // Change this value according to the current pa
         <form method="post" action="/SlRail/trainschedule/updateSchedule" style="width: 100%;">
             <input type="hidden" name="schedule_id" value="<?= $schedule['schedule_id'] ?>">
             <div style="display: flex; justify-content: space-between; width: 100%;">
-                <input type="text" name="departure_station" placeholder="New Departure Station" style="flex: 1; margin-right: 20px;">
-                <input type="text" name="destination_station" placeholder="New Destination Station" style="flex: 1; margin-right: 20px;">
-                <input type="time" name="departure_time" placeholder="New Departure Time" style="flex: 1; margin-right: 20px;">
-                <input type="time" name="arrival_time" placeholder="New Arrival Time" style="flex: 1; margin-right: 20px;">
-                <input type="date" name="schedule_date" placeholder="New Schedule Date" style="flex: 1;margin-right: 20px;">
+                <input type="text" name="departure_station" placeholder="New Departure Station" style="flex: 1; margin-right: 10px; ">
+                <input type="text" name="destination_station" placeholder="New Destination Station" style="flex: 1; margin-right: 10px;">
+                <input type="time" name="departure_time" placeholder="New Departure Time" style="flex: 1; margin-right: 10px; width:20px;">
+                <input type="time" name="arrival_time" placeholder="New Arrival Time" style="flex: 1; margin-right: 10px; width:30px;">
+                <input type="date" name="schedule_date" placeholder="New Schedule Date" style="flex: 1;margin-right: 10px; width:80px;">
+                <input type="number" name="train_number" placeholder="New Train Number" style="flex: 1;margin-right: 10px; width:150px;">
+                <input type="text" name="train_type" placeholder="New Train Type" style="flex: 1;margin-right: 10px; width:130px;">
             </div>
             <button type="submit" style="width: auto;">Save</button>
         </form>

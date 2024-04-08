@@ -9,8 +9,8 @@ $activeLink = 'announcements';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Announcements</title>
-    <link rel="stylesheet" href="/SlRail/public/css/table.css">
-    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/table.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">
     <style>
         .title1{
             margin-left: 300px;
