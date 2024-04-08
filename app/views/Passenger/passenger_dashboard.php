@@ -71,7 +71,7 @@
     <div class="services-container">
         <img style="margin-left:20px;"src="/SlRail/public/assets/services.jpg">
         <div class="button-container">
-           <a href="/SlRail/trainschedule/showSchedule">
+           <a href="/SlRail/trainschedule/searchSchedule">
               <button class="btn">Check Train Schedule</button>
            </a>
            <a href="/SlRail/passenger/viewLocation">
