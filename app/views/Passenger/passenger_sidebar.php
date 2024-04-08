@@ -31,7 +31,7 @@
             </a>     
             
     
-           <a href="/SlRail/trainschedule/showSchedule">
+           <a href="/SlRail/trainschedule/searchSchedule">
                 <span class="material-symbols-outlined">
                   calendar_month
                 </span>
