@@ -31,19 +31,19 @@
             </a>     
             
     
-           <a href="/SlRail/trainschedule/showSchedule">
+           <a href="/SlRail/trainschedule/searchSchedule">
                 <span class="material-symbols-outlined">
                   calendar_month
                 </span>
                 Train Schedule
             </a>
-            <a href="/SlRail/booking/add">
+            <a href="/SlRail/booking/selectroute">
                 <span class="material-symbols-outlined">
                     book_online
                     </span>
                 Book a Trip
             </a>
-            <a href="/SlRail/passenger/viewLocation">
+            <a href="/SlRail/trainlocation/location_form">
                 <span class="material-symbols-outlined">
                     location_on
                 </span>

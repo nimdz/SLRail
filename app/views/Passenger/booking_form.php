@@ -22,31 +22,15 @@
     <div class="container1">
         <h1 style="margin-top:10px; margin-left:250px;">Train Ticket Booking</h1>
         <form action="/SlRail/booking/search" method="get" id="bookingForm"style="margin-top:10px; margin-left:300px;">
-            <label for="departure_station">Start Station:</label>
-            <select id="From" name="departure_station" required>
-            </select>
 
-            <label for="destination_station">End Station:</label>
-            <select id="destination" name="destination_station" required>
-            </select>
-
-            <label for="departure_date">Date:</label>
-            <input type="date" id="date" name="departure_date"  style="width:200px;"required>
-
-            <label for="number_of_passengers">Passengers:</label>
-            <select id="passengers" name="number_of_passengers" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select><br>
-            <label for="number_of_passengers"> Seat Class:</label>
-            <select name="seat_class" class="train-class" data-departure="<?= $train['departure_station'] ?>" data-destination="<?= $destination_station ?>">
-                <option value="Class1">Class 1</option>
-                <option value="Class2">Class 2</option>
-                <option value="Class3">Class 3</option>
-            </select><br>
+        <input type="hidden" name="departure_station" value="<?= $departure_station ?>">
+        <input type="hidden" name="destination_station" value="<?= $destination_station ?>">
+        <input type="hidden" name="departure_date" value="<?= $departure_date ?>">
+        <input type="hidden" name="train_number" id="trainNumberInput" value="<?= $train['train_number'] ?>">
+        <input type="hidden" name="train_type" id="trainNumberInput" value="<?= $train['train_type'] ?>">
+        <input type="hidden" name="departureTime" value="<?= $departureTime ?>">
+        <input type="hidden" name="arrivalTime" value="<?= $arrivalTime ?>">
+      
             <button type="submit" style="width:200px; height:40px; margin-left:0px; ">Search Train</button>
         </form>
     </div>
