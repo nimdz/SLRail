@@ -37,13 +37,13 @@
                 </span>
                 Train Schedule
             </a>
-            <a href="/SlRail/booking/add">
+            <a href="/SlRail/booking/selectroute">
                 <span class="material-symbols-outlined">
                     book_online
                     </span>
                 Book a Trip
             </a>
-            <a href="/SlRail/passenger/viewLocation">
+            <a href="/SlRail/trainlocation/location_form">
                 <span class="material-symbols-outlined">
                     location_on
                 </span>
