@@ -11,17 +11,17 @@ class TrainLocationModel{
         
     }
 
-    public function addLocation($train_number, $current_city, $last_updated)
+    public function addLocation($train_number, $latitude, $longitude)
     {
         $conn = $this->db->getConnection();
 
-        $sql = "INSERT INTO train_location(train_number, current_city, last_updated) VALUES(?, ?, ?)";
+        $sql = "INSERT INTO train_location(train_number, latitude, longitude) VALUES(?, ?, ?)";
         $stmt = $conn->prepare($sql);
 
         if($stmt === false){
             die("Error:". $conn->error);
          }
-         $stmt->bind_param("iss",$train_number,$current_city,$last_updated);
+         $stmt->bind_param("idd",$train_number, $latitude, $longitude);
  
          if($stmt->execute()){
             return true;
@@ -33,30 +33,63 @@ class TrainLocationModel{
     
 
 
-    public function getLocation($train_number){
-
-        $conn=$this->db->getConnection();
-
-        $sql = "SELECT train_number, current_city, DATE_FORMAT(last_updated, '%h:%i %p') as last_updated_time FROM train_location WHERE train_number = ?";
-        $stmt=$conn->prepare($sql);
+    public function getLocation($train_number)
+    {
+        $conn = $this->db->getConnection();
+        $sql = "SELECT tl.train_number, tl.latitude, tl.longitude, TIME_FORMAT(tl.last_updated, '%h:%i %p') as last_updated_time,
+                        ts.departure_station, ts.destination_station,
+                        TIME_FORMAT(ts.departure_time, '%h:%i %p') as departure_time, 
+                        TIME_FORMAT(ts.arrival_time, '%h:%i %p') as arrival_time
+                FROM train_location tl
+                JOIN train_schedules ts ON tl.train_number = ts.train_number
+                WHERE tl.train_number = ?";
+        $stmt = $conn->prepare($sql);
 
         if ($stmt === false) {
             die("Error:" . $conn->error);
         }
-    
+
         $stmt->bind_param("i", $train_number);
         $stmt->execute();
         $result = $stmt->get_result();
-    
+
         $data = [];
-    
+
         while ($row = $result->fetch_assoc()) {
+            // Get the city name for each location
+            $city = $this->getCityName($row['latitude'], $row['longitude']);
+            // Append the city name to the result
+            $row['city'] = $city;
             $data[] = $row;
         }
-    
-        return $data;
 
-    
-    
+        return $data;
     }
+
+    private function getCityName($latitude, $longitude)
+    {
+        // GeoNames API endpoint
+        $apiEndpoint = 'http://api.geonames.org/findNearbyJSON?lat=' . $latitude . '&lng=' . $longitude;
+    
+        // Fetch data from the GeoNames API
+        $response = file_get_contents($apiEndpoint);
+    
+        // Check if the response is not empty and contains valid JSON
+        if ($response !== false) {
+            // Decode JSON response
+            $data = json_decode($response, true);
+    
+            // Check if data contains valid results
+            if (isset($data['geonames']) && !empty($data['geonames'])) {
+                // Extract city name from the first result
+                $cityName = $data['geonames'][0]['name'];
+                return $cityName;
+            }
+        }
+    
+        return " City";
+    }
+    
+    
+
 } 
