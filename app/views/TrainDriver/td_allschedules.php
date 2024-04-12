@@ -6,102 +6,171 @@
     <title>All Train Schedules</title>
     <link rel="stylesheet" href="/SlRail/public/css/table.css">
     <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <style>
-        table, td, th {
-            border: 1px solid #ddd;
-            text-align: left;
-        }
+            th{
+              width:2050px;
+            }
 
-        table {
-            border-collapse: collapse;
-            width: 1100px;
+            form {
+ display: inline-block;
+  align-items: center;
+  margin: 20px auto;
+  font-family: sans-serif;
+  width: 1200px;
+  padding: 10px;
+}
+
+
+label {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="submit"] {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin-right: 30px;
+
+}
+
+input[type="text"] {
+  width: 150px;
+  border-radius: 50px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+.schedule-container {
             margin-left: 250px;
+            font-family: Arial, sans-serif;
         }
 
-        th, td {
-            padding: 15px;
-        }
-
-        p {
-            font-size: 32px;
-        }
-
-        h1 {
-            font-size: 42px;
-        }
-
-        button {
-            width: 100%;
+        .schedule-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            border-radius: 40px;
             padding: 10px;
-            border: none;
-            border-radius: 50px;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            width:1000px;
+            height: 200px
         }
 
-        button + button {
-            margin-top: 10px;
+        .schedule-card > div {
+            margin-bottom: 10px;
         }
-    .subfooter {
-        margin-left: 0px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 70px;
-        background-color: #f9f9f9bb;
-    }
 
-    .subfooter-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 20px; 
-        background-color: #f9f9f9bb;
-
-    }
+        .material-symbols-outlined {
+            margin-right: 5px;
+        }
+         
+          
     </style>
 </head>
 <body>
-<?php include('includes/header.php'); ?>
+<?php include('public/includes/header.php'); ?>
 
-<?php include('td_sidebar.php'); ?>
+    <?php include('td_sidebar.php'); ?>
+
+    <script src="/SlRail/public/Js/stations.js" type="text/javascript"></script>
 
 
-    <h1><center>All Train Schedules</center></h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Departure Station</th>
-                <th>Destination Station</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                <th>Schedule Date</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($schedules as $schedule): ?>
-                <tr>
-                    <td><?= $schedule['departure_station'] ?></td>
-                    <td><?= $schedule['destination_station'] ?></td>
-                    <td><?= $schedule['departure_time'] ?></td>
-                    <td><?= $schedule['arrival_time'] ?></td>
-                    <td><?= $schedule['schedule_date'] ?></td>
-               
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <p style="text-align: center; padding-top: 100px; font-size:16px;">
-        <a href="/SlRail/traindriver/dashboard">Go to TrainDriver Dashboard</a>
+    <h2><center> Train Schedules</center></h2>
+
+    <form action="/SlRail/trainschedule/filter" method="get" style="text-align: center; margin-top: 15px; margin-left:130px;">
+       
+        <label for="startStation"style="margin-left: 100px; ">Start Station:</label>
+        <select id="From" name="departure_station" style="margin-left: 10px; width:120px; height:20px; border-radius:60px;"required>
+        </select>
+
+        <label for="endStation"style="margin-left: 400px; ">End Station:</label>
+        <select id="destination" name="destination_station" style="margin-left: 10px; width:120px; height:20px; border-radius:60px;"required >
+        </select>        
+
+        <button type="submit" clss="btn1" style="width:130px; height:30px; border-radius: 50px; margin-left:10px;">Search</button>
+    </form>
+
+    <div class="schedule-container" style="margin-left:250px;">
+        <?php foreach ($schedules as $schedule): ?>
+            <div class="schedule-card">
+                  <div class="train_no" style="margin-left:60px;">     
+                    <span class="departure-station" style="margin-left:150px; margin-top:0px;"><?= $schedule['departure_station'] ?></span>
+                    <span class="arrow"> ⇨</span>
+                    <span class="destination-station"><?= $schedule['destination_station'] ?></span>
+                </div> 
+               <div>
+                <span class="material-symbols-outlined" style="font-size: 46px; margin-left:150px;">train</span>
+                <?= $schedule['train_number'] ?><?= " -  "?><?= $schedule['train_type'] ?> 
+                <span class="destination-station" style="margin-left:400px;"><?="Availability: "?>  <?= getAvailabilityStatus($schedule) ?></span>
+
+               </div>
+              
+                <div class="time" style="margin-left:320px;">
+                  <?= date('h:i', strtotime($schedule['departure_time'])) ?>
+                   <?= date('A', strtotime($schedule['departure_time'])) ?>
+                   <?=" ● -------------------------------------------------●" ?>
+                   <?php
+                                // Calculate duration
+                                $departureTimestamp = strtotime($schedule['departure_time']);
+                                $arrivalTimestamp = strtotime($schedule['arrival_time']);
+                                $durationSeconds = $arrivalTimestamp - $departureTimestamp;
+
+                                // Convert duration to hours and minutes
+                                $durationHours = floor($durationSeconds / 3600);
+                                $durationMinutes = floor(($durationSeconds % 3600) / 60);
+                    ?>
+                   <?= date('h:i', strtotime($schedule['arrival_time'])) ?>
+                   <?= date('A', strtotime($schedule['arrival_time'])) ?>
+                </div>
+                <div class="stations1" style=" margin-left:320px;">
+                  <?= $schedule['departure_station'] ?>
+                  <span class="duration"style="margin-left:70px;"><?=$durationHours?>h<?=$durationMinutes?>m
+                  <span class="destination-station" style="margin-left:150px;"><?= $schedule['destination_station'] ?></span>
+                </div>              
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <p style="text-align: center; padding-top: 100px;">
+        <a href="/SlRail/traindriver/dashboard" style="font-size:16px;">Go to  Dashboard</a>
     </p>
- 
-    <?php include('includes/footer.php'); ?>
+    
+    <?php include('public/includes/footer.php'); ?>
+
 
 </body>
 </html>
+<?php
+function getAvailabilityStatus($schedule)
+{
+    $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+    $runningDays = [];
+    foreach ($days as $day) {
+        if ($schedule[$day] == 1) {
+            $runningDays[] = ucfirst($day);
+        }
+    }
+
+    if (count($runningDays) === 7) {
+        return 'Daily';
+    } else {
+        return implode(', ', $runningDays);
+    }
+}
+?>
