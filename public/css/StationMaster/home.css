@@ -1,0 +1,160 @@
+.navbar a{
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    background-color:white;
+    height:70px;
+    border-radius: 50px;
+    text-decoration: none;
+  }
+  
+  .navbar a {
+    float: left;
+    padding: 60px;
+
+  }
+  .navbar img{
+      margin-top: 0px;
+      display: flex;
+      
+  }
+  
+  li{
+    border-right: none;
+    list-style-type: none;
+
+    
+  }
+  
+  li a {
+    display: block;
+    color: rgb(34, 32, 32);
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin-top: 0px;
+
+  }
+  .fontimage img{
+     width:1000px;
+     margin-left: 200px;
+     margin-right: 0px;
+     border-radius: 50px;
+}
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 33.33%;
+  padding: 10px;
+}
+.column img{
+   width:450px;
+   height:350px;
+}
+p{
+  font-size: 32px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #dbe4ed;
+}
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width:100%;
+  width: 100%; /* Set the width to 100% */
+  height: auto; /* Allow the height to adjust proportionally */
+  position:relative;
+  margin: auto
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  display: block; /* Ensure the images are displayed as blocks */
+  max-width: 100%; /* Make sure the images don't exceed the container width */
+  height: auto; /* Allow the height to adjust proportionally */
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+
+@keyframes fade {
+  from {opacity: .6} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 36px;
+  padding: 20px;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: 10px; /* Adjust margin as needed */
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  color: blue; /* Set the color to blue */
+}
+
+.subfooter {
+  margin-left: 0px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #f9f9f9bb;
+}
+
+.subfooter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #f9f9f9bb;
+
+}
+
+

@@ -1,0 +1,166 @@
+body {
+  background-color: #f3f3f3;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+
+}
+
+label{
+  display: block;
+  margin-left: 100px;
+}
+
+input[type="text"], input[type="password"],input[type="email"]{
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  width: 350px;
+  box-sizing: border-box;
+  margin-left: 100px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 50px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display:block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-left: 170px;
+}
+
+.button:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #2c974b;
+}
+
+.button:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+  .image-icon,
+  .login,
+  .register{
+    position: absolute;
+    top: 15.25em;
+    left: 52.19em;
+    width: 24.38em;
+    height: 20.81em;
+   
+  }
+.image-icon {
+    top: 0;
+    left: 0;
+    width: 700px;
+    height: 700px;
+    object-fit:absolute;
+  }
+nav{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 60px ;
+background-color:#ccc;
+}
+nav ul{
+display: flex;
+}
+nav ul li {
+ list-style: none;
+ padding: 10px 10px;
+}
+nav ul li a{
+text-decoration: none;
+font-size: 20px;
+padding: 20px;
+color:#293848;
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 110px;
+  
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1em;
+}
+.user{
+   flex:1 0 8 rem;
+
+}
+.pass{
+   flex:1 0 8 rem;
+}
+button{
+   flex:1 0 4 rem;
+}
+
+.button{
+  width: 150px;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-left: 170px;
+}
+input[type="text"], input[type="password"],input[type="email"]{
+padding: 10px;
+border-radius: 20px;
+border: 1px solid #ccc;
+width: 250px;
+box-sizing: border-box;
+margin-left: 120px;
+}
+label{
+display: block;
+margin-left: 100px;
+}
+.links {
+justify-content: space-between;
+margin-left: 110px;
+}
