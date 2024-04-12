@@ -1,0 +1,142 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  color: #333;
+}
+
+.container {
+  max-width: 100%;
+  margin: 200px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  margin-bottom: 15px;
+}
+
+label {
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.row-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+/*    //////////////////////////////////////////////////////////     */
+input[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+.cancel-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e74c3c; /* Set your cancel button background color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.cancel-btn a{
+  color: #fff; /* Set your cancel button text color */
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b; /* Set your cancel button background color on hover */
+}
+
+.container {
+  position: relative;
+}
+
+.cancel-btn {
+  position: absolute;
+  bottom : 35px; /* Adjust the top offset as needed */
+  right: 20px; /* Adjust the right offset as needed */
+}
+
+/*.row-trains{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  margin-bottom: 15px;
+}
+
+.row-trains label{
+  padding: 8px 0;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.row-trains input[type="int"],input[type="text"]{
+  width: 40%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}*/
+
+.row-trains {
+  display: flex;
+  align-items: center; /* Align items in the center vertically */
+  margin-bottom: 15px;
+}
+
+.row-trains label {
+  width: 50%; /* Adjusted width */
+  padding: 8px 5px; /* Adjusted padding */
+  font-weight: bold;
+  margin: 0;
+}
+
+.row-trains input[type="int"]{
+  width: 50%; /* Adjusted width */
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.row-trains input[type="text"]{
+  width: 100%; /* Adjusted width */
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

@@ -6,13 +6,13 @@
     <title>Passenger Dashboard</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-      <link rel="stylesheet" href="/SlRail/public/css/dashboard.css">
+      <link rel="stylesheet" href="/SlRail/public/css/p_dashboard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 
 <div class="sidebar">
-<a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
+    <a href="#"><img width="100px" src="/SlRail/public/assets/logo.jpg"> </a>
 
       <a href="/SlRail/traindriver/dashboard">
                  <span class="material-symbols-outlined">
@@ -20,7 +20,7 @@
                 </span>
                     Dashboard
                 
-            </a>
+        </a>
 
     
       <a href="/SlRail/trainschedule/tdviewSchedules">
@@ -39,18 +39,18 @@
             Announcement           
       </a>
 
-      <a href="/SlRail/traindriver/shareLocation">
+      <a href="/SlRail/trainlocation/load">
           <span class="material-symbols-outlined">
               location_on
           </span>
           Share Location
       </a>
 
-      <a href="#">
+      <a href="/SlRail/train/view">
           <span class="material-symbols-outlined">
-          campaign                
+          train              
           </span>
-           Messages           
+           Trains           
       </a>
   <a href="/SlRail/traindriver/profile">
       <span class="material-icons">

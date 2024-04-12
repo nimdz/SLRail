@@ -22,7 +22,7 @@ input[type="text"], input[type="password"],input[type="email"]{
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  width: 200px;
+  width: 350px;
   box-sizing: border-box;
   margin-left: 100px;
 }
@@ -34,7 +34,7 @@ input[type="submit"] {
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;
-  width: 200px;
+  width: 100%;
 }
 
 .button {
@@ -50,8 +50,8 @@ input[type="submit"] {
   font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   font-size: 14px;
   font-weight: 500;
-  width:200px;
   padding: 10px;
+  width: 150px;
   text-align: center;
   margin: 0 auto;
   margin-top: 10px;
@@ -100,10 +100,67 @@ input[type="submit"] {
     height: 700px;
     object-fit:absolute;
   }
-
+nav{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 60px ;
+background-color:#ccc;
+}
+nav ul{
+display: flex;
+}
+nav ul li {
+ list-style: none;
+ padding: 10px 10px;
+}
+nav ul li a{
+text-decoration: none;
+font-size: 20px;
+padding: 20px;
+color:#293848;
+}
 .links {
   display: flex;
   justify-content: space-between;
   margin-left: 110px;
   
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1em;
+}
+.user{
+   flex:1 0 8 rem;
+
+}
+.pass{
+   flex:1 0 8 rem;
+}
+button{
+   flex:1 0 4 rem;
+}
+
+.button{
+  width: 150px;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-left: 170px;
+}
+input[type="text"], input[type="password"],input[type="email"]{
+padding: 10px;
+border-radius: 20px;
+border: 1px solid #ccc;
+width: 250px;
+box-sizing: border-box;
+margin-left: 120px;
+}
+label{
+display: block;
+margin-left: 100px;
+}
+.links {
+justify-content: space-between;
+margin-left: 110px;
 }

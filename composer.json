@@ -3,7 +3,9 @@
     "description": "railway",
     "autoload": {
         "psr-4": {
-            "App\\": "app/"        }
+            "App\\": "app/",
+            "Endroid\\QrCode\\": "vendor/endroid/qr-code/src/"
+        }
     },
     "authors": [
         {
@@ -12,6 +14,18 @@
         }
     ],
     "require": {
-        "phpqrcode/phpqrcode": "dev-master"
+        "endroid/qr-code": "^3.0",
+        "dompdf/dompdf": "^2.0",
+        "tecnickcom/tcpdf": "^6.7",
+        "geocoder-php/geonames-provider": "^4.4",
+        "symfony/http-client": "^7.0",
+        "nyholm/psr7": "^1.8",
+        "psr/http-client": "^1.0",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
