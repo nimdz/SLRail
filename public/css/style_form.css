@@ -1,23 +1,16 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+  background-color:white;
   box-sizing: border-box;
 }
 
 h3 {
   color: #333;
+  margin-left: 350px;
+  margin-top: 10px;
 }
 
-.container {
-  max-width: 100%;
-  margin: 200px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 form {
   display: grid;
@@ -63,3 +56,27 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #45a049;
 }
+.container{
+  margin-top: 50px;
+  width:1000px;
+  height:auto;
+  margin-left: 10px;
+  border:1px solid black;
+}
+body{
+background-color: white;
+}
+h3{
+margin-top: 10px;
+margin-left: 400px;
+}
+.btn1{
+border-radius: 50px;
+background-color: blue;
+margin-left: 350px;
+width:90px;
+height:30px;
+color:white;
+margin-top: 10px;
+}
+
