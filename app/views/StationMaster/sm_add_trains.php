@@ -28,7 +28,7 @@ $activeLink = 'addTrains';
 
 
 <div class="container">
-    <form action="/SlRail/announcement/addAnnouncement" method="post">
+    <form action="/SlRail/train/addTrain" method="post">
         <h3>Add Trains</h3>
 
         <div class="row-trains">
@@ -38,21 +38,28 @@ $activeLink = 'addTrains';
             <div class="col-75">
                 <input type="int" id="trainNum" name="trainNum" required placeholder="">
             </div>
-            
-            <div class="col-25">
-                <label for="passengerNum">Number of Passengers:</label>
-            </div>
-            <div class="col-75">
-                <input type="int" id="passNum" name="passNum" required placeholder="">
-            </div>
-        </div>
 
-        <div class="row-trains">
-        <div class="col-25">
+            <div class="col-25">
                 <label for="type">Train Type(Express/Intercity/Slow):</label>
             </div>
             <div class="col-75">
                 <input type="text" id="type" name="type" required placeholder="">
+            </div>
+        </div>
+
+        <div class="row-trains">
+            <div class="col-25">
+                <label for="capacity">Number of Passengers:</label>
+            </div>
+            <div class="col-75">
+                <input type="int" id="capacity" name="capacity" required placeholder="">
+            </div>
+
+            <div class="col-25">
+                <label for="stoppings">Stoppings:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="stoppings" name="stoppings" required placeholder="">
             </div>
             
         </div>
@@ -62,7 +69,7 @@ $activeLink = 'addTrains';
                 <input type="submit" value="Send" class="update-btn" id="updatePro">
             </div>
             <div class="col-50">
-                <button type="button" value="Cancel" class="cancel-btn" id="cancel-btn"><a href="/SlRail/announcement/smviewAnnouncement">Cancel</a></button>
+                <button type="button" value="Cancel" class="cancel-btn" id="cancel-btn"><a href="/SlRail/stationmaster/dashboard">Cancel</a></button>
             </div>
             
         </div>
