@@ -103,6 +103,63 @@ VALUES (1, 'Express', 300, 'Panadura,Moratuwa,Dehiwala,Mount Lavinia,Wellawatta,
 INSERT INTO train_schedules (departure_station, destination_station, departure_time, arrival_time, schedule_date, train_number, train_type)
 VALUES ('Panadura', 'Colombo Fort', '08:00:00', '09:00:00', '2023-12-27', 1, 'Express');
 
+CREATE TABLE train_schedules (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    departure_station VARCHAR(255) NOT NULL,
+    destination_station VARCHAR(255) NOT NULL,
+    departure_time TIME NOT NULL,
+    arrival_time TIME NOT NULL,
+    train_number INT NOT NULL,
+    train_type VARCHAR(255) NOT NULL,
+    stoppings VARCHAR(255) NOT NULL,
+    schedule_date DATE NOT NULL,
+    monday BOOLEAN NOT NULL DEFAULT 0,
+    tuesday BOOLEAN NOT NULL DEFAULT 0,
+    wednesday BOOLEAN NOT NULL DEFAULT 0,
+    thursday BOOLEAN NOT NULL DEFAULT 0,
+    friday BOOLEAN NOT NULL DEFAULT 0,
+    saturday BOOLEAN NOT NULL DEFAULT 0,
+    sunday BOOLEAN NOT NULL DEFAULT 0,
+    FOREIGN KEY (train_number) REFERENCES train(train_number),
+    FOREIGN KEY (train_type) REFERENCES train(train_type)
+);
+INSERT INTO train_schedules (
+    departure_station, 
+    destination_station, 
+    departure_time, 
+    arrival_time, 
+    train_number, 
+    train_type,
+    stoppings,
+    monday, 
+    tuesday, 
+    wednesday, 
+    thursday, 
+    friday, 
+    saturday, 
+    sunday
+) VALUES (
+    'Panadura', 
+    'Colombo Fort', 
+    '08:00:00', 
+    '09:30:00', 
+    2, 
+    'Local',
+    'Panadura,Agulana,Moratuwa,Dehiwala,Mount Lavinia,Wellawatta,Bambalapitiya,Kollupitiya,Colombo Fort',
+    1, -- Set Monday to 1 (true)
+    1, -- Set Tuesday to 1 (true)
+    1, -- Set Wednesday to 1 (true)
+    1, -- Set Thursday to 1 (true)
+    1, -- Set Friday to 1 (true)
+    1, -- Set Saturday to 1 (true)
+    1  -- Set Sunday to 1 (true)
+);
+ALTER TABLE train
+DROP COLUMN stoppings;
+
+ALTER TABLE train
+ADD COLUMN train_model NOT NULL;
+
 
 
 

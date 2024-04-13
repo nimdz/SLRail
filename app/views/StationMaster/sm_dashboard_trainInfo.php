@@ -10,33 +10,11 @@ $activeLink = 'dashboard'; // Change this value according to the current page
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StationMaster Dashboard</title>
     <link rel="stylesheet" href="/SlRail/public/css/StationMaster/dashboard.css">
-    <!--<link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">-->
-    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">
+    
    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <!--<style>
-        /* Add your styles here */
-
-        .train-icon {
-            position: absolute;
-            font-size: 15px;
-            height: 30px;
-            width: 30px;
-            color: #000000;
-            top: 50%;
-            transform: translateY(-50%);
-            animation: moveTrain 5s linear infinite;
-            top: 277px; /* Adjust the top position as needed */
-            right: 500px;
-        }
-
-        
-
-    @keyframes moveTrain {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(100%); }
-    }
-    </style>-->
+    
 </head>
 <body>
     
@@ -60,31 +38,63 @@ $activeLink = 'dashboard'; // Change this value according to the current page
                 </div>
             </div>
             </form>
+            <!--<div class="card-container">
+                <div class="card">
+                    <h1>700</h1>
+                    <p>Passengers</p>
+                </div>
+                <div class="card">
+                    
+                    <h1>Express</h1>-->
+                    <!--<img src="/SlRail/public/assets/trainIcon.png" alt="Train Icon" class="train-icon">-->
+                    <!--<p>Type</p>
+                </div>
+                
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h1>Matara</h1>
+                    <p>Source</p>
+                </div>
+                <div class="card">
+                    <h1>Colombo</h1>
+                    <p>Destination</p>
+                </div>
+            </div>-->
+            
+            <?php if ($trainInfo): ?>
             <div class="card-container">
                 <div class="card" id="passengersCard">
-                    <h1>Passengers</h1>
-                    
+                    <h1><?php echo $trainInfo['capacity']; ?></h1>
+                    <p>Passengers</p>
                 </div>
                 <div class="card" id="typeCard">
-                    
-                    <h1>Type</h1>
-                    <!--<img src="/SlRail/public/assets/trainIcon.png" alt="Train Icon" class="train-icon">-->
-                    
+                    <h1><?php echo $trainInfo['train_type']; ?></h1>
+                    <p>Type</p>
                 </div>
-                
             </div>
             <div class="middle-card" id="stoppingsCard">
-                
-                    <h1>Stoppings</h1>
+        <div class="stoppings-content">
+            <?php
+            // Assuming $trainInfo['stoppings'] is a comma-separated string
+            $stoppingsArray = explode(',', $trainInfo['stoppings']);
+            foreach ($stoppingsArray as $stopping): ?>
+                <div class="stoppings-item">
+                    <h4><?php echo $stopping; ?></h4>
                     
                 </div>
-                
-            </div>
-
+            <?php endforeach; ?>
+            <p>Stopping Points</p>
+        </div>
+    </div>
+        <?php else: ?>
+            <p>No information found for the given train number.</p>
+        <?php endif; ?>
+  
         </div>
     </section>
-   
+
   <?php include('public/includes/footer.php'); ?>
-    
+ 
 </body>
 </html>
