@@ -1,0 +1,41 @@
+
+/* announcement.php css */
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+.ann-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-left:250px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+p {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+
+

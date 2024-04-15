@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height:500px;
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  #profileDetails {
+    text-align: center;
+  }
+  .profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .info {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .profileButton {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 40px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #updateForm {
+    display: none;
+  }
+  .update-form {
+    text-align: center;
+  }
+  .update-form h2 {
+    color: #333;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .updateButton, .cancelButton {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right:100px;
+  }
+  .cancelButton {
+    margin-left: 10px;
+    background-color: #dc3545;
+  }
+  .update-form input[type="text"] 
+    {
+      width: 200px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 50px;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      margin-left: 400px;
+    }
+    .update-form{
+      margin-top: 10px;
+      border:2px solid black;
+      border-radius: 50px;
+      width:900px;
+      height:630px;
+      justify-content: center;
+    }
+    #profileDetails{
+      margin-top: 10px;
+      border:2px solid black;
+      border-radius: 5px;
+      width:900px;
+      height:640px;
+      margin-left: 250px;
+    }
+  
+  

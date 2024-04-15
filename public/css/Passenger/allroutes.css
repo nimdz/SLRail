@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 800px;
+    padding: 0 20px;
+    margin-left: 200px;
+}
+
+.card.train-card {
+background-color: #fff;
+border-radius: 30px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+padding: 20px;
+margin-bottom: 20px;
+}
