@@ -1,0 +1,106 @@
+th {
+    width: 1050px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    width: 1000px;
+    height: 500px; /* Adjusted height */
+    padding: 20px;
+    background-color: white;
+    border-radius: 50px;
+    margin-left: 300px;
+    border:2px solid black;
+
+}
+
+label {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    width: 200px;
+    text-align: right;
+}
+
+ #date {
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.form-row label {
+    width: auto;
+}
+
+.form-row select {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.form-row1 {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; /* Adjusted margin-top */
+   margin-left: 20px;
+} 
+
+.form-row1 label {
+    margin-left: 20px;
+}
+
+button[type="submit"] {
+    width: 200px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 150px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45A049;
+}
+select {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 15px;
+    margin-top: 10px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+
+ 
+ 

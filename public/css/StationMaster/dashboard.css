@@ -1,0 +1,290 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    --padding-inline-section: 20px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text-color);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    color: var(--secondary-text-color);
+    line-height: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: var(--padding-inline-section);
+    overflow: hidden;
+    margin-left: 350px;
+}
+
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.container1 {
+  margin-left: 100px;
+  padding: 1px 16px;
+  height: auto;
+}
+
+/* Style for card container */
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 60px;
+}
+
+/* Style for individual cards */
+.card {
+  width: 45%; /* Adjust width as needed */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  /*box-shadow: 0 4px 8px rgba(11, 62, 84, 0.1);*/
+  box-shadow: 8px 8px 8px 8px rgba(45, 127, 162, 0.1);
+  
+  margin: 10px;
+}
+
+/* Add a new class for the "Stoppings" card */
+.middle-card {
+  width: 45%; /* Adjust width as needed */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 8px 8px 8px 8px rgba(45, 127, 162, 0.1);
+  margin: 10px;
+  margin-top: 60px; /* Add margin-top to position it below the "Passengers" card */
+  margin-left: 250px;
+}
+
+/* Add a new class for the "Stoppings" card content */
+.stoppings-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stoppings-item {
+  width: calc(33.33% - 10px); /* Adjust the width based on the number of items you want per row */
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin-bottom: 15px;
+}
+
+.tit {
+  display: flex;
+  align-items: center;
+  align-items: baseline;
+  margin-top: 20px;
+  
+}
+
+.col-25 {
+  width: 25%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.tit_holder {
+  flex: 1;
+}
+
+#uname {
+  width: 80%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  vertical-align: middle;
+  
+}
+
+.searchBtn {
+  margin-left: 5px;
+  margin-right: 300px;
+  vertical-align: middle;
+}
+
+.update-btn {
+  background-color: #067cfb;
+  color: white;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.update-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #e3f0f9;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #59b9f9;
+    color: white;
+    
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #76c2f5;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 250px;
+    padding: 1px 16px;
+    margin-bottom: 50px;
+    height: auto;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+.sidebar a .material-icons,
+.sidebar a .material-symbols-outlined {
+  font-size: 16px; /* Adjust the icon size as needed */
+  margin-right: 6px; /* Add spacing between icon and text */
+  color: #078bf0f7;
+}
+
+.sidebar a:hover {
+  background: #078bf0f7;
+  color: #feffff;
+}
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+  .horizontal a {
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left; /* If you want the text to be left-aligned on small screens */
+  }
+}
+
+.content{
+  background-color: #f9f9f9bb;
+  margin-top: 100px;
+}
+
+.subfooter {
+    margin-left: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #f9f9f9bb;
+}
+
+.subfooter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f9f9f9bb;
+
+}
+
+
+
+

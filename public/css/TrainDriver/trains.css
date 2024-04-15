@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    overflow-y:auto;
+
+}
+.train-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 230px;
+}
+.train-table th, .train-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.train-table th {
+    background-color:blue;
+}
+.train-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.train-table tbody tr:hover {
+    background-color: #ddd;
+}
+.material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.center {
+    text-align: center;
+}
+.link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+.link a {
+    color: blue;
+    text-decoration: none;
+}
+.link a:hover {
+    text-decoration: underline;
+}
