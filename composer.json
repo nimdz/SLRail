@@ -21,7 +21,10 @@
         "symfony/http-client": "^7.0",
         "nyholm/psr7": "^1.8",
         "psr/http-client": "^1.0",
-        "guzzlehttp/guzzle": "^7.8"
+        "guzzlehttp/guzzle": "^7.8",
+        "bacon/bacon-qr-code": "^2.0",
+        "zxing/qr-reader": "^1.2",
+        "phpmailer/phpmailer": "^6.9"
     },
     "config": {
         "allow-plugins": {
