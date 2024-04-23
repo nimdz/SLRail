@@ -34,7 +34,7 @@
                     <div>
                         <span class="material-symbols-outlined" style="font-size: 46px; margin-left:100px;">train</span>
                         <?= $train['train_number'] ?><?= " -  " ?><?= $train['train_type'] ?>
-                        <span class="destination-station" style="margin-left:500px;"><?="Availability: "?>  <?= getAvailabilityStatus($train) ?></span>
+                        <span class="destination-station" style="margin-left:400px;"><?="Availability: "?>  <?= getAvailabilityStatus($train) ?></span>
 
 
                     </div>
@@ -148,12 +148,12 @@
 <?php
 function getAvailabilityStatus($train)
 {
-    $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    $days = ['monday' => 'Mon', 'tuesday' => 'Tue', 'wednesday' => 'Wed', 'thursday' => 'Thu', 'friday' => 'Fri', 'saturday' => 'Sat', 'sunday' => 'Sun'];
 
     $runningDays = [];
-    foreach ($days as $day) {
+    foreach ($days as $day => $shortName) {
         if ($train[$day] == 1) {
-            $runningDays[] = ucfirst($day);
+            $runningDays[] = $shortName;
         }
     }
 
@@ -163,4 +163,5 @@ function getAvailabilityStatus($train)
         return implode(', ', $runningDays);
     }
 }
+
 ?>
