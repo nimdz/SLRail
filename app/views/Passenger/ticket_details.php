@@ -5,62 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookings</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/SlRail/public/css/Passenger/ticket_details.css">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        #ticket-container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h3 {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .logo {
-            margin-bottom: 30px;
-        }
-
-        .booking-card {
-            border: 1px solid #ccc;
-            border-radius: 50px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 700px;
-            height:200px;
-        }
-
-        .booking-card > div {
-            margin-bottom: 10px;
-        }
-
-        .material-icons {
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-
-        #qr-code {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
 
@@ -79,8 +25,9 @@
             <div class="train-details">
                 <span class="material-icons" style="font-size: 46px; margin-left:100px;">train</span>
                 <?= $bookingDetails['train_number'] ?> - <?= $bookingDetails['train_type'] ?>                             
-                <span class="destination-station" style="margin-left:300px;">No of Passengers: <?= $bookingDetails['number_of_passengers'] ?></span>
+                <span class="destination-station" style="margin-left:200px;">No of Passengers: <?= $bookingDetails['number_of_passengers'] ?></span>
             </div>
+        
             <div class="time" style="margin-left:200px; margin-top:10px;">
                             <?= date('h:i', strtotime($bookingDetails['departure_time'])) ?>
                             <?= date('A', strtotime($bookingDetails['departure_time'])) ?>
@@ -98,14 +45,16 @@
                             <?= date('h:i', strtotime($bookingDetails['arrival_time'])) ?>
                             <?= date('A', strtotime($bookingDetails['arrival_time'])) ?>
                         </div>
+
                         <div class="stations1" style=" margin-left:200px;">
                             <?= $bookingDetails['departure_station'] ?>
                             <span class="duration"style="margin-left:110px;"><?=$durationHours?>h<?=$durationMinutes?>m
-                            <span class="destination-station" style="margin-left:100px; "><?= $bookingDetails['destination_station'] ?></span>
+                            <span class="destination-station" style="margin-left:50px; "><?= $bookingDetails['destination_station'] ?></span>
                         </div> 
-                        <div class="price" style=" margin-left:150px; margin-top: 40px; ">
+                        <div class="price" style=" margin-left:100px; margin-top: 40px; ">
                             <?="Selected Class: "?><?= $bookingDetails['seat_class']?>
-                            <span class="ticket" style="margin-left:200px; "><?="Ticket Price: "?><?= $bookingDetails['ticket_price']?></span>
+                            <span class="ticket" style="margin-left:40px; "><?="Departure Date: "?><?= $bookingDetails['departure_date']?>
+                            <span class="ticket" style="margin-left:50px; "><?="Ticket Price: "?><?= $bookingDetails['ticket_price']?></span>
                         </div> 
         </div>
 
