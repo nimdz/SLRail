@@ -11,11 +11,11 @@ class TrainScheduleModel
         $this->db = new Database();
     }
     
-    public function createSchedule($departure_station, $destination_station, $departure_time, $arrival_time, $train_number, $train_type, $stoppings, $monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday,$route)
+    public function createSchedule($departure_station,$destination_station,$departure_time,$arrival_time,$train_number,$train_type,$stoppings,$monday,$tuesday,$wednesday,$thursday,$friday,$saturday,$sunday,$route)
     {
         $conn = $this->db->getConnection();
     
-        $sql = "INSERT INTO train_schedules (departure_station, destination_station, departure_time, arrival_time, train_number, train_type, stoppings, monday, tuesday, wednesday, thursday, friday, saturday, sunday,route) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+        $sql = "INSERT INTO train_schedules(departure_station,destination_station,departure_time,arrival_time,train_number,train_type,stoppings,monday,tuesday,wednesday,thursday,friday,saturday,sunday,route) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
     
         if ($stmt === false) {
@@ -24,9 +24,15 @@ class TrainScheduleModel
     
         $stmt->bind_param("ssssissiiiiiiis", $departure_station, $destination_station, $departure_time, $arrival_time, $train_number, $train_type, $stoppings, $monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday,$route);
     
+        // Debug: Print the SQL query and parameters
+        echo "SQL: " . $sql . "<br>";
+        echo "Parameters: " . implode(", ", array($departure_station, $destination_station, $departure_time, $arrival_time, $train_number, $train_type, $stoppings, $monday, $tuesday, $wednesday, $thursday, $friday, $saturday, $sunday,$route)) . "<br>";
+    
         if ($stmt->execute()) {
             return true; // Schedule creation successful
         } else {
+            // Debug: Print any SQL error
+            echo "Error: " . $stmt->error;
             return false; // Schedule creation failed
         }
     }
@@ -123,11 +129,75 @@ class TrainScheduleModel
         return $availableTrains;
     }
 
+    public function getTrains_booking($departure_station, $destination_station, $date) {
+
+        $conn = $this->db->getConnection();
+        $day = date('l', strtotime($date));
+    
+        $sql = "SELECT train_number, schedule_id, departure_station, destination_station, train_type, monday, tuesday, wednesday, thursday, friday, saturday, sunday
+                FROM train_schedules
+                WHERE ((departure_station = ? AND destination_station = ?))
+                OR ((stoppings LIKE CONCAT('%', ?, '%', ?, '%')))
+                AND ($day = 1)
+                ORDER BY departure_time ASC";
+                
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $departure_station, $destination_station, $departure_station, $destination_station);
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $availableTrains = [];
+    
+        while ($row = $result->fetch_assoc()) {
+            $availableTrains[] = [
+                'train_number' => $row['train_number'],
+                'schedule_id' => $row['schedule_id'],
+                'departure_station' => $row['departure_station'],
+                'destination_station' => $row['destination_station'],
+                'train_type' => $row['train_type'],
+                'monday' => $row['monday'],
+                'tuesday' => $row['tuesday'],
+                'wednesday' => $row['wednesday'],
+                'thursday' => $row['thursday'],
+                'friday' => $row['friday'],
+                'saturday' => $row['saturday'],
+                'sunday' => $row['sunday'],
+                'stoppings' => [],
+            ];
+        }
+    
+        foreach ($availableTrains as &$train) {
+
+            $sql_stoppings = "SELECT ts.station_name, ts.arrival_time, ts.departure_time
+                              FROM train_stoppings ts
+                              INNER JOIN train_schedules sch ON ts.schedule_id = sch.schedule_id
+                              WHERE sch.train_number = ?";
+
+            $stmt_stoppings = $conn->prepare($sql_stoppings);
+
+            $stmt_stoppings->bind_param("i", $train['train_number']);
+
+            $stmt_stoppings->execute();
+
+            $result_stoppings = $stmt_stoppings->get_result();
+    
+            while ($row = $result_stoppings->fetch_assoc()) {
+                $train['stoppings'][] = [
+                    'station_name' => $row['station_name'],
+                    'arrival_time' => $row['arrival_time'],
+                    'departure_time' => $row['departure_time']
+                ];
+            }
+        }
+    
+        return $availableTrains;
+    }
+    
     public function showStoppings($train_number){
 
         $conn=$this->db->getConnection();
 
-        $sql = "SELECT ts.station_name, ts.arrival_time, ts.departure_time
+        $sql = "SELECT ts.station_name, ts.arrival_time, ts.departure_time,ts.status,ts.update_time
                                     FROM train_stoppings ts
                                     INNER JOIN train_schedules sch ON ts.schedule_id = sch.schedule_id
                                     WHERE sch.train_number = ?;";
@@ -155,6 +225,39 @@ class TrainScheduleModel
                     
      
     }
+    public function getStationsByRoute($route)
+    {
+        $conn = $this->db->getConnection();
+        $sql = "SELECT station_name FROM stations WHERE LineId = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $route);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        // Fetch the rows from the result set
+        $stations = [];
+        while ($row = $result->fetch_assoc()) {
+            $stations[] = $row['station_name'];
+        }
+    
+        // Add default stations for the route
+        if ($route == 1) {
+            array_unshift($stations,  'Choose Station','Maradana');
+        } elseif ($route == 2) {
+            array_unshift($stations, 'Choose Station', 'Colombo Fort', 'Maradana');
+        }elseif ($route == 3) {
+            array_unshift($stations, 'Choose Station', 'Colombo Fort', 'Maradana');
+        }elseif ($route == 4) {
+            array_unshift($stations, 'Choose Station', 'Colombo Fort', 'Maradana');
+        }elseif ($route == 5) {
+            array_unshift($stations, 'Choose Station', 'Colombo Fort', 'Maradana');
+        }
+    
+        // Close the statement
+        $stmt->close();
+        return $stations;
+    }
+    
     public function getSchedules() {
 
         $conn = $this->db->getConnection();
@@ -282,7 +385,7 @@ class TrainScheduleModel
         }
     
         $stmt->bind_param(
-            "sssssiiiiiiiiiiis",
+            "ssssissiiiiiiiis",
             $departureStation,
             $destinationStation,
             $departureTime,
