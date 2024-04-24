@@ -43,27 +43,35 @@ class PassengerModel
         }
     }
 
-    private function validateForm($username,$full_name,$email,$password){
+    private function validateForm($username, $full_name, $email, $password)
+{
+    $errors = array(); // Array to store validation errors
 
-       if(empty($username) || empty($password) || empty($full_name) || empty($email)){
-             return false;
-       }
-       if (strlen($password) < 8) {
-        // Password must be at least 8 characters
-        return false;
-       }
-       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Invalid email format
-        return false;
-      }
-
-      return true; // All validation passed
-
-
-    
+    if (empty($username) || empty($password) || empty($full_name) || empty($email)) {
+        $errors[] = "All fields are required.";
     }
+
+    if (strlen($password) < 8) {
+        // Password must be at least 8 characters
+        $errors[] = "Password must be at least 8 characters.";
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Invalid email format
+        $errors[] = "Invalid email format.";
+    }
+
+    if (empty($errors)) {
+        // No errors, validation passed
+        return true;
+    } else {
+        // Validation failed, return error messages
+        return $errors;
+    }
+}
 public function resetPassword($username, $newPassword)
 {
+    
     $conn = $this->db->getConnection();
 
     // Check if the username exists
@@ -208,7 +216,26 @@ public function resetPassword($username, $newPassword)
         session_destroy();
       
     }
-    
+    public function deletePassenger($passengerId)
+    {
+        $conn = $this->db->getConnection();
+
+        // Prepare and execute the DELETE statement
+        $sql = "DELETE FROM passenger WHERE id=?";
+        $stmt = $conn->prepare($sql);
+
+        if ($stmt === false) {
+            return "Error: " . $conn->error;
+        }
+
+        $stmt->bind_param("i", $passengerId);
+
+        if ($stmt->execute()) {
+            return true; // Deletion successful
+        } else {
+            return "Error deleting passenger: " . $stmt->error;
+        }
+    }
 
 }
 ?>
