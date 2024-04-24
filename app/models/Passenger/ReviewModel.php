@@ -29,5 +29,18 @@ class ReviewModel{
        return false;
     }
  }
- 
+ public function getAllReviews()
+ {
+     $conn = $this->db->getConnection();
+
+     $sql = "SELECT * FROM reviews";
+     $result = $conn->query($sql);
+
+     $reviews = array();
+     while ($row = $result->fetch_assoc()) {
+         $reviews[] = $row;
+     }
+
+     return $reviews;
+ }
 }
