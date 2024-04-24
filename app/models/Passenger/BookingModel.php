@@ -37,95 +37,61 @@ class BookingModel
         // Return the total fare
         return $total_fare;
     }
-    
-    //Method to fetch the number of stoppings from train schedules
-//     private function getNumberOfStations($departure_station, $destination_station)
-// {
-//     try {
-//         // Get the database connection
-//         $conn = $this->db->getConnection();
-        
-//         // Prepare the SQL query
-//         $sql = "SELECT (MAX(station_id) - MIN(station_id)) + 1 AS number_of_stations
-//                 FROM Stations
-//                 WHERE station_name IN (?, ?)";
-//         $stmt = $conn->prepare($sql);
-        
-//         // Bind parameters and execute the query
-//         $stmt->bind_param("ss", $departure_station, $destination_station);
-//         $stmt->execute();
-        
-//         // Get the result
-//         $result = $stmt->get_result();
-        
-//         // Fetch the row
-//         $row = $result->fetch_assoc();
-        
-//         // Close the statement
-//         $stmt->close();
-        
-//         // Return the number of stations
-//         return $row['number_of_stations'];
-//     } catch (PDOException $e) {
-//         // Handle database errors
-//         echo 'Error: ' . $e->getMessage();
-//         return false;
-//     }
-// }
-private function getNumberOfStations($departure_station, $destination_station)
-{
-    try {
-        // Get the database connection
-        $conn = $this->db->getConnection();
 
-        $line_id = $this->calculateLineId($departure_station);
+        private function getNumberOfStations($departure_station, $destination_station)
+        {
+            try {
+                // Get the database connection
+                $conn = $this->db->getConnection();
 
-        
-        // Check if destination station is 'Maradana' and line ID is 2
-        if ($destination_station == 'Maradana' && $line_id == 1) {
-            // Prepare the SQL query to get the departure station ID
-            $sql = "SELECT station_id FROM Stations WHERE station_name = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $departure_station);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-            $departure_station_id = $row['station_id'];
-            
-            // Close the statement
-            $stmt->close();
-            
-            // Return the departure station ID incremented by 1
-            return $departure_station_id + 1;
-        } else {
-            // Prepare the SQL query to calculate the number of stations
-            $sql = "SELECT (MAX(station_id) - MIN(station_id)) + 1 AS number_of_stations
-                    FROM Stations
-                    WHERE station_name IN (?, ?)";
-            $stmt = $conn->prepare($sql);
-            
-            // Bind parameters and execute the query
-            $stmt->bind_param("ss", $departure_station, $destination_station);
-            $stmt->execute();
-            
-            // Get the result
-            $result = $stmt->get_result();
-            
-            // Fetch the row
-            $row = $result->fetch_assoc();
-            
-            // Close the statement
-            $stmt->close();
-            
-            // Return the number of stations
-            return $row['number_of_stations'];
+                $line_id = $this->calculateLineId($departure_station);
+
+                
+                // Check if destination station is 'Maradana' and line ID is 2
+                if ($destination_station == 'Maradana' && $line_id == 1) {
+                    // Prepare the SQL query to get the departure station ID
+                    $sql = "SELECT station_id FROM Stations WHERE station_name = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("s", $departure_station);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $row = $result->fetch_assoc();
+                    $departure_station_id = $row['station_id'];
+                    
+                    // Close the statement
+                    $stmt->close();
+                    
+                    // Return the departure station ID incremented by 1
+                    return $departure_station_id + 1;
+                } else {
+                    // Prepare the SQL query to calculate the number of stations
+                    $sql = "SELECT (MAX(station_id) - MIN(station_id)) + 1 AS number_of_stations
+                            FROM Stations
+                            WHERE station_name IN (?, ?)";
+                    $stmt = $conn->prepare($sql);
+                    
+                    // Bind parameters and execute the query
+                    $stmt->bind_param("ss", $departure_station, $destination_station);
+                    $stmt->execute();
+                    
+                    // Get the result
+                    $result = $stmt->get_result();
+                    
+                    // Fetch the row
+                    $row = $result->fetch_assoc();
+                    
+                    // Close the statement
+                    $stmt->close();
+                    
+                    // Return the number of stations
+                    return $row['number_of_stations'];
+                }
+            } catch (PDOException $e) {
+                // Handle database errors
+                echo 'Error: ' . $e->getMessage();
+                return false;
+            }
         }
-    } catch (PDOException $e) {
-        // Handle database errors
-        echo 'Error: ' . $e->getMessage();
-        return false;
-    }
-}
 
 private function calculateLineId($departure_station)
 {
@@ -163,37 +129,33 @@ private function calculateLineId($departure_station)
     }
 }
 
-    
-    
-// Method to calculate fare based on the number of stoppings
+
 public function calculateFare($stoppings, $seat_class)
 {
-    // Calculate additional fare based on the number of stoppings
-    $additionalFare = 0;
+    // Define fare rates and stations per money for each class
+    $fareRates = [
+        'Class1' => ['rate'=>100,'stations_per_money' => 5],
+        'Class2' => ['rate' => 50, 'stations_per_money' => 5],
+        'Class3' => ['rate' => 20, 'stations_per_money' => 4],
+    ];
 
-    // Determine the fare rate based on the seat class
-    switch ($seat_class) {
-        case 'Class1':
-            $fareRate = 100; // 100 rupees per 4 stations
-            break;
-        case 'Class2':
-            $fareRate = 50; // 50 rupees per 4 stations
-            break;
-        case 'Class3':
-            $fareRate = 20; // 20 rupees per 4 stations
-            break;
-        default:
-            // Handle invalid seat class
-            return false;
+    // Check if the seat class is valid
+    if (!array_key_exists($seat_class, $fareRates)) {
+        // Handle invalid seat class
+        return false;
     }
 
-    // Calculate additional fare based on the number of stoppings
-    if ($stoppings > 0) {
-        $additionalFare = ceil($stoppings / 4) * $fareRate;
-    }
 
-    return $additionalFare;
+
+    // For Class1,Class2 and Class3, calculate fare straightforwardly based on stoppings
+    $fareRate = $fareRates[$seat_class];
+    $fare = ceil($stoppings / $fareRate['stations_per_money']) * $fareRate['rate'];
+
+    return $fare;
 }
+
+
+
 
 
     public function addbooking($user_id, $train_number, $train_type, $departure_station, $destination_station, $departure_date, $number_of_passengers, $seat_class,$ticket_price,$departure_time,$arrival_time)
@@ -231,7 +193,7 @@ public function calculateFare($stoppings, $seat_class)
             return false;
         }
             // Fetch the ticket price
-            $ticket_price = $this->fetchPrice($departure_station, $destination_station, $seat_class,$number_of_passengers,$train_number);
+            $ticket_price = $this->fetchPrice($departure_station, $destination_station, $seat_class,$number_of_passengers);
 
             // Output the fetched ticket price
            // echo "Fetched ticket price: $ticket_price<br>";
@@ -283,7 +245,7 @@ public function calculateFare($stoppings, $seat_class)
          $conn=$this->db->getConnection();
 
          //retrive bookings
-         $sql="SELECT * FROM bookings WHERE user_id=?";
+         $sql = "SELECT * FROM bookings WHERE user_id=? ORDER BY booking_timestamp DESC";
          $stmt=$conn->prepare($sql);
          if ($stmt === false) {
             die("Error: ". $conn->error);
@@ -302,11 +264,17 @@ public function calculateFare($stoppings, $seat_class)
 
     }
 
-    public function getticketdetails($booking_id){
-         $conn=$this->db->getConnection();
+    public function getticketdetails($booking_id)
+    {
 
-         $sql="SELECT * FROM bookings WHERE booking_id=?";
-         $stmt=$conn->prepare($sql);
+         $conn=$this->db->getConnection();
+         
+
+         $sql = "SELECT b.*, p.full_name 
+                    FROM bookings b 
+                    JOIN passenger p ON b.user_id = p.id 
+                    WHERE b.booking_id=?";
+          $stmt=$conn->prepare($sql);
 
          if($stmt == false){
               die("Error:".$conn->error);
@@ -370,6 +338,62 @@ public function deleteBooking($booking_id) {
     }
 }
 
+
+public function getBookingsByTrainNumber($trainNumber) {
+    $conn = $this->db->getConnection();
+
+    $sql = "SELECT 
+                b.booking_id,
+                p.username,
+                b.train_number,
+                b.number_of_passengers,
+                b.departure_date,
+                b.seat_class,
+                b.ticket_price 
+            FROM 
+                bookings b
+            JOIN 
+                passenger p ON b.user_id = p.id
+            WHERE 
+                b.train_number = '$trainNumber' 
+            ORDER BY 
+                b.booking_id DESC;";
+
+    $result = $conn->query($sql);
+
+    $bookings = array();
+
+    while ($row = $result->fetch_assoc()) {
+        $bookings[] = $row;
+    }
+
+    return $bookings;
+}
+
+
+public function getBookingCountsForToday()
+    {
+        $conn = $this->db->getConnection();
+        $today = date('Y-m-d');
+
+        $sql = "SELECT seat_class, COUNT(*) as count FROM bookings WHERE departure_date = ? GROUP BY seat_class";
+        $stmt = $conn->prepare($sql);
+
+        if ($stmt === false) {
+            die("Error: " . $conn->error);
+        }
+
+        $stmt->bind_param('s', $today);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $bookingCounts = [];
+        while ($row = $result->fetch_assoc()) {
+            $bookingCounts[$row['seat_class']] = $row['count'];
+        }
+
+        return $bookingCounts;
+    }
 
 }
 ?>
