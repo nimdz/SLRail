@@ -30,7 +30,53 @@ class TrainLocationModel{
          }
      
     }
+    public function getTrainData(){
+        
+        $conn=$this->db->getConnection();
+ 
+        $sql="SELECT ts.train_number, ts.departure_station, ts.destination_station FROM train_schedules ts
+               INNER JOIN train_location tl WHERE tl.train_number=ts.train_number ;";
+ 
+        $stmt=$conn->prepare($sql);
+ 
+        if($stmt == false){
+         die("Error:".$conn->error);
+         }
+         $stmt->execute();
+         
+         $result = $stmt->get_result();
+         $details = [];
+         while ($row = $result->fetch_assoc()) {
+             $details[] = $row;
+         }
+ 
+         return $details;
+         }
     
+        public function getAllTrainInfo(){
+             
+            $conn=$this->db->getConnection();
+
+            $sql="SELECT train_number,departure_station,destination_station FROM train_schedules;";
+
+            $stmt=$conn->prepare($sql);
+
+            if($stmt == false){
+               die("Error:".$conn->error);
+            }
+            $stmt->execute();
+
+            $result=$stmt->get_result();
+            $details=[];
+            while($row = $result->fetch_assoc()){
+                   $details[]=$row;
+            }
+
+            return $details;
+
+        
+        
+        }
 
 
     public function getLocation($train_number)
@@ -89,6 +135,7 @@ class TrainLocationModel{
     
         return " City";
     }
+
     
     
 
