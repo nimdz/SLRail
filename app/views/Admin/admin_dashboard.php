@@ -61,6 +61,17 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+        .icon-count {
+    display: flex;
+    align-items: center;
+}
+
+
+/* CSS for spacing between icon and count */
+.count {
+    margin-left: 60px; /* Adjust as needed */
+    margin-top:20px;
+}
     </style>
 </head>
 <body>
@@ -74,13 +85,19 @@
 <div class="content center" style="margin-top: 50px;">
     <div class="card">
         <h2>Number of Passengers</h2>
-        <p class="count"><?php echo $passenger_count; ?></p>
+        <div class="icon-count">
+            <span class="material-icons" style="font-size:42px;margin-left:60px;margin-top: 20px;"> person</span>
+            <p class="count"><?php echo $passenger_count; ?></p>
+        </div>
     </div>
     <div class="card">
         <h2>Number of Trains</h2>
+     <div class="icon-count">
+        <span class="material-symbols-outlined" style="font-size:42px;margin-left:60px;margin-top: 20px;">train</span>
         <p class="count"><?php echo $train_count; ?></p>
+      </div>
     </div>
-    <div class="card">
+      <div class="card">
         <h2>Number of Employees</h2>
         <p class="count"><?php echo $employee_count; ?></p>
     </div>
