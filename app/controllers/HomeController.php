@@ -46,7 +46,7 @@ class HomeController
 
             if ($employeeResult) {
                 //Store Session Variables
-                $_SESSION['employee_id']=$employeeResult['employee_id'];
+                $_SESSION['user_id']=$employeeResult['employee_id'];
                 $_SESSION['username']=$employeeResult['username'];
                 // Redirect based on the employee's role
                 $this->redirectBasedOnRole($employeeResult['position']);
@@ -72,7 +72,8 @@ class HomeController
 
                     if ($adminResult !== false) {
                         // Store the username in a session variable
-                        $_SESSION['username'] = $adminResult;
+                        $_SESSION['username'] = $adminResult['username'];
+                        $_SESSION['user_id']=$adminResult['admin_id'];
 
                         // Redirect the user to the admin dashboard
                         header("Location: /SlRail/admin/dashboard");
