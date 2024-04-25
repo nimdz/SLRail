@@ -63,8 +63,13 @@ $activeLink = 'addSchedule';
 <br><br>
 
 
-            <label for="stoppings">Stoppings:</label>
-            <input type="text" name="stoppings" id="stoppings" required><br><br>
+            <!--<label for="stoppings">Stoppings:</label>
+            <input type="text" name="stoppings" id="stoppings" required><br><br>-->
+           <label for="stoppings">Stoppings:  <div class="statement">(Use Ctrl to select multiple options)</div></label>
+           
+<select id="stoppings" name="stoppings[]" multiple required>
+</select><script src="/SlRail/public/Js/stations.js" type="text/javascript"></script>
+
 
             <label>Available Days:</label><br>
             <label class="checkbox-label">Monday
