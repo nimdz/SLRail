@@ -1,3 +1,7 @@
+<?php
+// Set the active link based on the current page
+$activeLink = 'reviews'; // Change this value according to the current page
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
