@@ -102,13 +102,8 @@ $activeLink = 'announcements';
     </div>
     
 <?php endforeach; ?>
-    <p style="text-align: center; padding-top:100px; padding-bottom: 90px; font-size: 16px;">
-        <a class="button" href="/SlRail/announcement/addAnnouncement">Add Announcement</a>
-    </p>
-    
-   
-    
-    <script>
+ 
+       <script>
     // JavaScript function to toggle visibility of update forms
     function updateAnnouncement(annId) {
         var form = document.getElementById("updateForm" + annId);
