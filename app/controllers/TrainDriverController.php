@@ -1,5 +1,6 @@
 <?php
-
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 require_once 'app/models/Employee/EmployeeModel.php';
 
 class TraindriverController
@@ -9,8 +10,8 @@ class TraindriverController
         // Start a session
         session_start();
     
-        if (isset($_SESSION['employee_id'])) {
-            $id = $_SESSION['employee_id'];
+        if (isset($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
     
             $tdModel = new EmployeeModel();
     
@@ -22,7 +23,7 @@ class TraindriverController
                 echo '<script>alert("Error: Train Driver Not Found!")</script>';
             }
         } else {
-            echo '<script>alert("Error: User Not Logged In!")</script>';
+            echo '<script>alert("Error: User Not Logged In!"); window.location.href="/SlRail/home/login";</script>';
         }
     }
   
@@ -32,8 +33,8 @@ class TraindriverController
         session_start();
 
         // Check if the user is logged in
-        if (isset($_SESSION['employee_id'])) {
-            $employee_id = $_SESSION['employee_id'];
+        if (isset($_SESSION['user_id'])) {
+            $employee_id = $_SESSION['user_id'];
 
             // Get the updated details from the POST request
             $full_name = $_POST["full_name"];
@@ -57,7 +58,7 @@ class TraindriverController
             }
         } else {
             // Handle the case where the user is not logged in
-            echo '<script>alert("Error: User Not Logged In!"); window.location.href="/SlRail/traindriver/login";</script>';
+            echo '<script>alert("Error: User Not Logged In!"); window.location.href="/SlRail/home/login";</script>';
         }
     }
 

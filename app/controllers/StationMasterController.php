@@ -20,8 +20,8 @@ class StationmasterController
         // Start a session
         session_start();
     
-        if (isset($_SESSION['employee_id'])) {
-            $id = $_SESSION['employee_id'];
+        if (isset($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
     
             $tdModel = new EmployeeModel();
     
@@ -73,11 +73,29 @@ public function updateProfile()
 }
 
     public function dashboard(){
-         include ('app/views/StationMaster/sm_dashboard.php');
+        
+        session_start();
+        include ('app/views/StationMaster/sm_dashboard.php');
     }
 
     public function trainsAdd(){
         include ('app/views/StationMaster/sm_add_trains.php');
    }
+
+   public function trainDelay(){
+    include ('app/views/StationMaster/sm_notify_delays.php');
+}
+
+   public function viewLocation()
+    {
+        // Load the dashboard view
+        include('app/views/StationMaster/sm_track_location.php');
+    }
+
+    public function updateLocation()
+    {
+        // Load the dashboard view
+        include('app/views/StationMaster/sm_trains_for_today.php');
+    }
 
 }

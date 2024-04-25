@@ -5,8 +5,18 @@ require_once 'app/models/Passenger/PassengerModel.php';
 
 class PassengerController 
 {
+
+    private function requireAuth() {
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            echo '<script>alert("You need to log in to access this page.");</script>';
+            echo '<script>window.location.href = "/SlRail/home/login";</script>';
+            exit();
+        }
+    }
     public function register()
     {
+        session_start();
         // Load the registration form view (register.php)
         include('app/views/Passenger/passenger_register.php');
     
@@ -38,7 +48,6 @@ class PassengerController
     public function forgotPassword(){
 
         session_start();
-        
         include('app/views/Passenger/password_forget.php');
 
         if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -61,19 +70,27 @@ class PassengerController
     }
     public function dashboard()
     {
+
         session_start();
+
+        $this->requireAuth();
+
         // Load the dashboard view
         include('app/views/Passenger/passenger_dashboard.php');
     }
     public function viewLocation()
     {
+        $this->requireAuth();
+
         // Load the dashboard view
         include('app/views/Passenger/live_location_view.php');
     }
 
     public function profile()
     {
-        // Start a session
+
+        $this->requireAuth();
+
         session_start();
     
         if (isset($_SESSION['user_id'])) {
@@ -94,6 +111,9 @@ class PassengerController
     }
 
     public function updateProfile(){
+
+        $this->requireAuth();
+
          // Start Session
          session_start();
 
@@ -116,6 +136,33 @@ class PassengerController
         }
     
     }
+    public function deletePassenger()
+    {
+        // Check if passenger_id is provided in the URL parameters
+        if (!isset($_GET['passenger_id'])) {
+            // Redirect or handle the error as needed
+            echo "Passenger ID is missing.";
+            return;
+        }
+
+        // Get the passenger_id from the URL parameters
+        $passenger_id = $_GET['passenger_id'];
+
+        $passengerModel=new PassengerModel();
+        // Call the deletePassenger method from the model
+        $result = $passengerModel->deletePassenger($passenger_id);
+
+        // Redirect to appropriate page based on the result
+        if ($result) {
+            // Deletion successful
+            header("Location: /SlRail/admin/dashboard"); // Redirect to dashboard or any other appropriate page
+            exit();
+        } else {
+            // Deletion failed
+            echo "Failed to delete passenger.";
+            // Optionally, you can redirect to an error page
+        }
+    }
 
     public function logout(){
         //Session Start
@@ -126,6 +173,7 @@ class PassengerController
  
         header("Location:/SlRail/home/login");
      }
+   
 
 }
 ?>
