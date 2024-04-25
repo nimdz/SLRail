@@ -1,11 +1,15 @@
+<?php
+// Set the active link based on the current page
+$activeLink = 'addannouncements'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Announcement Form</title>
-    <link rel="stylesheet" href="/SlRail/public/css/style_form.css">
-    <link rel="stylesheet" href="/SlRail/public/css/sidebar.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/style_form.css">
+    <link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">
     <style>
         .container{
             margin-top: 50px;
