@@ -1,68 +1,78 @@
 <?php
 // Set the active link based on the current page
-$activeLink = 'profile'; 
+$activeLink = 'profile'; // Change this value according to the current page
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Station Master Profile</title>
-  <!--<link rel="stylesheet" href="/SlRail/public/css/StationMaster/sidebar.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/SlRail/public/css/StationMaster/profile.css">
+  
+  <link rel="stylesheet" href="/SlRail/public/css/styles.css">
 </head>
 <body>
 
-
 <?php include('public/includes/header.php'); ?>
-
 <?php include('sm_sidebar.php'); ?>
 
-
-    <!-- Display profile details -->
-    <div id="profileDetails" class="card" style="margin-left:450px; margin-top:40px;">
-        <h1>Profile</h1>
-        <img class="profile"src="/SlRail/public/assets/profile1.png" alt="Profile Image" style="width:40%">
-        <p class="info">Full Name: <?= $profile['full_name'] ?></p>
-        <p class="info">UserName: <?= $profile['username'] ?></p>
-        <p class="info">Email: <?= $profile['email'] ?></p>
-        <p class="info">NIC: <?= $profile['nic'] ?></p>
-        <button class="profileButton" onclick="showUpdateForm()">Edit Profile</button>
+<div class="container mt-5">
+  <!-- Display profile details -->
+  <div id="profileDetails" class="card">
+    <h1 class="text-center">Profile</h1>
+    <div class="text-center">
+      <img class="profile img-fluid" src="/SlRail/public/assets/profile.jpg" alt="Profile Image">
     </div>
-
-    <!-- Option to update profile -->
-    <div id="updateForm" class="update-form" >
-       <h2><center>Update Profile</center></h2>
-        <form action="/SlRail/stationmaster/updateProfile" method="post">
-            <label for="full_name" style="margin-left:150px;">Full Name:</label>
-            <input type="text" id="full_name" name="full_name" value="<?= $profile['full_name'] ?>" required>
-
-            <label for="email" style="margin-left:150px;">Email:</label>
-            <input type="text"  id="email" name="email" value="<?= $profile['email'] ?>" required>
-            
-            <label for="nic" style="margin-left:150px;">NIC:</label>
-            <input type="text"  id="nic" name="nic" value="<?= $profile['nic'] ?>" required>
-
-            <label for="username" style="margin-left:150px;">Username:</label>
-            <input type="text"  id="username" name="username" value="<?= $profile['username'] ?>" required>
-
-            <button class="updateButton" type="submit">Save Changes</button>
-            <button class="cancelButton" type="button" onclick="hideUpdateForm()">Cancel</button>
-        </form>
+    <div class="text-center">
+      <p class="info"><strong>Full Name:</strong> <?= $profile['full_name'] ?></p>
+      <p class="info"><strong>UserName:</strong> <?= $profile['username'] ?></p>
+      <p class="info"><strong>Email:</strong> <?= $profile['email'] ?></p>
+      <p class="info"><strong>NIC:</strong> <?= $profile['nic'] ?></p>
+      
+      <button class="profileButton btn btn-primary" onclick="showUpdateForm()">Edit Profile</button>
     </div>
+  </div>
+
+  <!-- Option to update profile -->
+  <div id="updateForm" class="update-form card" >
+    <h2 class="text-center">Update Profile</h2>
+    <form action="/SlRail/stationmaster/updateProfile" method="post">
+      <div class="form-group">
+        <label for="full_name">Full Name:</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" value="<?= $profile['full_name'] ?>" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" id="email" name="email" value="<?= $profile['email'] ?>" required>
+      </div>
+      <div class="form-group">
+        <label for="nic">NIC:</label>
+        <input type="text" class="form-control" id="nic" name="nic" value="<?= $profile['nic'] ?>" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" value="<?= $profile['username'] ?>" required>
+      </div>
+      <button class="updateButton btn btn-success" type="submit">Save Changes</button>
+      <button class="cancelButton btn btn-secondary" type="button" onclick="hideUpdateForm()">Cancel</button>
+    </form>
+  </div>
+</div>
 
 <?php include('public/includes/footer.php'); ?>
+
 <script>
-    function showUpdateForm() {
-        document.getElementById('profileDetails').style.display = 'none';
-        document.getElementById('updateForm').style.display = 'block';
+  function showUpdateForm() {
+    document.getElementById('profileDetails').style.display = 'none';
+    document.getElementById('updateForm').style.display = 'block';
+  }
 
-    }
-
-    function hideUpdateForm() {
-        document.getElementById('updateForm').style.display = 'none';
-        document.getElementById('profileDetails').style.display = 'block';
-
-    }
+  function hideUpdateForm() {
+    document.getElementById('updateForm').style.display = 'none';
+    document.getElementById('profileDetails').style.display = 'block';
+  }
 </script>
+
 </body>
 </html>
