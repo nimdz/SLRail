@@ -119,6 +119,16 @@ class StoppingController{
             }
         }
     }
+    public function getScheduleInfo() {
+        // Create an instance of StoppingModel
+        $stoppingModel = new StoppingModel();
+        
+        // Fetch all schedules
+        $schedules = $stoppingModel->getScheduleData();
+        
+        // Load the view
+        include('app/views/Admin/ad_formtrainincome.php');
+    }
     
         
 
