@@ -8,7 +8,9 @@ class TrainDelayController
 
     public function loadForm(){
 
-        $employee_id=$_GET['employee_id'];
+        session_start();
+
+        $employee_id=$_SESSION['user_id'];
          
         $lmModel=new TrainDelayModel();
         $infos=$lmModel->getScheduleInfoForLoggedInUser($employee_id);

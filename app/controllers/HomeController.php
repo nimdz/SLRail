@@ -79,7 +79,7 @@ class HomeController
                         header("Location: /SlRail/admin/dashboard");
                         exit();
                     } else {
-                        echo '<script>alert("Login Failed!")</script>';
+                        echo '<script>alert("Login Failed! Please Check Your username & Password")</script>';
                     }
                 }
             }
