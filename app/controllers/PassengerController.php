@@ -31,18 +31,29 @@ class PassengerController
             // Create an instance of the PassengerModel
             $passengerModel = new PassengerModel();
     
-            // Register the passenger
-            $registrationResult = $passengerModel->registerPassenger($username, $full_name, $email, $password);
+            // Validate the form data
+            $formErrors = $passengerModel->validateForm($username, $full_name, $email, $password);
     
-            if ($registrationResult) {
-                // Registration successful
-                echo '<script>alert("Registration Successful!")</script>';
+            if ($formErrors === true) {
+                // Register the passenger
+                $registrationResult = $passengerModel->registerPassenger($username, $full_name, $email, $password);
+    
+                if ($registrationResult) {
+                    // Registration successful
+                    echo '<script>alert("Registration Successful!")</script>';
+                } else {
+                    // Registration failed
+                    echo '<script>alert("Error: Registration failed.")</script>';
+                }
             } else {
-                // Registration failed
-                echo '<script>alert("Error: Registration failed.")</script>';
+                // Display validation errors
+                foreach ($formErrors as $error) {
+                    echo '<script>alert("' . $error . '")</script>';
+                }
             }
         }
     }
+    
     
    
     public function forgotPassword(){
@@ -58,8 +69,7 @@ class PassengerController
             $result=$passengerModel->resetPassword($username,$newPassword);
 
             if($result){
-                echo '<script>alert("Password reset successfully! Login with your new password.")</script>';
-                header("Location: /SlRail/home/login");
+                echo '<script>alert("Password Reset Successful!"); window.location.href = "/SlRail/home/login";</script>';
                 exit();
             }else{
                 echo '<script>alert("Error: Unable to reset the password.")</script>';
