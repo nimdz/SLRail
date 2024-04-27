@@ -81,7 +81,6 @@ class PassengerController
     public function dashboard()
     {
 
-        session_start();
 
         $this->requireAuth();
 
@@ -101,7 +100,6 @@ class PassengerController
 
         $this->requireAuth();
 
-        session_start();
     
         if (isset($_SESSION['user_id'])) {
             $id = $_SESSION['user_id'];
@@ -124,8 +122,7 @@ class PassengerController
 
         $this->requireAuth();
 
-         // Start Session
-         session_start();
+       
 
          if(isset($_SESSION['user_id'])){
 

@@ -23,8 +23,8 @@ class TicketingOfficerController
         // Start a session
         session_start();
     
-        if (isset($_SESSION['employee_id'])) {
-            $id = $_SESSION['employee_id'];
+        if (isset($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
     
             $tdModel = new EmployeeModel();
     
@@ -46,8 +46,8 @@ class TicketingOfficerController
     session_start();
 
     // Check if the user is logged in
-    if (isset($_SESSION['employee_id'])) {
-        $employee_id = $_SESSION['employee_id'];
+    if (isset($_SESSION['user_id'])) {
+        $employee_id = $_SESSION['user_id'];
 
         // Get the updated details from the POST request
         $full_name = $_POST["full_name"];
