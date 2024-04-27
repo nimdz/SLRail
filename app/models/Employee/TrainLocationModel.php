@@ -15,7 +15,10 @@ class TrainLocationModel{
     {
         $conn = $this->db->getConnection();
 
-        $sql = "INSERT INTO train_location(train_number, latitude, longitude) VALUES(?, ?, ?)";
+        $sql = "INSERT INTO train_location(train_number, latitude, longitude) 
+                VALUES(?, ?, ?) 
+                ON DUPLICATE KEY UPDATE latitude = VALUES(latitude), longitude = VALUES(longitude)";
+
         $stmt = $conn->prepare($sql);
 
         if($stmt === false){
@@ -118,7 +121,7 @@ class TrainLocationModel{
         $apiEndpoint = 'http://api.geonames.org/findNearbyJSON?lat=' . $latitude . '&lng=' . $longitude;
     
         // Fetch data from the GeoNames API
-        $response = file_get_contents($apiEndpoint);
+        $response = @file_get_contents($apiEndpoint);
     
         // Check if the response is not empty and contains valid JSON
         if ($response !== false) {

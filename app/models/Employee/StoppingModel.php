@@ -15,7 +15,7 @@ class StoppingModel{
         
        $conn=$this->db->getConnection();
 
-       $sql="SELECT ts.train_number, ts.departure_station, ts.destination_station, ts.schedule_id FROM train_schedules ts;";
+       $sql="SELECT train_number, departure_station, destination_station, schedule_id FROM train_schedules ;";
 
        $stmt=$conn->prepare($sql);
 
@@ -70,7 +70,12 @@ class StoppingModel{
     
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                return explode(',', $row['stoppings']);
+                $stoppings = explode(',', $row['stoppings']);
+        
+                // Trim each station name to remove leading or trailing spaces
+                $stoppings = array_map('trim', $stoppings);
+        
+                return $stoppings;
             }
     
             return [];

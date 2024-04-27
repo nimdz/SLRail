@@ -12,9 +12,12 @@ class AdminModel{
     }
 
     public function login($username, $password){
+
+       session_start();
+
        $conn=$this->db->getConnection();
 
-       $sql="SELECT username,password from Admin WHERE username=?";
+       $sql="SELECT admin_id,username,password from Admin WHERE username=?";
        $stmt=$conn->prepare($sql);
            if ($stmt === false) {
             die("Error: " . $conn->error);
@@ -22,14 +25,16 @@ class AdminModel{
     
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        $stmt->bind_result($retrievedUsername, $storedPassword);
+        $stmt->bind_result($admin_id,$retrievedUsername, $storedPassword);
     
+        $admin_id=null;
         $retrievedUsername = null; // Initialize the variable
     
         if ($stmt->fetch() && $password == $storedPassword) {
             // Return the retrieved username
-            return $retrievedUsername;
-        }
+
+           return['admin_id' =>$admin_id,'username'=>$retrievedUsername];
+        } 
     
         return false; // Login faile
      
@@ -69,6 +74,64 @@ class AdminModel{
         $row = $result->fetch_assoc();
         return $row['station_count'];
     }
+
+    public function profile($admin_id){
+        $conn = $this->db->getConnection();
+        $sql = "SELECT username, email, nic FROM Admin WHERE admin_id=?";
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            die("Error: " . $conn->error);
+        }
+        $stmt->bind_param("i", $admin_id); // Assuming admin_id is an integer
+        $stmt->execute();
+        $stmt->bind_result($username, $email, $nic);
+        $stmt->fetch();
+        
+        $profile = array(
+            "username" => $username,
+            "email" => $email,
+            "nic" => $nic
+        );
+    
+        return $profile;
+    }
+    public function updateEmployee($employee_id, $full_name, $email, $nic, $username)
+    {
+        $conn = $this->db->getConnection();
+    
+        $sql = "UPDATE Employee SET full_name=?, email=?, nic=?, username=? WHERE employee_id=?";
+        $stmt = $conn->prepare($sql);
+    
+        if ($stmt === false) {
+            die("Error: " . $conn->error);
+        }
+    
+        $stmt->bind_param("ssssi", $full_name, $email, $nic, $username, $employee_id);
+    
+        if ($stmt->execute()) {
+            return true; // Update successful
+        } else {
+            return false; // Update fail
+        }
+    } public function updateAdmin($admin_id,$email, $nic, $username)
+    {
+        $conn = $this->db->getConnection();
+    
+        $sql = "UPDATE Admin SET  email=?, nic=?, username=? WHERE admin_id=?";
+        $stmt = $conn->prepare($sql);
+    
+        if ($stmt === false) {
+            die("Error: " . $conn->error);
+        }
+    
+        $stmt->bind_param("sssi",  $email, $nic, $username, $admin_id);
+    
+        if ($stmt->execute()) {
+            return true; // Update successful
+        } else {
+            return false; // Update fail
+        }
+    }    
 
 
 

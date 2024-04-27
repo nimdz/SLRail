@@ -107,6 +107,13 @@ class AnnouncementController{
             }
         }
     }
+    public function toviewAnnouncement()
+    {
+        $ann=new AnnouncementModel();
+        $announcements =$ann->getAnnouncement();
+
+        include ('app/views/TicketingOfficer/to_announcements.php');
+    }
 
 }
 

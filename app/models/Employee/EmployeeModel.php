@@ -128,7 +128,28 @@ class EmployeeModel
         }
     
         return $employees;
+    }// Method in EmployeeModel to delete an employee record
+public function deleteEmployee($employee_id)
+{
+    $conn = $this->db->getConnection();
+    
+    $sql = "DELETE FROM Employee WHERE employee_id=?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt === false) {
+        die("Error: " . $conn->error);
     }
+    
+    $stmt->bind_param("i", $employee_id);
+    
+    if ($stmt->execute()) {
+        return true; // Deletion successful
+    } else {
+        return false; // Deletion failed
+    }
+}
+
+    
     
     public function logoutEmployee(){
       session_start();

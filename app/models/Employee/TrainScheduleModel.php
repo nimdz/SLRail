@@ -134,12 +134,11 @@ class TrainScheduleModel
         $conn = $this->db->getConnection();
         $day = date('l', strtotime($date));
     
-        $sql = "SELECT train_number, schedule_id, departure_station, destination_station, train_type, monday, tuesday, wednesday, thursday, friday, saturday, sunday
-                FROM train_schedules
-                WHERE ((departure_station = ? AND destination_station = ?))
-                OR ((stoppings LIKE CONCAT('%', ?, '%', ?, '%')))
-                AND ($day = 1)
-                ORDER BY departure_time ASC";
+        $sql = "SELECT train_number,schedule_id,departure_station, destination_station, train_type, monday, tuesday, wednesday, thursday, friday, saturday, sunday
+                    FROM train_schedules
+                    WHERE (($day = 1 AND departure_station = ? AND destination_station = ?))
+                    OR (($day = 1 AND stoppings LIKE CONCAT('%', ?, '%', ?, '%')))
+                    ORDER BY departure_time ASC";
                 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssss", $departure_station, $destination_station, $departure_station, $destination_station);
@@ -293,7 +292,7 @@ class TrainScheduleModel
 {
     $conn = $this->db->getConnection();
 
-    $sql = "SELECT * FROM train_schedules WHERE route=?";
+    $sql = "SELECT * FROM train_schedules WHERE route=? ORDER BY departure_time ASC";
 
     $stmt = $conn->prepare($sql);
 

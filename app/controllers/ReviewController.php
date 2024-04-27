@@ -29,5 +29,35 @@ class ReviewController{
       
        
     }
+    public function select(){
+       session_start();
+
+       include('app/views/Passenger/selectFeedback.php');
+    }
+    
+    public function viewReviews()
+    {
+        
+        // Create an instance of ReviewModel
+        $reviewModel=new ReviewModel();
+
+        // Retrieve all reviews
+        $reviews = $reviewModel->getAllReviews();
+
+        // Load the view for displaying schedules
+        include('app/views/StationMaster/allreviews.php');
+    }
+    public function pviewReviews()
+    {
+        
+        // Create an instance of ReviewModel
+        $reviewModel=new ReviewModel();
+
+        // Retrieve all reviews
+        $reviews = $reviewModel->getAllReviews();
+
+        // Load the view for displaying schedules
+        include('app/views/Passenger/allreviews.php');
+    }
 
 }
