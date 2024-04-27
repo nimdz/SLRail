@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 require_once 'app/includes/database.php';
 
@@ -81,12 +83,56 @@ public function updateStatusAndTime($schedule_id, $sm_id, $station_name, $status
     
     // Execute the query
     if ($stmt->execute()) {
-        // If execution is successful, return true
-        return true; // Schedule update successful
+        // If execution is successful and status is "Delayed", calculate delay duration and insert delay announcement into train_announcement table
+        if ($status === 'Delayed') {
+            $this->insertDelayAnnouncement($conn, $schedule_id, $station_name);
+        }
+        // Return true to indicate successful schedule update
+        return true;
     } else {
         // If execution fails, return false
-        return false; // Schedule update failed
+        return false;
     }
+}
+
+// Helper method to insert delay announcement into train_announcement table
+private function insertDelayAnnouncement($conn, $schedule_id, $station_name)
+{
+    // Prepare the query to fetch train_number from train_schedules table
+    $query = "SELECT sch.train_number, ts.update_time, ts.arrival_time 
+              FROM train_stoppings ts
+              JOIN train_schedules sch ON ts.schedule_id = sch.schedule_id
+              WHERE ts.schedule_id = ? AND ts.station_name = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("is", $schedule_id, $station_name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $train_number = $row['train_number'];
+        $updated_time = strtotime($row['update_time']);
+        $arrival_time = strtotime($row['arrival_time']);
+        
+        // Calculate delay duration
+        $delay_duration_seconds = $updated_time - $arrival_time;
+        $delay_duration_minutes = round($delay_duration_seconds / 60);
+
+        // Prepare the query to insert delay announcement into train_announcement table
+        $query = "INSERT INTO announcement (title, description) VALUES (?, ?)";
+        $title = "Train Delay";
+        $description = "Train " . $train_number . " is delayed by " . $delay_duration_minutes. " minutes.";;
+        $stmt = $conn->prepare($query);
+        
+        // Bind parameters to the query
+        $stmt->bind_param("ss", $title, $description);
+        
+        // Execute the query
+        $stmt->execute();
+    }
+
+    // Close the statement
+    $stmt->close();
 }
 
 

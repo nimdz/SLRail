@@ -31,27 +31,33 @@ class StationModel{
     
     }
     public function getStations(){
-
+       
         $conn=$this->db->getConnection();
-        // Initialize an empty array to store station data
-        $stations = [];
-    
-        // Assuming $conn is your database connection
-        $sql = "SELECT station_id, station_name FROM Stations";
-        $result = $conn->query($sql);
-    
-        // Check if query was successful
-        if ($result) {
-            // Fetch station data
-            while ($row = $result->fetch_assoc()) {
-                $stations[] = $row;
+
+        $stations=[];
+        $sql="SELECT station_id,station_name FROM Stations";
+
+        $stmt=$conn->prepare($sql);
+
+        if($stmt){
+        
+            $stmt->execute();
+            $stmt->bind_result($station_id,$station_name);
+
+            while($stmt->fetch()){
+               $station=array(
+                  'station_id' =>$station_id,
+                  'station_name' =>$station_name,
+               );
+               $stations[]=$station;
             }
-        } else {
-            // Handle query error if needed
-            return false;
+            $stmt->close();
+
+            return $stations;
+        }else{
+           return false;
         }
     
-        return $stations;
     }
     
     public function getStationsByLineId($lineId) {
