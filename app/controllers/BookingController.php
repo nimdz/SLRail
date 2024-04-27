@@ -123,29 +123,22 @@ class BookingController
     public function userBookings(){
 
         $this->requireAuth();
-
-       //start session
-       session_start();
-
-       //check if the user logged in
-       if(isset($_SESSION['user_id'])){
-           $user_id=$_SESSION['user_id'];
-
-           //Create an instance of BookingModel
-            $bookingModel=new BookingModel();
-
-            //Fetch the booking from database
-            $bookings=$bookingModel->getBooking($user_id);
-
-            //Load bookings
-            include('app/views/Passenger/allbookings.php');
-       }else{
      
-       echo "You don't have any bookings currently";
-      }      
+        if(isset($_SESSION['user_id'])){
+              $user_id=$_SESSION['user_id'];
+
+              $bookingModel=new BookingModel();
+              $bookings=$bookingModel->getBooking($user_id);
+
+              include("app/views/Passenger/allbookings.php");
+        
+        }else{
+            echo "No Booking Available Please Reserve a Booking!";
+        }
+    
+    
     }
- 
-    public function deleteBooking() {
+      public function deleteBooking() {
 
         $this->requireAuth();
 
@@ -251,6 +244,7 @@ class BookingController
         // Check if $_POST['train_no'] is set and display its value
         if(isset($_POST['train_no'])) {
             $train_number = $_POST['train_no'];
+            $date=$_POST['search_date'];
            
         } else {
             echo "No train number received <br>";
@@ -261,7 +255,7 @@ class BookingController
         $bookingModel = new BookingModel();
     
         // Get bookings by train number
-        $bookings = $bookingModel->getBookingsByTrainNumber($train_number);
+        $bookings = $bookingModel->getBookingsByTrainNumberAndDate($train_number,$date);
     
         // Include the view file
         include('app/views/TicketingOfficer/to_allBookings.php');
@@ -282,7 +276,59 @@ class BookingController
        
    }
     
+   public function filter(){
+    session_start(); 
+    $startDate = isset($_GET["start_date"]) ? $_GET["start_date"] : '';
+    $endDate = isset($_GET["to_date"]) ? $_GET["to_date"] : '';
+
+    $incomeModel = new BookingModel();
+    $incomeData = $incomeModel->getTotalIncomeByDateRange($startDate, $endDate);
+
+    if($incomeData){
+        include('app/views/Admin/ad_reports.php');
+    }else{
+            echo "No bookings Availble!.";
+    }
     
+}
+
+public function filterForPDF(){
+    session_start(); 
+    $startDate = isset($_GET["start_date"]) ? $_GET["start_date"] : '';
+    $endDate = isset($_GET["to_date"]) ? $_GET["to_date"] : '';
+
+    $incomeModel = new BookingModel();
+    $incomeData = $incomeModel->getTotalIncomeByDateRange($startDate, $endDate);
+
+    if($incomeData){
+        include('app/views/Admin/ad_income_report_pdf.php');
+    }else{
+            echo "No bookings Availble!.";
+    }
+    
+}
+
+public function displayIncomeForTrain()
+{
+    session_start(); 
+
+    // Retrieve train number and date from the form submission
+    $trainNumber = isset($_GET["schedule_id"]) ? $_GET["schedule_id"] : '';
+    $date = isset($_GET["search_date"]) ? $_GET["search_date"] : '';
+
+    // Fetch income data for the selected train and date
+    $incomeModel = new BookingModel();
+    $totalIncome = $incomeModel->getIncomeForTrainAndDate($trainNumber, $date);
+
+    // Pass the income data to the view
+    if($totalIncome !== null){
+        // Include the view file
+        include('app/views/Admin/ad_incomeByTrain.php');
+    } else {
+        echo "No income data available for the selected train and date.";
+    }
+
+}
     
 
 }
