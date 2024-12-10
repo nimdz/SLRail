@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+</head>
+<body>
+       
+    <div class="sidebar">
+        <a href="index_sm.html" class="company-logo">
+            <img src="./assets/asset 1.png" alt="company logo">
+        </a>
+        <a href="index_sm.html" class="hover-link active">Dashboard</a>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="profile_view_sm.html" class="hover-link">View</a>
+                <a href="profile_update_sm.html" class="hover-link">Update</a>
+                <a href="profile_changePwd_sm.html" class="hover-link">Change Password</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Announcements <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="announcements_add_sm.html" class="hover-link">Add Announcement</a>
+                <a href="announcements_manage_sm.html" class="hover-link">Manage Announcements</a>
+            </div>
+        </div>
+        <a href="trains_manage_sm.html" class="hover-link">Arrivals & Departures</a>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Schedules <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="schedules_add_sm.html" class="hover-link">Add Schedule</a>
+                <a href="schedules_manage_sm.html" class="hover-link">Manage Schedules</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Messages <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="messages_send_sm.html" class="hover-link">Send Message</a>
+                <a href="message_received_sm.html" class="hover-link">Received Messages</a>
+            </div>
+        </div>
+        <a href="live_location_view_sm.html" class="hover-link">Live Location</a>
+
+        <a href="feedbacks_sm.html" class="hover-link">Feedbacks</a>
+        <a href="/first.html" class="hover-link">Log Out</a>
+    </div>
+    
+    
+    
+    <!-- Page content -->
+    <div class="content">
+
+        <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+            <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span style="font-weight: bold;">SL Rail - </span>
+                <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+            </p>
+        </div>
+    <!-- features section -->
+
+    <section style="margin-top: 20px;">
+        <div class="container">
+            <div class="container">    
+                <h3>Dashboard</h3>
+            </div>
+            <div class="row" style="margin-left: 20px;">
+                <div class="col-25">
+                    <label for="uname">Train Number</label>
+                </div>
+                <div class="col-50">
+                    <input type="text" id="uname" name="username" placeholder="" value="1005">
+                </div>
+                <div class="col-25">
+                    <input type="submit" value="Submit" class="update-btn" id="updatePro">
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h1>700</h1>
+                    <p>Passengers</p>
+                </div>
+                <div class="card">
+                    <h1>Express</h1>
+                    <p>Type</p>
+                </div>
+                <div class="card">
+                    <h1>Matara</h1>
+                    <p>Source</p>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h1>Good</h1>
+                    <p>Weather Forecast</p>
+                </div>
+                <div class="card">
+                    <h1>80%</h1>
+                    <p>Humidity</p>
+                </div>
+                <div class="card">
+                    <h1>Colombo</h1>
+                    <p>Destination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">    
+            <h3>Announcements</h3>
+        </div>
+        <div class="container">
+            <table class="zebra-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Train Delay Notice</td>
+                        <td>Train #1005 (Blue Train) delayed by 30 minutes due to maintenance.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Weather Advisory</td>
+                        <td>Heavy rains expected in the western province. Possible disruptions in train services.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Platform Change</td>
+                        <td>Train #2022 (Queen of Jaffna) departing from Platform #4 instead of Platform #2.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Track Maintenance</td>
+                        <td>Track maintenance scheduled between Colombo and Kandy, expect minor delays on the route.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Signal Failure</td>
+                        <td>Signal failure at Ratmalana station affecting trains from south. Delay expected for 45 minutes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+    </section>
+
+    <section class="features-section">
+        <div class="container">    
+            <h3>Employees</h3>
+        </div>
+        <div class="container">
+            <table class="zebra-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Train Number</th>
+                        <th>Train Name</th>
+                        <th>Departure</th>
+                        <th>Departure Time</th>
+                        <th>Arrival</th>
+                        <th>Arrival Time</th>
+                        <th>Train Type</th>
+                        <th>Price (LKR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1005</td>
+                        <td>Blue Train</td>
+                        <td>Colombo Fort</td>
+                        <td>7:00 AM</td>
+                        <td>Badulla</td>
+                        <td>5:20 PM</td>
+                        <td>Express</td>
+                        <td>1500</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2022</td>
+                        <td>Queen of Jaffna</td>
+                        <td>Colombo Fort</td>
+                        <td>5:00 AM</td>
+                        <td>Jaffna</td>
+                        <td>5:15 PM</td>
+                        <td>Local</td>
+                        <td>900</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4011</td>
+                        <td>Rajarata Rajina</td>
+                        <td>Colombo Fort</td>
+                        <td>6:40 AM</td>
+                        <td>Kandy</td>
+                        <td>9:30 AM</td>
+                        <td>Intercity</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>8040</td>
+                        <td>Udarata Menike</td>
+                        <td>Colombo Fort</td>
+                        <td>9:45 AM</td>
+                        <td>Badulla</td>
+                        <td>8:20 PM</td>
+                        <td>Local</td>
+                        <td>1300</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>1101</td>
+                        <td>Podi Menike</td>
+                        <td>Colombo Fort</td>
+                        <td>5:55 AM</td>
+                        <td>Badulla</td>
+                        <td>5:30 PM</td>
+                        <td>Intercity</td>
+                        <td>1700</td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+    </section>
+    <section class="features-section">
+        <div class="container">    
+            <h3>Feedbacks</h3>
+        </div>
+        <div class="container">
+            <table class="zebra-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Security Reminder</td>
+                      <td>Dear Station Master, please ensure strict security measures are maintained on the station premises.</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Cleaning Schedule</td>
+                      <td>Hi Station Master, kindly review and update the cleaning schedule to maintain station cleanliness.</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Complaint Handling</td>
+                      <td>Attention Station Master, prioritize the resolution of pending passenger complaints effectively.</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Train Schedule Adjustment</td>
+                      <td>Hello Station Master, kindly revise the train schedule for the upcoming month according to passenger demand.</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Emergency Preparedness</td>
+                      <td>Station Master, ensure all emergency protocols and response teams are ready for immediate deployment.</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>        
+    </section>
+    <!-- subfooter -->
+</div>
+<div class="subfooter">
+    <div class="subfooter-container">
+        <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+    </div>
+</div>
+
+</body>
+</html>

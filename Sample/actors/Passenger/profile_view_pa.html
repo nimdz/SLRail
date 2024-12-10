@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+
+    <!-- Cancel & Update btns -->
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById('updatePro').addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevents the default form submission
+                window.location.href = "index.html"; // Redirects to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+       
+    <div class="sidebar">
+        <a href="index_pa.html" class="company-logo">
+            <img src="./assets/asset 1.png" alt="company logo">
+        </a>
+        <a href="index_pa.html" class="hover-link">Dashboard</a>
+        
+        <a href="announcements_view_pa.html" class="hover-link">Announcements</a>
+
+        <a href="tickets_booking_pa.html" class="hover-link">Book Ticket</a>
+
+        <a href="schedules_view_pa.html" class="hover-link">Schedule</a>
+
+        <a href="live_location_view_pa.html" class="hover-link">Live Location</a>
+
+        <a href="feedbacks_send_pa.html" class="hover-link">Reviews & Feedbacks</a>
+
+        <div class="dropdown">
+            <a href="#" class="hover-link active">Profile <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="profile_view_pa.html" class="hover-link active">View</a>
+                <a href="profile_update_pa.html" class="hover-link">Update</a>
+                <a href="profile_changePwd_pa.html" class="hover-link">Change Password</a>
+            </div>
+        </div>
+        <a href="/first.html" class="hover-link">Log Out</a>
+    </div>
+    
+    
+    
+    <!-- Page content -->
+    <div class="content">
+      <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+        <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+            <span style="font-weight: bold;">SL Rail - </span>
+            <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+        </p>
+    </div>
+    <section class="features-section">
+        <div class="container">    
+            <h3>View Profile</h3>
+        </div>
+        <div class="container" style="text-align: center;">
+            <div class="flip-card" style="width: 300px; height: 300px;">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="assets/avatar.png" alt="Avatar" style="width: 300px; height: 300px;">
+                </div>
+                <div class="flip-card-back" style="background-color: #333; color: white;">
+                  <h2 style="margin-top: 40px;">Dasun Shanaka</h2>
+                  <p style="margin-top: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                    <span style="font-weight: bold;">Passenger</span>
+                  </p>
+                  <p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                    <span style="font-weight: bold;">dasun123@gmail.com</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+                  
+    </section>
+    </div>
+    <!-- subfooter -->
+
+    <div class="subfooter">
+        <div class="subfooter-container">
+            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+        </div>
+    </div>
+</body>
+
+</html>
