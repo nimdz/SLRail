@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+
+    <!-- Cancel & Update btns -->
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById("updatePwd").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevents the default form submission
+                window.location.href = "index.html"; // Redirects to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+       
+    <div class="sidebar">
+        <a href="index_td.html" class="company-logo">
+            <img src="./assets/asset 1.png" alt="company logo">
+        </a>
+        <a href="index_td.html" class="hover-link">Dashboard</a>
+
+        <a href="announcements_view_td.html" class="hover-link active">Announcements</a>
+
+        <a href="live_location_view_td.html" class="hover-link">Journey</a>
+
+        <a href="schedules_view_td.html" class="hover-link">Schedule</a>
+
+        <div class="dropdown">
+            <a href="#" class="hover-link">Messages <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="messages_send_td.html" class="hover-link">Send Message</a>
+                <a href="message_received_td.html" class="hover-link">Received Messages</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="profile_view_td.html" class="hover-link">View</a>
+                <a href="profile_update_td.html" class="hover-link">Update</a>
+                <a href="profile_changePwd_td.html" class="hover-link">Change Password</a>
+            </div>
+        </div>
+
+        <a href="/first.html" class="hover-link">Log Out</a>
+    </div>
+    
+    
+    
+    <!-- Page content -->
+    <div class="content">
+        <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+            <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span style="font-weight: bold;">SL Rail - </span>
+                <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+            </p>
+        </div>
+        <section class="features-section">
+            <div class="container">    
+                <h3>Announcements</h3>
+            </div>
+            <div class="container">
+                <table class="zebra-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Train Delay Notice</td>
+                            <td>Train #1005 (Blue Train) delayed by 30 minutes due to maintenance.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Weather Advisory</td>
+                            <td>Heavy rains expected in the western province. Possible disruptions in train services.</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Platform Change</td>
+                            <td>Train #2022 (Queen of Jaffna) departing from Platform #4 instead of Platform #2.</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Track Maintenance</td>
+                            <td>Track maintenance scheduled between Colombo and Kandy, expect minor delays on the route.</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Signal Failure</td>
+                            <td>Signal failure at Ratmalana station affecting trains from south. Delay expected for 45 minutes.</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>        
+        </section>
+    </div>
+    <!-- subfooter -->
+
+    <div class="subfooter">
+        <div class="subfooter-container">
+            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+        </div>
+    </div>
+</body>
+
+</html>

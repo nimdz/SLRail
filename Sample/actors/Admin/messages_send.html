@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+
+    <!-- Cancel & Update btns -->
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById('updatePro').addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevents the default form submission
+                window.location.href = "index.html"; // Redirects to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="index.html" class="company-logo">
+        <img src="./assets/asset 1.png" alt="company logo">
+    </a>
+    <a href="index.html" class="hover-link">Dashboard</a>
+    <div class="dropdown">
+        <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="profile_view.html" class="hover-link">View</a>
+            <a href="profile_update.html" class="hover-link">Update</a>
+            <a href="profile_changePwd.html" class="hover-link">Change Password</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="hover-link">Trains <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="trains_add.html" class="hover-link">Add Train</a>
+            <a href="trains_manage.html" class="hover-link">Manage Trains</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="hover-link">Passengers <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="passengers_add.html" class="hover-link">Add Passenger</a>
+            <a href="passengers_manage.html" class="hover-link">Manage Passengers</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="hover-link">Employees <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="employees_add.html" class="hover-link">Add Employee</a>
+            <a href="employees_manage.html" class="hover-link">Manage Employees</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="hover-link active">Messages <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="messages_send.html" class="hover-link active">Send Message</a>
+            <a href="messages_received.html" class="hover-link">Received Messages</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="hover-link">Reset Password <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="reset_password_approved.html" class="hover-link">Approved</a>
+            <a href="reset_password_pending.html" class="hover-link">Pending</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="hover-link">Revenue <span class="dropdown-indicator">&#9662;</span></a>
+        <div class="dropdown-menu">
+            <a href="revenue_add.html" class="hover-link">Add Revenue</a>
+            <a href="revenue_manage.html" class="hover-link">Manage Revenue</a>
+        </div>
+    </div>
+    <a href="../actors/Admin/first.html" class="hover-link">Log Out</a>
+</div>
+    
+    
+    
+    <!-- Page content -->
+    <div class="content">
+        <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+            <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span style="font-weight: bold;">SL Rail - </span>
+                <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+            </p>
+        </div>
+    <section class="features-section">
+        <div class="container">    
+            <h3>Send New Message</h3>
+        </div>
+        <div class="container">
+            <div class="container">
+                <form action="action_page.php">
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="titl">Title</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="titl" name="title">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="desc">Description</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea id="desc" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div>
+                        <input type="submit" value="Send" class="update-btn", id="updatePro">
+                        <button type="button" id="cancelButton" class="cancel-btn">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>        
+    </section>
+    </div>
+    <!-- subfooter -->
+
+    <div class="subfooter">
+        <div class="subfooter-container">
+            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+        </div>
+    </div>
+</body>
+
+</html>

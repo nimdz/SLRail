@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+
+    <!-- Cancel & Update btns -->
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById("updatePwd").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevents the default form submission
+                window.location.href = "index.html"; // Redirects to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+       
+    <div class="sidebar">
+        <a href="index_to.html" class="company-logo">
+            <img src="./assets/asset 1.png" alt="company logo">
+        </a>
+        <a href="index_to.html" class="hover-link">Dashboard</a>
+        
+        <a href="announcements_view_to.html" class="hover-link">Announcements</a>
+
+        <div class="dropdown">
+            <a href="#" class="hover-link">Tickets <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="tickets_approved_to.html" class="hover-link">Approved Tickets</a>
+                <a href="tickets_pending_to.html" class="hover-link">Pending Tickets</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Messages <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="messages_send_to.html" class="hover-link">Send Message</a>
+                <a href="message_received_to.html" class="hover-link">Received Messages</a>
+            </div>
+        </div>
+
+        <a href="schedules_view_to.html" class="hover-link active">Schedules</a>
+
+        <div class="dropdown">
+            <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="profile_view_to.html" class="hover-link">View</a>
+                <a href="profile_update_to.html" class="hover-link">Update</a>
+                <a href="profile_changePwd_to.html" class="hover-link">Change Password</a>
+            </div>
+        </div>
+        <a href="/first.html" class="hover-link">Log Out</a>
+    </div>
+    
+    
+    <!-- Page content -->
+    <div class="content">
+        <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+            <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span style="font-weight: bold;">SL Rail - </span>
+                <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+            </p>
+        </div>
+        <section class="features-section">
+            <div class="container">    
+                <h3>Train Schedule</h3>
+            </div>
+            <div class="container">
+                <table class="zebra-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Train Number</th>
+                            <th>Train Name</th>
+                            <th>Departure</th>
+                            <th>Departure Time</th>
+                            <th>Arrival</th>
+                            <th>Arrival Time</th>
+                            <th>Train Type</th>
+                            <th>Price (LKR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1005</td>
+                            <td>Blue Train</td>
+                            <td>Colombo Fort</td>
+                            <td>7:00 AM</td>
+                            <td>Badulla</td>
+                            <td>5:20 PM</td>
+                            <td>Express</td>
+                            <td>1500</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2022</td>
+                            <td>Queen of Jaffna</td>
+                            <td>Colombo Fort</td>
+                            <td>5:00 AM</td>
+                            <td>Jaffna</td>
+                            <td>5:15 PM</td>
+                            <td>Local</td>
+                            <td>900</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>4011</td>
+                            <td>Rajarata Rajina</td>
+                            <td>Colombo Fort</td>
+                            <td>6:40 AM</td>
+                            <td>Kandy</td>
+                            <td>9:30 AM</td>
+                            <td>Intercity</td>
+                            <td>1200</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>8040</td>
+                            <td>Udarata Menike</td>
+                            <td>Colombo Fort</td>
+                            <td>9:45 AM</td>
+                            <td>Badulla</td>
+                            <td>8:20 PM</td>
+                            <td>Local</td>
+                            <td>1300</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>1101</td>
+                            <td>Podi Menike</td>
+                            <td>Colombo Fort</td>
+                            <td>5:55 AM</td>
+                            <td>Badulla</td>
+                            <td>5:30 PM</td>
+                            <td>Intercity</td>
+                            <td>1700</td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>        
+        </section>
+    </div>
+    <!-- subfooter -->
+
+    <div class="subfooter">
+        <div class="subfooter-container">
+            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+        </div>
+    </div>
+</body>
+
+</html>

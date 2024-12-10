@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+
+    <!-- Cancel & Update btns -->
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById("updatePwd").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevents the default form submission
+                window.location.href = "index.html"; // Redirects to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="index.html" class="company-logo">
+            <img src="./assets/asset 1.png" alt="company logo">
+        </a>
+        <a href="index.html" class="hover-link">Dashboard</a>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="profile_view.html" class="hover-link">View</a>
+                <a href="profile_update.html" class="hover-link">Update</a>
+                <a href="profile_changePwd.html" class="hover-link">Change Password</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Trains <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="trains_add.html" class="hover-link">Add Train</a>
+                <a href="trains_manage.html" class="hover-link">Manage Trains</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Passengers <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="passengers_add.html" class="hover-link">Add Passenger</a>
+                <a href="passengers_manage.html" class="hover-link">Manage Passengers</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link active">Employees <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="employees_add.html" class="hover-link">Add Employee</a>
+                <a href="employees_manage.html" class="hover-link active">Manage Employees</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Messages <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="messages_send.html" class="hover-link">Send Message</a>
+                <a href="messages_received.html" class="hover-link">Received Messages</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Reset Password <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="reset_password_approved.html" class="hover-link">Approved</a>
+                <a href="reset_password_pending.html" class="hover-link">Pending</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Revenue <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="revenue_add.html" class="hover-link">Add Revenue</a>
+                <a href="revenue_manage.html" class="hover-link">Manage Revenue</a>
+            </div>
+        </div>
+        <a href="../actors/Admin/first.html" class="hover-link">Log Out</a>
+    </div>
+    
+    
+    
+    <!-- Page content -->
+    <div class="content">
+        <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+            <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span style="font-weight: bold;">SL Rail - </span>
+                <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+            </p>
+        </div>
+        <section class="features-section">
+            <div class="container">    
+                <h3>Employees</h3>
+            </div>
+            <div class="container">
+                <table class="zebra-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Employee</th>
+                            <th>Position</th>
+                            <th>Contacts</th>
+                            <th>NIC</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Kasun Perera</td>
+                            <td>Train Driver</td>
+                            <td>+94712345678</td>
+                            <td>198712345678</td>
+                            <td>kusunP123@gmail.com</td>
+                            <td style="text-align: center;">
+                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
+                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Amara Guruge</td>
+                            <td>Station Master</td>
+                            <td>+94745945678</td>
+                            <td>199712367675</td>
+                            <td>amara@gmail.com</td>
+                            <td style="text-align: center;">
+                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
+                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Banuka Rajapaksa</td>
+                            <td>Ticketing Officer</td>
+                            <td>+94745345678</td>
+                            <td>195612345678</td>
+                            <td>banuk234@gmail.com</td>
+                            <td style="text-align: center;">
+                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
+                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Asanka De Silva</td>
+                            <td>Station Master</td>
+                            <td>+94775945678</td>
+                            <td>196712356695</td>
+                            <td>asank87@gmail.com</td>
+                            <td style="text-align: center;">
+                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
+                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Narada Guruge</td>
+                            <td>Ticketing Officer</td>
+                            <td>+94745945678</td>
+                            <td>199712367675</td>
+                            <td>narada@gmail.com</td>
+                            <td style="text-align: center;">
+                                <input type="submit" value="Update" class="update-btn", id="updatePwd", style="display: block; margin: 3px auto;">
+                                <button type="button" id="cancelButton" class="cancel-btn" style="display: block; margin: 3px auto;">Delete</button>
+                            </td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>        
+        </section>
+    </div>
+    <!-- subfooter -->
+
+    <div class="subfooter">
+        <div class="subfooter-container">
+            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+        </div>
+    </div>
+</body>
+
+</html>

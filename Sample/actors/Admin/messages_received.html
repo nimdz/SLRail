@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL Rail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+
+    <!-- Cancel & Update btns -->
+    <script>
+        window.addEventListener('load', (event) => {
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById("updatePwd").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevents the default form submission
+                window.location.href = "index.html"; // Redirects to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+       
+    <div class="sidebar">
+        <a href="index.html" class="company-logo">
+            <img src="./assets/asset 1.png" alt="company logo">
+        </a>
+        <a href="index.html" class="hover-link">Dashboard</a>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Profile <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="profile_view.html" class="hover-link">View</a>
+                <a href="profile_update.html" class="hover-link">Update</a>
+                <a href="profile_changePwd.html" class="hover-link">Change Password</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Trains <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="trains_add.html" class="hover-link">Add Train</a>
+                <a href="trains_manage.html" class="hover-link">Manage Trains</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Passengers <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="passengers_add.html" class="hover-link">Add Passenger</a>
+                <a href="passengers_manage.html" class="hover-link">Manage Passengers</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Employees <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="employees_add.html" class="hover-link">Add Employee</a>
+                <a href="employees_manage.html" class="hover-link">Manage Employees</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link active">Messages <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="messages_send.html" class="hover-link">Send Message</a>
+                <a href="messages_received.html" class="hover-link active">Received Messages</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Reset Password <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="reset_password_approved.html" class="hover-link">Approved</a>
+                <a href="reset_password_pending.html" class="hover-link">Pending</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="hover-link">Revenue <span class="dropdown-indicator">&#9662;</span></a>
+            <div class="dropdown-menu">
+                <a href="revenue_add.html" class="hover-link">Add Revenue</a>
+                <a href="revenue_manage.html" class="hover-link">Manage Revenue</a>
+            </div>
+        </div>
+        <a href="../actors/Admin/first.html" class="hover-link">Log Out</a>
+    </div>
+    
+    
+    
+    <!-- Page content -->
+    <div class="content">
+        <div class="container" style="background-color: brown; text-align: center; padding: 10px;">
+            <p style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span style="font-weight: bold;">SL Rail - </span>
+                <span style="font-style: normal;">Revolutionizing Sri Lankan Rail Travel</span>
+            </p>
+        </div>
+        <section class="features-section">
+            <div class="container">    
+                <h3>Received Messages</h3>
+            </div>
+            <div class="container">
+                <table class="zebra-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Railway Station</th>
+                            <th>Position</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Malinda De Silva</td>
+                          <td>malinda.silva@example.com</td>
+                          <td>Colombo Station</td>
+                          <td>Train Driver</td>
+                          <td>Delay in Train Schedule</td>
+                          <td>The train experienced a delay in its departure from Colombo station, affecting the overall schedule.</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Nimasha Gunaratne</td>
+                          <td>nimasha.g@example.com</td>
+                          <td>Kandy Station</td>
+                          <td>Station Master</td>
+                          <td>Crowded Platforms</td>
+                          <td>The platform at Kandy station was overcrowded, making it difficult to manage passengers' boarding and alighting.</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Dasun Rajapakse</td>
+                          <td>dasun.r@example.com</td>
+                          <td>Galle Station</td>
+                          <td>Ticketing Officer</td>
+                          <td>Technical Issues in Ticketing System</td>
+                          <td>The ticketing system at Galle station faced technical issues, leading to delays in issuing tickets.</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Kavindi Fernando</td>
+                          <td>kavindi.fernando@example.com</td>
+                          <td>Badulla Station</td>
+                          <td>Train Driver</td>
+                          <td>Signal Communication Issue</td>
+                          <td>Signal communication issues led to a delay in the train's journey from Badulla station.</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>Nalinie Perera</td>
+                          <td>nalinie.perera@example.com</td>
+                          <td>Anuradhapura Station</td>
+                          <td>Station Master</td>
+                          <td>Platform Maintenance</td>
+                          <td>Platforms at Anuradhapura station need maintenance, as they are uneven and pose a risk to passengers.</td>
+                        </tr>
+                      </tbody>
+                </table>
+            </div>        
+        </section>
+    </div>
+    <!-- subfooter -->
+
+    <div class="subfooter">
+        <div class="subfooter-container">
+            <h5>&copy; 2023 SL Rail. All rights reserved.</h5>
+        </div>
+    </div>
+</body>
+
+</html>
